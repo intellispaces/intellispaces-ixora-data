@@ -9,8 +9,8 @@ import tech.intellispacesframework.core.system.Modules;
 public class SystemConsoleHandleImpl extends SystemConsoleHandle {
 
   @Override
-  public <Q> ConsoleHandle moveThru(String cid, Q qualifier) throws TraverseException {
-    Mover1<SystemConsoleHandle, Q> mover = Modules.current().autoMoverThruTransition1(SystemConsoleHandle.class, cid);
+  public <Q> ConsoleHandle moveThru(String tid, Q qualifier) throws TraverseException {
+    Mover1<SystemConsoleHandle, Q> mover = Modules.currentModule().autoMoverThruTransition1(SystemConsoleHandle.class, tid);
     return mover.move(this, qualifier);
   }
 

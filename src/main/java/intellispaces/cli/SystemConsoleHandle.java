@@ -15,14 +15,14 @@ public abstract class SystemConsoleHandle extends ConsoleHandle {
 
   @Mover
   @Override
-  public ConsoleHandle sameWithLastMessage(String message) {
+  public ConsoleHandle sameConsoleWithLastMessage(String message) {
     out.print(message);
     return this;
   }
 
   @Mover
   @Override
-  public ConsoleHandle sameWithLastMessageAndNewLine(String message) {
+  public ConsoleHandle sameConsoleWithLastMessageAndNewLine(String message) {
     out.println(message);
     return this;
   }
