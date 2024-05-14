@@ -1,5 +1,6 @@
-package intellispaces.cli;
+package tech.intellispaces.ixora.commons.cli;
 
+import intellispaces.ixora.cli.ConsoleHandle;
 import tech.intellispacesframework.core.annotation.Mover;
 import tech.intellispacesframework.core.annotation.ObjectHandle;
 
