@@ -1,30 +1,30 @@
 package tech.intellispaces.ixora.commons.cli;
 
-import intellispaces.ixora.cli.ConsoleHandle;
+import tech.intellispaces.ixora.cli.ConsoleHandle;
 import tech.intellispacesframework.core.annotation.Mover;
 import tech.intellispacesframework.core.annotation.ObjectHandle;
 
 import java.io.PrintStream;
 
 @ObjectHandle
-public abstract class SystemConsoleHandle extends ConsoleHandle {
-  private final PrintStream out;
+public abstract class PrintStreamBasedConsoleHandle extends ConsoleHandle {
+  private final PrintStream ps;
 
-  public SystemConsoleHandle() {
-    this.out = System.out;
+  public PrintStreamBasedConsoleHandle(PrintStream ps) {
+    this.ps = ps;
   }
 
   @Mover
   @Override
   public ConsoleHandle sameConsoleWithLastMessage(String message) {
-    out.print(message);
+    ps.print(message);
     return this;
   }
 
   @Mover
   @Override
   public ConsoleHandle sameConsoleWithLastMessageAndNewLine(String message) {
-    out.println(message);
+    ps.println(message);
     return this;
   }
 }

@@ -28,11 +28,30 @@
     </build>
 
     <dependencies>
-        <!-- Intellispaces Ixora -->
+        <!-- Ixora -->
         <dependency>
             <groupId>intellispaces</groupId>
-            <artifactId>intellispaces-ixora-cli</artifactId>
+            <artifactId>ixora-structures-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>intellispaces</groupId>
+            <artifactId>ixora-cli-ontology</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
         </dependency>
     </dependencies>
 </project>
