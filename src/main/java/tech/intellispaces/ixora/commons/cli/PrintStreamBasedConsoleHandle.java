@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.commons.cli;
 
 import tech.intellispaces.ixora.cli.ConsoleHandle;
-import tech.intellispacesframework.core.annotation.Mover;
-import tech.intellispacesframework.core.annotation.ObjectHandle;
+import tech.intellispaces.framework.core.annotation.Mover;
+import tech.intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.io.PrintStream;
 

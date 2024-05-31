@@ -2,8 +2,8 @@ package tech.intellispaces.ixora.commons.structures.collection;
 
 import tech.intellispaces.ixora.basic.DomainHandle;
 import tech.intellispaces.ixora.structures.collection.ListHandle;
-import tech.intellispacesframework.core.annotation.Mapper;
-import tech.intellispacesframework.core.annotation.ObjectHandle;
+import tech.intellispaces.framework.core.annotation.Mapper;
+import tech.intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collections;
 

@@ -5,8 +5,8 @@ import tech.intellispaces.ixora.structures.collection.ListHandle;
 import tech.intellispaces.ixora.structures.properties.InvalidPropertyException;
 import tech.intellispaces.ixora.structures.properties.Properties;
 import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
-import tech.intellispacesframework.core.annotation.Mapper;
-import tech.intellispacesframework.core.annotation.ObjectHandle;
+import tech.intellispaces.framework.core.annotation.Mapper;
+import tech.intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collections;
 

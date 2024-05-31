@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.commons.cli;
 
 import tech.intellispaces.ixora.cli.ConsoleHandle;
-import tech.intellispacesframework.core.annotation.Projection;
-import tech.intellispacesframework.core.annotation.Unit;
+import tech.intellispaces.framework.core.annotation.Projection;
+import tech.intellispaces.framework.core.annotation.Unit;
 
 @Unit
 public class CliUnit {
