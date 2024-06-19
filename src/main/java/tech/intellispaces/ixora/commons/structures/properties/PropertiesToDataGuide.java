@@ -45,7 +45,7 @@ public class PropertiesToDataGuide implements PropertiesToDataTransition {
     for (Parameter param : constructor.getParameters()) {
       Object value = properties.value(param.getName());
       if (value == null && param.getType().isPrimitive()) {
-        value = TypeFunctions.getAnyValidValueOfClass(param.getType());
+        value = TypeFunctions.getDefaultValueOf(param.getType());
       }
       arguments[index++] = value;
     }
