@@ -8,7 +8,7 @@ import tech.intellispaces.framework.core.annotation.Unit;
 public class CliUnit {
 
   /**
-   * Module CLI console.
+   * Projection to module CLI console.
    */
   @Projection
   public ConsoleHandle console() {

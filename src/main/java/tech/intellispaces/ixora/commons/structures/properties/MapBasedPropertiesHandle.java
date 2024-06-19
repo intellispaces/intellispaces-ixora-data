@@ -9,17 +9,53 @@ import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 
 @ObjectHandle
 public abstract class MapBasedPropertiesHandle implements PropertiesHandle {
   private final java.util.Map<String, Object> map;
 
   public MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
-    this.map = map;
+    this.map = (map != null ? map : Map.of());
   }
 
   public java.util.Map<String, Object> map() {
     return Collections.unmodifiableMap(map);
+  }
+
+  @Mapper
+  @Override
+  public Object value(String path) throws InvalidPropertyException {
+    Object result = traverse(path);
+    if (result == null) {
+      return null;
+    } else if (result instanceof Integer) {
+      return result;
+    } else if (result instanceof Double) {
+      return result;
+    } else if (result instanceof String) {
+      return result;
+    } else if (result instanceof List<?>) {
+      var list = (List<?>) result;
+      if (list.isEmpty()) {
+        throw new UnsupportedOperationException("Not implemented");
+      }
+      Object firstElement = list.get(0);
+      if (firstElement instanceof Integer) {
+        return integerList(path, list);
+      } else if (firstElement instanceof Double) {
+        return doubleList(path, list);
+      } else if (firstElement instanceof String) {
+        return stringList(path, list);
+      } else if (firstElement instanceof Map<?,?>) {
+        return propertiesList(path, list);
+      } else {
+        throw new UnsupportedOperationException("Not implemented");
+      }
+    } else {
+      throw new UnsupportedOperationException("Not implemented");
+    }
   }
 
   @Mapper
@@ -60,43 +96,65 @@ public abstract class MapBasedPropertiesHandle implements PropertiesHandle {
 
   @Mapper
   @Override
-  @SuppressWarnings("unchecked")
   public ListHandle<Integer> integerList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
+    return integerList(path, value);
+  }
+
+  @SuppressWarnings("unchecked")
+  private JavaListHandleImpl<Integer> integerList(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return new JavaListHandleImpl<>((java.util.List<Integer>) value, Integer.class);
+    return new JavaListHandleImpl<>((List<Integer>) value, Integer.class);
   }
 
   @Mapper
   @Override
-  @SuppressWarnings("unchecked")
   public ListHandle<Double> doubleList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
+    return doubleList(path, value);
+  }
+
+  @SuppressWarnings("unchecked")
+  private JavaListHandleImpl<Double> doubleList(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return new JavaListHandleImpl<>((java.util.List<Double>) value, Double.class);
+    return new JavaListHandleImpl<>((List<Double>) value, Double.class);
   }
 
   @Mapper
   @Override
-  @SuppressWarnings("unchecked")
   public ListHandle<String> stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
+    return stringList(path, value);
+  }
+
+  @SuppressWarnings("unchecked")
+  private JavaListHandleImpl<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return new JavaListHandleImpl<>((java.util.List<String>) value, String.class);
+    return new JavaListHandleImpl<>((List<String>) value, String.class);
   }
 
   @Mapper
   @Override
-  @SuppressWarnings("unchecked")
   public ListHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    validateListValueType(path, value, java.util.Map.class);
-    var values = (java.util.List<java.util.Map<String, Object>>) value;
-    java.util.List<PropertiesHandle> propertyList = values.stream()
+    return propertiesList(path, value);
+  }
+
+  @SuppressWarnings("unchecked")
+  private JavaListHandleImpl<PropertiesHandle> propertiesList(String path, Object value) {
+    validateListValueType(path, value, Map.class);
+    var values = (List<Map<String, Object>>) value;
+    List<PropertiesHandle> propertyList = values.stream()
         .map(MapBasedPropertiesHandleImpl::new)
         .map(p -> (PropertiesHandle) p)
         .toList();
     return new JavaListHandleImpl<>(propertyList, PropertiesHandle.class);
+  }
+
+  @Mapper
+  @Override
+  public int size() {
+    return map().size();
   }
 
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
