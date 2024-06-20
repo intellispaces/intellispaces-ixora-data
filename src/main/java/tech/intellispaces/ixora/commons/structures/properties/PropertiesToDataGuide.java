@@ -6,6 +6,8 @@ import tech.intellispaces.framework.commons.type.TypeFunctions;
 import tech.intellispaces.framework.core.annotation.Data;
 import tech.intellispaces.framework.core.annotation.Guide;
 import tech.intellispaces.framework.core.annotation.Mapper;
+import tech.intellispaces.framework.core.common.NameFunctions;
+import tech.intellispaces.framework.core.object.ObjectFunctions;
 import tech.intellispaces.ixora.structures.properties.Properties;
 import tech.intellispaces.ixora.structures.properties.PropertiesToDataTransition;
 
@@ -26,7 +28,7 @@ public class PropertiesToDataGuide implements PropertiesToDataTransition {
 
   @SuppressWarnings("unchecked")
   private <T> T processDataClass(Properties properties, Class<T> domainClass) {
-    String dataClassName = domainClass.getCanonicalName() + "DataHandle";
+    String dataClassName = NameFunctions.getDataClassCanonicalName(domainClass.getName());
     Class<?> dataClass = TypeFunctions.getClass(dataClassName).orElseThrow(() ->
         UnexpectedViolationException.withMessage("Can't find data class. Domain class {}, expected data class {}",
             domainClass.getCanonicalName(), dataClassName));
@@ -46,6 +48,10 @@ public class PropertiesToDataGuide implements PropertiesToDataTransition {
       Object value = properties.value(param.getName());
       if (value == null && param.getType().isPrimitive()) {
         value = TypeFunctions.getDefaultValueOf(param.getType());
+      }
+      if (value instanceof Properties && ObjectFunctions.isObjectHandleClass(param.getType())) {
+        Class<?> paramDomainClass = ObjectFunctions.getDomainClassOfObjectHandle(param.getType());
+        value = processDataClass((Properties) value, paramDomainClass);
       }
       arguments[index++] = value;
     }

@@ -1,16 +1,15 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
-import org.junit.jupiter.api.Test;
+import tech.intellispaces.ixora.structures.properties.PropertiesToDataTransition;
 import tech.intellispaces.ixora.structures.properties.PropertiesToDataTransitionTest;
 
 /**
  * Tests for {@link PropertiesToDataGuide} class.
  */
-public class PropertiesToDataGuideTest {
+public class PropertiesToDataGuideTest implements PropertiesToDataTransitionTest {
 
-  @Test
-  public void testPropertiesToDataGuide() {
-    PropertiesToDataGuide guide = new PropertiesToDataGuide();
-    PropertiesToDataTransitionTest.allTests(guide);
+  @Override
+  public PropertiesToDataTransition guide() {
+    return new PropertiesToDataGuide();
   }
 }
