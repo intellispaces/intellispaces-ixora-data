@@ -26,7 +26,11 @@ public abstract class MapBasedPropertiesHandle implements PropertiesHandle {
 
   @Mapper
   @Override
+  @SuppressWarnings("unchecked")
   public Object value(String path) throws InvalidPropertyException {
+    if (path.isEmpty()) {
+      return this;
+    }
     Object result = traverse(path);
     if (result == null) {
       return null;
@@ -36,23 +40,28 @@ public abstract class MapBasedPropertiesHandle implements PropertiesHandle {
       return result;
     } else if (result instanceof String) {
       return result;
-    } else if (result instanceof List<?>) {
-      var list = (List<?>) result;
-      if (list.isEmpty()) {
-        throw new UnsupportedOperationException("Not implemented");
-      }
-      Object firstElement = list.get(0);
-      if (firstElement instanceof Integer) {
-        return integerList(path, list);
-      } else if (firstElement instanceof Double) {
-        return doubleList(path, list);
-      } else if (firstElement instanceof String) {
-        return stringList(path, list);
-      } else if (firstElement instanceof Map<?,?>) {
-        return propertiesList(path, list);
-      } else {
-        throw new UnsupportedOperationException("Not implemented");
-      }
+    } else if (result instanceof List<?> list) {
+      return convertObjectToList(path, list);
+    } else if (result instanceof Map<?, ?>) {
+      return new MapBasedPropertiesHandleImpl((java.util.Map<String, Object>) result);
+    } else {
+      throw new UnsupportedOperationException("Not implemented");
+    }
+  }
+
+  private JavaListHandleImpl<?> convertObjectToList(String path, List<?> list) {
+    if (list.isEmpty()) {
+      throw new UnsupportedOperationException("Not implemented");
+    }
+    Object firstElement = list.get(0);
+    if (firstElement instanceof Integer) {
+      return integerList(path, list);
+    } else if (firstElement instanceof Double) {
+      return doubleList(path, list);
+    } else if (firstElement instanceof String) {
+      return stringList(path, list);
+    } else if (firstElement instanceof Map<?, ?>) {
+      return propertiesList(path, list);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
