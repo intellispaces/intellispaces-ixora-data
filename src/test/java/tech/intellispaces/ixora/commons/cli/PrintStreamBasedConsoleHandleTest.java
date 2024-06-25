@@ -21,8 +21,8 @@ public class PrintStreamBasedConsoleHandleTest {
     var handle = new PrintStreamBasedConsoleHandleImpl(ps);
 
     // When
-    handle.sameConsoleWithLastMessageAndNewLine("abc");
-    handle.sameConsoleWithLastMessage("def");
+    handle.println("abc");
+    handle.print("def");
 
     // Then
     String output = os.toString(StandardCharsets.UTF_8);
