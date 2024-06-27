@@ -1,14 +1,14 @@
 package tech.intellispaces.ixora.commons.structures.collection;
 
-import tech.intellispaces.ixora.basic.DomainHandle;
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
-import tech.intellispaces.ixora.structures.collection.UnmovableListHandle;
+import tech.intellispaces.ixora.basic.DomainHandle;
+import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
 
 import java.util.Collections;
 
 @ObjectHandle
-public abstract class JavaListHandle<E> implements UnmovableListHandle<E> {
+public abstract class JavaListHandle<E> implements ListUnmovableHandle<E> {
   private final java.util.List<E> javaList;
   private final Class<E> elementClass;
 

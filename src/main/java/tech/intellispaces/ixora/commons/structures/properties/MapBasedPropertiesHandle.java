@@ -1,20 +1,20 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
+import tech.intellispaces.framework.core.annotation.Mapper;
+import tech.intellispaces.framework.core.annotation.ObjectHandle;
 import tech.intellispaces.ixora.commons.structures.collection.JavaListHandleImpl;
-import tech.intellispaces.ixora.structures.collection.UnmovableListHandle;
+import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
 import tech.intellispaces.ixora.structures.properties.InvalidPropertyException;
 import tech.intellispaces.ixora.structures.properties.Properties;
 import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
-import tech.intellispaces.framework.core.annotation.Mapper;
-import tech.intellispaces.framework.core.annotation.ObjectHandle;
-import tech.intellispaces.ixora.structures.properties.UnmovablePropertiesHandle;
+import tech.intellispaces.ixora.structures.properties.PropertiesUnmovableHandle;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 @ObjectHandle
-public abstract class MapBasedPropertiesHandle implements UnmovablePropertiesHandle {
+public abstract class MapBasedPropertiesHandle implements PropertiesUnmovableHandle {
   private final java.util.Map<String, Object> map;
 
   public MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
@@ -106,7 +106,7 @@ public abstract class MapBasedPropertiesHandle implements UnmovablePropertiesHan
 
   @Mapper
   @Override
-  public UnmovableListHandle<Integer> integerList(String path) throws InvalidPropertyException {
+  public ListUnmovableHandle<Integer> integerList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return integerList(path, value);
   }
@@ -119,7 +119,7 @@ public abstract class MapBasedPropertiesHandle implements UnmovablePropertiesHan
 
   @Mapper
   @Override
-  public UnmovableListHandle<Double> doubleList(String path) throws InvalidPropertyException {
+  public ListUnmovableHandle<Double> doubleList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return doubleList(path, value);
   }
@@ -132,7 +132,7 @@ public abstract class MapBasedPropertiesHandle implements UnmovablePropertiesHan
 
   @Mapper
   @Override
-  public UnmovableListHandle<String> stringList(String path) throws InvalidPropertyException {
+  public ListUnmovableHandle<String> stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
@@ -145,7 +145,7 @@ public abstract class MapBasedPropertiesHandle implements UnmovablePropertiesHan
 
   @Mapper
   @Override
-  public UnmovableListHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
+  public ListUnmovableHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
