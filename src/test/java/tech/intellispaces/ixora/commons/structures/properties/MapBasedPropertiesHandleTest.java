@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.ixora.structures.properties.InvalidPropertyException;
+import tech.intellispaces.ixora.structures.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.structures.properties.Properties;
 
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static tech.intellispaces.ixora.commons.structures.collection.CollectionFunctions.javaList;
 
 /**
  * Tests for {@link MapBasedPropertiesHandle} class.
@@ -222,7 +223,7 @@ public class MapBasedPropertiesHandleTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.integerList(path).javaList()).isEqualTo(list);
+    assertThat(javaList(properties.integerList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -256,7 +257,7 @@ public class MapBasedPropertiesHandleTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.doubleList(path).javaList()).isEqualTo(list);
+    assertThat(javaList(properties.doubleList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -290,7 +291,7 @@ public class MapBasedPropertiesHandleTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.stringList(path).javaList()).isEqualTo(list);
+    assertThat(javaList(properties.stringList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)

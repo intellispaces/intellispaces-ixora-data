@@ -2,11 +2,17 @@ package tech.intellispaces.ixora.commons.structures.properties;
 
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
+import tech.intellispaces.ixora.commons.structures.collection.BasicDoubleListUnmovableHandle;
+import tech.intellispaces.ixora.commons.structures.collection.BasicIntegerListUnmovableHandle;
+import tech.intellispaces.ixora.commons.structures.collection.BasicPropertiesListUnmovableHandle;
+import tech.intellispaces.ixora.commons.structures.collection.BasicStringListUnmovableHandle;
 import tech.intellispaces.ixora.commons.structures.collection.JavaListHandleImpl;
-import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
-import tech.intellispaces.ixora.structures.properties.InvalidPropertyException;
+import tech.intellispaces.ixora.structures.collection.DoubleListUnmovableHandle;
+import tech.intellispaces.ixora.structures.collection.IntegerListUnmovableHandle;
+import tech.intellispaces.ixora.structures.collection.StringListUnmovableHandle;
+import tech.intellispaces.ixora.structures.exception.InvalidPropertyException;
 import tech.intellispaces.ixora.structures.properties.Properties;
-import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
+import tech.intellispaces.ixora.structures.properties.PropertiesListUnmovableHandle;
 import tech.intellispaces.ixora.structures.properties.PropertiesUnmovableHandle;
 
 import java.util.Collections;
@@ -50,7 +56,7 @@ public abstract class MapBasedPropertiesHandle implements PropertiesUnmovableHan
     }
   }
 
-  private JavaListHandleImpl<?> convertObjectToList(String path, List<?> list) {
+  private tech.intellispaces.ixora.structures.collection.List<?> convertObjectToList(String path, List<?> list) {
     if (list.isEmpty()) {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -106,59 +112,59 @@ public abstract class MapBasedPropertiesHandle implements PropertiesUnmovableHan
 
   @Mapper
   @Override
-  public ListUnmovableHandle<Integer> integerList(String path) throws InvalidPropertyException {
+  public IntegerListUnmovableHandle integerList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return integerList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private JavaListHandleImpl<Integer> integerList(String path, Object value) {
+  private IntegerListUnmovableHandle integerList(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return new JavaListHandleImpl<>((List<Integer>) value, Integer.class);
+    return new BasicIntegerListUnmovableHandle(new JavaListHandleImpl<>((List<Integer>) value, Integer.class));
   }
 
   @Mapper
   @Override
-  public ListUnmovableHandle<Double> doubleList(String path) throws InvalidPropertyException {
+  public DoubleListUnmovableHandle doubleList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return doubleList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private JavaListHandleImpl<Double> doubleList(String path, Object value) {
+  private DoubleListUnmovableHandle doubleList(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return new JavaListHandleImpl<>((List<Double>) value, Double.class);
+    return new BasicDoubleListUnmovableHandle(new JavaListHandleImpl<>((List<Double>) value, Double.class));
   }
 
   @Mapper
   @Override
-  public ListUnmovableHandle<String> stringList(String path) throws InvalidPropertyException {
+  public StringListUnmovableHandle stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private JavaListHandleImpl<String> stringList(String path, Object value) {
+  private StringListUnmovableHandle stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return new JavaListHandleImpl<>((List<String>) value, String.class);
+    return new BasicStringListUnmovableHandle(new JavaListHandleImpl<>((List<String>) value, String.class));
   }
 
   @Mapper
   @Override
-  public ListUnmovableHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
+  public PropertiesListUnmovableHandle propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private JavaListHandleImpl<PropertiesHandle> propertiesList(String path, Object value) {
+  private PropertiesListUnmovableHandle propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (List<Map<String, Object>>) value;
-    List<PropertiesHandle> propertyList = values.stream()
+    List<Properties> propertyList = values.stream()
         .map(MapBasedPropertiesHandleImpl::new)
-        .map(p -> (PropertiesHandle) p)
+        .map(p -> (Properties) p)
         .toList();
-    return new JavaListHandleImpl<>(propertyList, PropertiesHandle.class);
+    return new BasicPropertiesListUnmovableHandle(new JavaListHandleImpl<>(propertyList, Properties.class));
   }
 
   @Mapper

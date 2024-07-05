@@ -16,15 +16,15 @@ public abstract class PrintStreamBasedConsoleHandle implements ConsoleMovableHan
 
   @Mover
   @Override
-  public ConsoleMovableHandle print(String message) {
+  public Void print(String message) {
     ps.print(message);
-    return this;
+    return null;
   }
 
   @Mover
   @Override
-  public ConsoleMovableHandle println(String message) {
+  public Void println(String message) {
     ps.println(message);
-    return this;
+    return null;
   }
 }

@@ -9,17 +9,18 @@ import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.common.NameFunctions;
 import tech.intellispaces.framework.core.object.ObjectFunctions;
 import tech.intellispaces.ixora.structures.properties.Properties;
-import tech.intellispaces.ixora.structures.properties.PropertiesToDataTransition;
+import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
+import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class PropertiesToDataGuide implements PropertiesToDataTransition {
+public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
 
   @Mapper
   @Override
-  public <T> T propertiesToData(Properties properties, Class<T> domainClass) {
+  public <T> T propertiesToData(PropertiesHandle properties, Class<T> domainClass) {
     if (domainClass.isAnnotationPresent(Data.class)) {
       return processDataClass(properties, domainClass);
     }
@@ -27,8 +28,8 @@ public class PropertiesToDataGuide implements PropertiesToDataTransition {
   }
 
   @SuppressWarnings("unchecked")
-  private <T> T processDataClass(Properties properties, Class<T> domainClass) {
-    String dataClassName = NameFunctions.getDataClassCanonicalName(domainClass.getName());
+  private <T> T processDataClass(PropertiesHandle properties, Class<T> domainClass) {
+    String dataClassName = NameFunctions.getDataClassName(domainClass.getName());
     Class<?> dataClass = TypeFunctions.getClass(dataClassName).orElseThrow(() ->
         UnexpectedViolationException.withMessage("Can't find data class. Domain class {}, expected data class {}",
             domainClass.getCanonicalName(), dataClassName));
@@ -51,7 +52,7 @@ public class PropertiesToDataGuide implements PropertiesToDataTransition {
       }
       if (value instanceof Properties && ObjectFunctions.isObjectHandleClass(param.getType())) {
         Class<?> paramDomainClass = ObjectFunctions.getDomainClassOfObjectHandle(param.getType());
-        value = processDataClass((Properties) value, paramDomainClass);
+        value = processDataClass((PropertiesHandle) value, paramDomainClass);
       }
       arguments[index++] = value;
     }
