@@ -9,16 +9,16 @@ import java.nio.charset.StandardCharsets;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests fo {@link PrintStreamBasedConsoleHandle} class.
+ * Tests fo {@link AbstractPrintStreamBasedConsole} class.
  */
-public class PrintStreamBasedConsoleHandleTest {
+public class PrintStreamBasedConsoleTest {
 
   @Test
   public void testPrintStreamBasedConsoleHandle() {
     // Given
     var os = new ByteArrayOutputStream();
     var ps = new PrintStream(os, true, StandardCharsets.UTF_8);
-    var handle = new PrintStreamBasedConsoleHandleImpl(ps);
+    var handle = new PrintStreamBasedConsole(ps);
 
     // When
     handle.println("abc");

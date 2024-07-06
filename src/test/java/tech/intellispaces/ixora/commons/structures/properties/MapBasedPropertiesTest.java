@@ -9,18 +9,18 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static tech.intellispaces.ixora.commons.structures.collection.CollectionFunctions.javaList;
+import static tech.intellispaces.ixora.commons.structures.collection.CollectionAssistants.javaList;
 
 /**
- * Tests for {@link MapBasedPropertiesHandle} class.
+ * Tests for {@link AbstractMapBasedProperties} class.
  */
-public class MapBasedPropertiesHandleTest {
+public class MapBasedPropertiesTest {
 
   @Test
   public void test_whenEmptyMap_andEmptyPath() {
     // Given
     String path = "";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of());
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of());
 
     // Then
     assertThat(properties.propertiesValue(path)).isSameAs(properties);
@@ -53,7 +53,7 @@ public class MapBasedPropertiesHandleTest {
   public void test_whenEmptyMap_andNotEmptyPath() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of());
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of());
 
     // Then
     assertThatThrownBy(() -> properties.integerValue(path))
@@ -87,7 +87,7 @@ public class MapBasedPropertiesHandleTest {
   public void test_whenIntegerValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, 123));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, 123));
 
     // Then
     assertThat(properties.integerValue(path)).isEqualTo(123);
@@ -120,7 +120,7 @@ public class MapBasedPropertiesHandleTest {
   public void test_whenDoubleValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, 3.14));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, 3.14));
 
     // Then
     assertThat(properties.doubleValue(path)).isEqualTo(3.14);
@@ -153,7 +153,7 @@ public class MapBasedPropertiesHandleTest {
   public void test_whenStringValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, "def"));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, "def"));
 
     // Then
     assertThat(properties.stringValue(path)).isEqualTo("def");
@@ -186,7 +186,7 @@ public class MapBasedPropertiesHandleTest {
   public void test_whenPropertiesValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, Map.of()));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, Map.of()));
 
     // Then
     assertThat(properties.propertiesValue(path).map()).isEqualTo(Map.of());
@@ -220,7 +220,7 @@ public class MapBasedPropertiesHandleTest {
     // Given
     String path = "key";
     List<Integer> list = List.of(1, 2, 3);
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
     assertThat(javaList(properties.integerList(path).asList())).isEqualTo(list);
@@ -254,7 +254,7 @@ public class MapBasedPropertiesHandleTest {
     // Given
     String path = "key";
     List<Double> list = List.of(1.1, 2.2, 3.3);
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
     assertThat(javaList(properties.doubleList(path).asList())).isEqualTo(list);
@@ -288,7 +288,7 @@ public class MapBasedPropertiesHandleTest {
     // Given
     String path = "key";
     List<String> list = List.of("a", "b", "c");
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
     assertThat(javaList(properties.stringList(path).asList())).isEqualTo(list);
@@ -322,7 +322,7 @@ public class MapBasedPropertiesHandleTest {
     // Given
     String path = "root";
     List<Map<String, Object>> list = List.of(Map.of("key1", 1), Map.of("key2", 2), Map.of("key3", 3));
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
     assertThat(properties.propertiesList(path).element(0).integerValue("key1")).isEqualTo(1);
@@ -359,7 +359,7 @@ public class MapBasedPropertiesHandleTest {
     String key1 = "key1";
     String key2 = "key2";
     String key3 = "key3";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(key1, Map.of(key2, Map.of(key3, 123))));
+    AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(key1, Map.of(key2, Map.of(key3, 123))));
 
     // Then
     assertThat(properties.integerValue("key1.key2.key3")).isEqualTo(123);

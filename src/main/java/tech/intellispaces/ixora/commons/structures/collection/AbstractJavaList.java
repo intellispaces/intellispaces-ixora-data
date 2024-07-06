@@ -6,12 +6,12 @@ import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
 
 import java.util.Collections;
 
-@ObjectHandle
-public abstract class JavaListHandle<E> implements ListUnmovableHandle<E> {
+@ObjectHandle("JavaList")
+public abstract class AbstractJavaList<E> implements ListUnmovableHandle<E> {
   private final java.util.List<E> javaList;
   private final Class<E> elementDomainClass;
 
-  public JavaListHandle(java.util.List<E> javaList, Class<E> elementDomainClass) {
+  public AbstractJavaList(java.util.List<E> javaList, Class<E> elementDomainClass) {
     this.javaList = Collections.unmodifiableList(javaList);
     this.elementDomainClass = elementDomainClass;
   }

@@ -8,10 +8,10 @@ import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
 import tech.intellispaces.ixora.structures.properties.PropertiesListUnmovableHandle;
 
 @ObjectHandle
-public class BasicPropertiesListUnmovableHandle implements PropertiesListUnmovableHandle {
+public class InheritedPropertiesList implements PropertiesListUnmovableHandle {
   private final ListUnmovableHandle<Properties> backList;
 
-  public BasicPropertiesListUnmovableHandle(ListUnmovableHandle<Properties> backList) {
+  public InheritedPropertiesList(ListUnmovableHandle<Properties> backList) {
     this.backList = backList;
   }
 

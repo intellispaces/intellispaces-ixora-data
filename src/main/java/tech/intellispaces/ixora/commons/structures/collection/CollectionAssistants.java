@@ -5,11 +5,11 @@ import tech.intellispaces.ixora.structures.collection.ListHandle;
 
 import java.util.List;
 
-public interface CollectionFunctions {
+public interface CollectionAssistants {
 
   static <E> List<E> javaList(ListHandle<E> listHandle) {
-    if (listHandle instanceof JavaListHandle<E>) {
-      return ((JavaListHandle<E>) listHandle).javaList();
+    if (listHandle instanceof AbstractJavaList<E>) {
+      return ((AbstractJavaList<E>) listHandle).javaList();
     }
     throw UnexpectedViolationException.withMessage("Not implemented");
   }

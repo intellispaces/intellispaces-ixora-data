@@ -12,6 +12,6 @@ public class CliUnit {
    */
   @Projection
   public ConsoleMovableHandle console() {
-    return new PrintStreamBasedConsoleHandleImpl(System.out);
+    return new PrintStreamBasedConsole(System.out);
   }
 }

@@ -6,10 +6,10 @@ import tech.intellispaces.ixora.structures.collection.ListHandle;
 import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
 
 @ObjectHandle
-public class BasicDoubleListUnmovableHandle implements DoubleListUnmovableHandle {
+public class InheritedDoubleList implements DoubleListUnmovableHandle {
   private final ListUnmovableHandle<Double> backList;
 
-  public BasicDoubleListUnmovableHandle(ListUnmovableHandle<Double> backList) {
+  public InheritedDoubleList(ListUnmovableHandle<Double> backList) {
     this.backList = backList;
   }
 

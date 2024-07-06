@@ -6,10 +6,10 @@ import tech.intellispaces.ixora.structures.collection.ListUnmovableHandle;
 import tech.intellispaces.ixora.structures.collection.StringListUnmovableHandle;
 
 @ObjectHandle
-public class BasicStringListUnmovableHandle implements StringListUnmovableHandle {
+public class InheritedStringList implements StringListUnmovableHandle {
   private final ListUnmovableHandle<String> backList;
 
-  public BasicStringListUnmovableHandle(ListUnmovableHandle<String> backList) {
+  public InheritedStringList(ListUnmovableHandle<String> backList) {
     this.backList = backList;
   }
 

@@ -6,11 +6,11 @@ import tech.intellispaces.ixora.cli.ConsoleMovableHandle;
 
 import java.io.PrintStream;
 
-@ObjectHandle
-public abstract class PrintStreamBasedConsoleHandle implements ConsoleMovableHandle {
+@ObjectHandle("PrintStreamBasedConsole")
+public abstract class AbstractPrintStreamBasedConsole implements ConsoleMovableHandle {
   private final PrintStream ps;
 
-  public PrintStreamBasedConsoleHandle(PrintStream ps) {
+  public AbstractPrintStreamBasedConsole(PrintStream ps) {
     this.ps = ps;
   }
 
