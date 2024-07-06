@@ -1,11 +1,12 @@
-package tech.intellispaces.ixora.commons.cli;
+package tech.intellispaces.ixora.commons.configuration;
 
+import tech.intellispaces.framework.core.annotation.Configuration;
 import tech.intellispaces.framework.core.annotation.Projection;
-import tech.intellispaces.framework.core.annotation.Unit;
 import tech.intellispaces.ixora.cli.ConsoleMovableHandle;
+import tech.intellispaces.ixora.commons.cli.PrintStreamBasedConsole;
 
-@Unit
-public class CliUnit {
+@Configuration
+public class CliConfiguration {
 
   /**
    * Projection to module CLI console.
