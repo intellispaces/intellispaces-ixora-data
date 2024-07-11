@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
-import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuide;
+import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuideTest;
 
 /**

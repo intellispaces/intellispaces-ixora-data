@@ -8,9 +8,9 @@ import tech.intellispaces.framework.core.annotation.Guide;
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.common.NameFunctions;
 import tech.intellispaces.framework.core.object.ObjectFunctions;
-import tech.intellispaces.ixora.structures.properties.Properties;
-import tech.intellispaces.ixora.structures.properties.PropertiesHandle;
-import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuide;
+import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

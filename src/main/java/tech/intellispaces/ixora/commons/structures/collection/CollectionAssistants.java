@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.commons.structures.collection;
 
 import tech.intellispaces.framework.commons.exception.UnexpectedViolationException;
-import tech.intellispaces.ixora.structures.collection.ListHandle;
+import intellispaces.ixora.structures.collection.ListHandle;
 
 import java.util.List;
 

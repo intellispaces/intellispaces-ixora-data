@@ -1,13 +1,13 @@
 package tech.intellispaces.ixora.commons.cli;
 
+import intellispaces.ixora.cli.MovableConsoleHandle;
 import tech.intellispaces.framework.core.annotation.Mover;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
-import tech.intellispaces.ixora.cli.ConsoleMovableHandle;
 
 import java.io.PrintStream;
 
 @ObjectHandle("PrintStreamBasedConsole")
-public abstract class AbstractPrintStreamBasedConsole implements ConsoleMovableHandle {
+public abstract class AbstractPrintStreamBasedConsole implements MovableConsoleHandle {
   private final PrintStream ps;
 
   public AbstractPrintStreamBasedConsole(PrintStream ps) {

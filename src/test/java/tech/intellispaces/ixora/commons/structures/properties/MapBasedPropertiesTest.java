@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.ixora.structures.exception.InvalidPropertyException;
-import tech.intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.exception.InvalidPropertyException;
+import intellispaces.ixora.structures.properties.Properties;
 
 import java.util.List;
 import java.util.Map;
