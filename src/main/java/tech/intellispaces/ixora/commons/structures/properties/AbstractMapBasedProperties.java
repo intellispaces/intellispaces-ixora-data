@@ -1,19 +1,20 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
 import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
+import intellispaces.ixora.structures.collection.DoubleListHandle;
 import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
+import intellispaces.ixora.structures.collection.IntegerListHandle;
 import intellispaces.ixora.structures.collection.StringListBasedOnList;
-import intellispaces.ixora.structures.collection.UnmovableDoubleListHandle;
-import intellispaces.ixora.structures.collection.UnmovableIntegerListHandle;
-import intellispaces.ixora.structures.collection.UnmovableStringListHandle;
+import intellispaces.ixora.structures.collection.StringListHandle;
+import intellispaces.ixora.structures.exception.InvalidPropertyException;
+import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.PropertiesListBasedOnList;
+import intellispaces.ixora.structures.properties.PropertiesListHandle;
 import intellispaces.ixora.structures.properties.UnmovablePropertiesHandle;
-import intellispaces.ixora.structures.properties.UnmovablePropertiesListHandle;
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
 import tech.intellispaces.ixora.commons.structures.collection.JavaList;
-import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.Properties;
 
 import java.util.Collections;
 import java.util.List;
@@ -27,7 +28,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     this.map = (map != null ? map : Map.of());
   }
 
-  public java.util.Map<String, Object> map() {
+  public java.util.Map<String, Object> javaMap() {
     return Collections.unmodifiableMap(map);
   }
 
@@ -101,7 +102,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public AbstractMapBasedProperties propertiesValue(String path) throws InvalidPropertyException {
+  public PropertiesHandle propertiesValue(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
@@ -112,52 +113,52 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
 
   @Mapper
   @Override
-  public UnmovableIntegerListHandle integerList(String path) throws InvalidPropertyException {
+  public IntegerListHandle integerList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return integerList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableIntegerListHandle integerList(String path, Object value) {
+  private IntegerListHandle integerList(String path, Object value) {
     validateListValueType(path, value, Integer.class);
     return new IntegerListBasedOnList(new JavaList<>((List<Integer>) value, Integer.class));
   }
 
   @Mapper
   @Override
-  public UnmovableDoubleListHandle doubleList(String path) throws InvalidPropertyException {
+  public DoubleListHandle doubleList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return doubleList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableDoubleListHandle doubleList(String path, Object value) {
+  private DoubleListHandle doubleList(String path, Object value) {
     validateListValueType(path, value, Double.class);
     return new DoubleListBasedOnList(new JavaList<>((List<Double>) value, Double.class));
   }
 
   @Mapper
   @Override
-  public UnmovableStringListHandle stringList(String path) throws InvalidPropertyException {
+  public StringListHandle stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovableStringListHandle stringList(String path, Object value) {
+  private StringListHandle stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
     return new StringListBasedOnList(new JavaList<>((List<String>) value, String.class));
   }
 
   @Mapper
   @Override
-  public UnmovablePropertiesListHandle propertiesList(String path) throws InvalidPropertyException {
+  public PropertiesListHandle propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private UnmovablePropertiesListHandle propertiesList(String path, Object value) {
+  private PropertiesListHandle propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (List<Map<String, Object>>) value;
     List<Properties> propertyList = values.stream()
@@ -170,7 +171,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
   @Mapper
   @Override
   public int size() {
-    return map().size();
+    return javaMap().size();
   }
 
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
@@ -231,7 +232,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     }
 
     Object result = null;
-    java.util.Map<String, Object> curMap = map();
+    java.util.Map<String, Object> curMap = javaMap();
     String[] parts = path.split("\\.");
     for (String part : parts) {
       if (curMap == null) {

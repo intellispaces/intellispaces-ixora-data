@@ -17,6 +17,10 @@ public abstract class AbstractJavaList<E> implements UnmovableListHandle<E> {
     this.elementDomainClass = elementDomainClass;
   }
 
+  public java.util.List<E> javaList() {
+    return list;
+  }
+
   @Mapper
   @Override
   public CollectionHandle<? extends E> asCollection() {
@@ -25,7 +29,7 @@ public abstract class AbstractJavaList<E> implements UnmovableListHandle<E> {
 
   @Mapper
   @Override
-  public Class<E> elementDomain() {
+  public Class<? extends E> elementDomain() {
     return elementDomainClass;
   }
 
@@ -39,9 +43,5 @@ public abstract class AbstractJavaList<E> implements UnmovableListHandle<E> {
   @Override
   public int size() {
     return list.size();
-  }
-
-  public java.util.List<E> javaList() {
-    return list;
   }
 }

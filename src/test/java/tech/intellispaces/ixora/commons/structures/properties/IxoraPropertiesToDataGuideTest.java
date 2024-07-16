@@ -6,7 +6,7 @@ import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuideTest;
 /**
  * Tests for {@link IxoraPropertiesToDataGuide} class.
  */
-public class IxoraPropertiesToDataGuideTest implements PropertiesToDataGuideTest {
+public class IxoraPropertiesToDataGuideTest extends PropertiesToDataGuideTest {
 
   @Override
   public PropertiesToDataGuide guide() {

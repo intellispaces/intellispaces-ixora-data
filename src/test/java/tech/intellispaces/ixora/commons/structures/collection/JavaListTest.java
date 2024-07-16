@@ -1,6 +1,10 @@
 package tech.intellispaces.ixora.commons.structures.collection;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tech.intellispaces.framework.core.IntellispacesFramework;
+import tech.intellispaces.framework.core.system.Modules;
 
 import java.util.List;
 
@@ -10,6 +14,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Tests for {@link AbstractJavaList} class.
  */
 public class JavaListTest {
+
+  @BeforeEach
+  public void init() {
+    IntellispacesFramework.loadModule().start();
+  }
+
+  @AfterEach
+  public void deinit() {
+    Modules.activeModule().stop();
+  }
 
   @Test
   public void testJavaListHandle_whenUnmovable() {

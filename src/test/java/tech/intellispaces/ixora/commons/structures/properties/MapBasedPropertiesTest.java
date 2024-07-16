@@ -1,20 +1,35 @@
 package tech.intellispaces.ixora.commons.structures.properties;
 
-import org.junit.jupiter.api.Test;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 import intellispaces.ixora.structures.properties.Properties;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import tech.intellispaces.framework.core.IntellispacesFramework;
+import tech.intellispaces.framework.core.system.Modules;
+import tech.intellispaces.ixora.commons.structures.StructuresFunctions;
 
 import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static tech.intellispaces.ixora.commons.structures.collection.CollectionAssistants.javaList;
+import static tech.intellispaces.ixora.commons.structures.StructuresFunctions.javaList;
 
 /**
  * Tests for {@link AbstractMapBasedProperties} class.
  */
 public class MapBasedPropertiesTest {
+
+  @BeforeEach
+  public void init() {
+    IntellispacesFramework.loadModule().start();
+  }
+
+  @AfterEach
+  public void deinit() {
+    Modules.activeModule().stop();
+  }
 
   @Test
   public void test_whenEmptyMap_andEmptyPath() {
@@ -189,7 +204,7 @@ public class MapBasedPropertiesTest {
     AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, Map.of()));
 
     // Then
-    assertThat(properties.propertiesValue(path).map()).isEqualTo(Map.of());
+    assertThat(StructuresFunctions.javaMap(properties.propertiesValue(path))).isEqualTo(Map.of());
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
