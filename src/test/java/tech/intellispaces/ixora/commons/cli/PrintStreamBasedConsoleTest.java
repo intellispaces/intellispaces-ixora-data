@@ -4,7 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.framework.core.IntellispacesFramework;
-import tech.intellispaces.framework.core.annotation.Module;
+import tech.intellispaces.framework.core.annotation.Preprocessing;
 import tech.intellispaces.framework.core.system.Modules;
 import tech.intellispaces.ixora.commons.configuration.CliConfiguration;
 
@@ -17,12 +17,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Tests fo {@link AbstractPrintStreamBasedConsole} class.
  */
-@Module(units = CliConfiguration.class)
+@Preprocessing(CliConfiguration.class)
 public class PrintStreamBasedConsoleTest {
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule(PrintStreamBasedConsoleTest.class).start();
+    IntellispacesFramework.loadModule(CliConfiguration.class).start();
   }
 
   @AfterEach

@@ -28,6 +28,13 @@
     </build>
 
     <dependencies>
+        <!-- intellispacesframework -->
+        <dependency>
+            <groupId>intellispaces</groupId>
+            <artifactId>intellispacesframework-actions</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!-- Ixora -->
         <dependency>
             <groupId>intellispaces</groupId>
