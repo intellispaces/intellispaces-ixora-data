@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.commons.configuration;
+package tech.intellispaces.ixora.commons.cli;
 
 import intellispaces.ixora.cli.MovableConsoleHandle;
 import tech.intellispaces.framework.core.annotation.Configuration;

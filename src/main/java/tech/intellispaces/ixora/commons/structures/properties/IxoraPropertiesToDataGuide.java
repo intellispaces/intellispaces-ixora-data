@@ -3,8 +3,8 @@ package tech.intellispaces.ixora.commons.structures.properties;
 import intellispaces.ixora.structures.properties.Properties;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
-import tech.intellispaces.framework.commons.exception.ExceptionFunctions;
 import tech.intellispaces.framework.commons.exception.UnexpectedViolationException;
+import tech.intellispaces.framework.commons.function.FunctionFunctions;
 import tech.intellispaces.framework.commons.type.TypeFunctions;
 import tech.intellispaces.framework.core.annotation.Data;
 import tech.intellispaces.framework.core.annotation.Guide;
@@ -56,6 +56,6 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
       }
       arguments[index++] = value;
     }
-    return (T) ExceptionFunctions.coverException(constructor::newInstance, arguments);
+    return (T) FunctionFunctions.applyAndCoverIfChecked(constructor::newInstance, arguments);
   }
 }

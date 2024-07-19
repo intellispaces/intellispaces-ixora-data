@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import tech.intellispaces.framework.core.IntellispacesFramework;
 import tech.intellispaces.framework.core.annotation.Preprocessing;
 import tech.intellispaces.framework.core.system.Modules;
-import tech.intellispaces.ixora.commons.configuration.CliConfiguration;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
