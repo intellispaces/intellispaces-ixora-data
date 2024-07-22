@@ -1,7 +1,7 @@
-package tech.intellispaces.ixora.commons.structures.collection;
+package tech.mindstructs.structures.collection;
 
-import intellispaces.ixora.structures.collection.CollectionHandle;
-import intellispaces.ixora.structures.collection.UnmovableListHandle;
+import intellispaces.ixora.mindstructs.structures.collection.CollectionHandle;
+import intellispaces.ixora.mindstructs.structures.collection.UnmovableListHandle;
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
 

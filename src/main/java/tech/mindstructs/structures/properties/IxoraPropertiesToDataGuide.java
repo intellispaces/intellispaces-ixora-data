@@ -1,8 +1,8 @@
-package tech.intellispaces.ixora.commons.structures.properties;
+package tech.mindstructs.structures.properties;
 
-import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
-import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
+import intellispaces.ixora.mindstructs.structures.properties.Properties;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataGuide;
 import tech.intellispaces.framework.commons.exception.UnexpectedViolationException;
 import tech.intellispaces.framework.commons.function.FunctionFunctions;
 import tech.intellispaces.framework.commons.type.TypeFunctions;

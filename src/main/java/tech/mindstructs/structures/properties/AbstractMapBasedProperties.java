@@ -1,20 +1,20 @@
-package tech.intellispaces.ixora.commons.structures.properties;
+package tech.mindstructs.structures.properties;
 
-import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
-import intellispaces.ixora.structures.collection.DoubleListHandle;
-import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
-import intellispaces.ixora.structures.collection.IntegerListHandle;
-import intellispaces.ixora.structures.collection.StringListBasedOnList;
-import intellispaces.ixora.structures.collection.StringListHandle;
-import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
-import intellispaces.ixora.structures.properties.PropertiesListBasedOnList;
-import intellispaces.ixora.structures.properties.PropertiesListHandle;
-import intellispaces.ixora.structures.properties.UnmovablePropertiesHandle;
+import intellispaces.ixora.mindstructs.structures.collection.DoubleListBasedOnList;
+import intellispaces.ixora.mindstructs.structures.collection.DoubleListHandle;
+import intellispaces.ixora.mindstructs.structures.collection.IntegerListBasedOnList;
+import intellispaces.ixora.mindstructs.structures.collection.IntegerListHandle;
+import intellispaces.ixora.mindstructs.structures.collection.StringListBasedOnList;
+import intellispaces.ixora.mindstructs.structures.collection.StringListHandle;
+import intellispaces.ixora.mindstructs.structures.exception.InvalidPropertyException;
+import intellispaces.ixora.mindstructs.structures.properties.Properties;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesListBasedOnList;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesListHandle;
+import intellispaces.ixora.mindstructs.structures.properties.UnmovablePropertiesHandle;
 import tech.intellispaces.framework.core.annotation.Mapper;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
-import tech.intellispaces.ixora.commons.structures.collection.JavaList;
+import tech.mindstructs.structures.collection.JavaList;
 
 import java.util.Collections;
 import java.util.List;
@@ -57,7 +57,9 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     }
   }
 
-  private intellispaces.ixora.structures.collection.List<?> convertObjectToList(String path, List<?> list) {
+  private intellispaces.ixora.mindstructs.structures.collection.List<?> convertObjectToList(
+      String path, List<?> list
+  ) {
     if (list.isEmpty()) {
       throw new UnsupportedOperationException("Not implemented");
     }

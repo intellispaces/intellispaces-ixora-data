@@ -1,6 +1,6 @@
-package tech.intellispaces.ixora.commons.structures.collection;
+package tech.mindstructs.structures.collection;
 
-import intellispaces.ixora.structures.collection.UnmovableCollectionHandle;
+import intellispaces.ixora.mindstructs.structures.collection.UnmovableCollectionHandle;
 import tech.intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collection;

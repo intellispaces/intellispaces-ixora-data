@@ -1,7 +1,7 @@
-package tech.intellispaces.ixora.commons.structures.properties;
+package tech.mindstructs.structures.properties;
 
-import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
-import tech.intellispaces.ixora.structures.properties.PropertiesToDataGuideTest;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataGuide;
+import tech.mindstructs.test.structures.properties.PropertiesToDataGuideTest;
 
 /**
  * Tests for {@link IxoraPropertiesToDataGuide} class.

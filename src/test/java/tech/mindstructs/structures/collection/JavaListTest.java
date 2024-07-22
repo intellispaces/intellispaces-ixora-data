@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.commons.structures.collection;
+package tech.mindstructs.structures.collection;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

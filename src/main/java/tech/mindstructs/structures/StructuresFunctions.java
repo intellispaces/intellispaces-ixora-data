@@ -1,10 +1,10 @@
-package tech.intellispaces.ixora.commons.structures;
+package tech.mindstructs.structures;
 
-import intellispaces.ixora.structures.collection.ListHandle;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.mindstructs.structures.collection.ListHandle;
+import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
 import tech.intellispaces.framework.commons.exception.UnexpectedViolationException;
-import tech.intellispaces.ixora.commons.structures.collection.AbstractJavaList;
-import tech.intellispaces.ixora.commons.structures.properties.AbstractMapBasedProperties;
+import tech.mindstructs.structures.collection.AbstractJavaList;
+import tech.mindstructs.structures.properties.AbstractMapBasedProperties;
 
 import java.util.List;
 import java.util.Map;

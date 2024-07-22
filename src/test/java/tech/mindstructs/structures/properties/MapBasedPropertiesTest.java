@@ -1,20 +1,20 @@
-package tech.intellispaces.ixora.commons.structures.properties;
+package tech.mindstructs.structures.properties;
 
-import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.mindstructs.structures.exception.InvalidPropertyException;
+import intellispaces.ixora.mindstructs.structures.properties.Properties;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tech.intellispaces.framework.core.IntellispacesFramework;
 import tech.intellispaces.framework.core.system.Modules;
-import tech.intellispaces.ixora.commons.structures.StructuresFunctions;
+import tech.mindstructs.structures.StructuresFunctions;
 
 import java.util.List;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static tech.intellispaces.ixora.commons.structures.StructuresFunctions.javaList;
 
 /**
  * Tests for {@link AbstractMapBasedProperties} class.
@@ -204,7 +204,7 @@ public class MapBasedPropertiesTest {
     AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, Map.of()));
 
     // Then
-    assertThat(StructuresFunctions.javaMap(properties.propertiesValue(path))).isEqualTo(Map.of());
+    Assertions.assertThat(StructuresFunctions.javaMap(properties.propertiesValue(path))).isEqualTo(Map.of());
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -238,7 +238,7 @@ public class MapBasedPropertiesTest {
     AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
-    assertThat(javaList(properties.integerList(path).asList())).isEqualTo(list);
+    assertThat(StructuresFunctions.javaList(properties.integerList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -272,7 +272,7 @@ public class MapBasedPropertiesTest {
     AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
-    assertThat(javaList(properties.doubleList(path).asList())).isEqualTo(list);
+    assertThat(StructuresFunctions.javaList(properties.doubleList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -306,7 +306,7 @@ public class MapBasedPropertiesTest {
     AbstractMapBasedProperties properties = new MapBasedProperties(Map.of(path, list));
 
     // Then
-    assertThat(javaList(properties.stringList(path).asList())).isEqualTo(list);
+    assertThat(StructuresFunctions.javaList(properties.stringList(path).asList())).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
