@@ -16,6 +16,11 @@ public abstract class AbstractJavaCollection<E> implements UnmovableCollectionHa
   }
 
   @Override
+  public Collection<? extends E> nativeCollection() {
+    return collection;
+  }
+
+  @Override
   public Class<? extends E> elementDomain() {
     return elementDomainClass;
   }
