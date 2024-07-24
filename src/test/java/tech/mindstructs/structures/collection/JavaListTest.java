@@ -17,7 +17,7 @@ public class JavaListTest {
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule().start();
+    IntellispacesFramework.loadModule();
   }
 
   @AfterEach
@@ -36,6 +36,6 @@ public class JavaListTest {
     assertThat(handle.element(0)).isEqualTo("a");
     assertThat(handle.element(1)).isEqualTo("b");
     assertThat(handle.element(2)).isEqualTo("c");
-    assertThat(handle.javaList()).isEqualTo(javaList);
+    assertThat(handle.nativeList()).isEqualTo(javaList);
   }
 }

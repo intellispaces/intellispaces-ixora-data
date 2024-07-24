@@ -17,7 +17,8 @@ public abstract class AbstractJavaList<E> implements UnmovableListHandle<E> {
     this.elementDomainClass = elementDomainClass;
   }
 
-  public java.util.List<E> javaList() {
+  @Override
+  public java.util.List<E> nativeList() {
     return list;
   }
 

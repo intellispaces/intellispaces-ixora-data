@@ -28,7 +28,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     this.map = (map != null ? map : Map.of());
   }
 
-  public java.util.Map<String, Object> javaMap() {
+  public java.util.Map<String, Object> nativeMap() {
     return Collections.unmodifiableMap(map);
   }
 
@@ -173,7 +173,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
   @Mapper
   @Override
   public int size() {
-    return javaMap().size();
+    return nativeMap().size();
   }
 
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
@@ -234,7 +234,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     }
 
     Object result = null;
-    java.util.Map<String, Object> curMap = javaMap();
+    java.util.Map<String, Object> curMap = nativeMap();
     String[] parts = path.split("\\.");
     for (String part : parts) {
       if (curMap == null) {
