@@ -4,12 +4,12 @@ import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataMap
 import tech.mindstructs.test.structures.properties.PropertiesToDataMapperTest;
 
 /**
- * Tests for {@link IxoraPropertiesToDataMapper} class.
+ * Tests for {@link MindstructsPropertiesToDataMapper} class.
  */
-public class IxoraPropertiesToDataMapperTest extends PropertiesToDataMapperTest {
+public class MindstructsPropertiesToDataMapperTest extends PropertiesToDataMapperTest {
 
   @Override
   public PropertiesToDataMapper guide() {
-    return new IxoraPropertiesToDataMapper();
+    return new MindstructsPropertiesToDataMapper();
   }
 }

@@ -16,7 +16,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class IxoraPropertiesToDataMapper implements PropertiesToDataMapper {
+public class MindstructsPropertiesToDataMapper implements PropertiesToDataMapper {
 
   @Mapper
   @Override
