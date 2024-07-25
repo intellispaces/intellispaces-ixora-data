@@ -38,9 +38,9 @@ public class MindstructsPropertiesToDataMapper implements PropertiesToDataMapper
       throw UnexpectedViolationException.withMessage("Data class {} must contain one constructor", dataClassName);
     }
     Constructor<?> constructor = constructors[0];
-    if (constructor.getParameterCount() != domainClass.getDeclaredMethods().length) {
+    if (constructor.getParameterCount() != domainClass.getMethods().length) {
       throw UnexpectedViolationException.withMessage("Data class {} must contain constructor with {} parameters",
-          dataClassName, domainClass.getDeclaredMethods().length);
+          dataClassName, domainClass.getMethods().length);
     }
 
     Object[] arguments = new Object[constructor.getParameterCount()];
