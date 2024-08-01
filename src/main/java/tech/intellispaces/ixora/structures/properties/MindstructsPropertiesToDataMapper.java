@@ -1,16 +1,16 @@
-package tech.mindstructs.structures.properties;
+package tech.intellispaces.ixora.structures.properties;
 
-import intellispaces.ixora.mindstructs.structures.properties.Properties;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesToDataMapper;
-import tech.intellispaces.framework.commons.exception.UnexpectedViolationException;
-import tech.intellispaces.framework.commons.function.FunctionFunctions;
-import tech.intellispaces.framework.commons.type.TypeFunctions;
-import tech.intellispaces.framework.core.annotation.Data;
-import tech.intellispaces.framework.core.annotation.Guide;
-import tech.intellispaces.framework.core.annotation.Mapper;
-import tech.intellispaces.framework.core.common.NameConventionFunctions;
-import tech.intellispaces.framework.core.object.ObjectFunctions;
+import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
+import tech.intellispaces.commons.exception.UnexpectedViolationException;
+import tech.intellispaces.commons.function.FunctionFunctions;
+import tech.intellispaces.commons.type.TypeFunctions;
+import tech.intellispaces.core.annotation.Data;
+import tech.intellispaces.core.annotation.Guide;
+import tech.intellispaces.core.annotation.Mapper;
+import tech.intellispaces.core.common.NameConventionFunctions;
+import tech.intellispaces.core.object.ObjectFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

@@ -1,26 +1,23 @@
-package tech.mindstructs.structures.properties;
+package tech.intellispaces.ixora.structures.properties;
 
-import intellispaces.ixora.mindstructs.structures.collection.DoubleListBasedOnList;
-import intellispaces.ixora.mindstructs.structures.collection.DoubleListHandle;
-import intellispaces.ixora.mindstructs.structures.collection.IntegerListBasedOnList;
-import intellispaces.ixora.mindstructs.structures.collection.IntegerListHandle;
-import intellispaces.ixora.mindstructs.structures.collection.StringListBasedOnList;
-import intellispaces.ixora.mindstructs.structures.collection.StringListHandle;
-import intellispaces.ixora.mindstructs.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.mindstructs.structures.properties.Properties;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesHandle;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesListBasedOnList;
-import intellispaces.ixora.mindstructs.structures.properties.PropertiesListHandle;
-import intellispaces.ixora.mindstructs.structures.properties.UnmovablePropertiesHandle;
-import tech.intellispaces.framework.core.annotation.Mapper;
-import tech.intellispaces.framework.core.annotation.ObjectHandle;
-import tech.mindstructs.structures.collection.JavaList;
+import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
+import intellispaces.ixora.structures.collection.DoubleListHandle;
+import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
+import intellispaces.ixora.structures.collection.IntegerListHandle;
+import intellispaces.ixora.structures.collection.ListHandle;
+import intellispaces.ixora.structures.exception.InvalidPropertyException;
+import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.UnmovablePropertiesHandle;
+import tech.intellispaces.core.annotation.Mapper;
+import tech.intellispaces.core.annotation.UnmovableObjectHandle;
+import tech.intellispaces.ixora.structures.collection.JavaList;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-@ObjectHandle("MapBasedProperties")
+@UnmovableObjectHandle("MapBasedProperties")
 public abstract class AbstractMapBasedProperties implements UnmovablePropertiesHandle {
   private final java.util.Map<String, Object> map;
 
@@ -57,9 +54,7 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
     }
   }
 
-  private intellispaces.ixora.mindstructs.structures.collection.List<?> convertObjectToList(
-      String path, List<?> list
-  ) {
+  private ListHandle<?> convertObjectToList(String path, List<?> list) {
     if (list.isEmpty()) {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -141,26 +136,26 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
 
   @Mapper
   @Override
-  public StringListHandle stringList(String path) throws InvalidPropertyException {
+  public ListHandle<String> stringList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return stringList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private StringListHandle stringList(String path, Object value) {
+  private ListHandle<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
     return new StringListBasedOnList(new JavaList<>((List<String>) value, String.class));
   }
 
   @Mapper
   @Override
-  public PropertiesListHandle propertiesList(String path) throws InvalidPropertyException {
+  public ListHandle<Properties> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private PropertiesListHandle propertiesList(String path, Object value) {
+  private ListHandle<Properties> propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (List<Map<String, Object>>) value;
     List<Properties> propertyList = values.stream()
