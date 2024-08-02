@@ -8,7 +8,6 @@ import tech.intellispaces.core.annotation.UnmovableObjectHandle;
 import tech.intellispaces.javastatements.type.Type;
 import tech.intellispaces.javastatements.type.Types;
 
-import java.util.Collection;
 import java.util.Collections;
 
 @UnmovableObjectHandle("JavaList")

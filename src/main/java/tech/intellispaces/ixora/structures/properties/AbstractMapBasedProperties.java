@@ -144,25 +144,25 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
   @SuppressWarnings("unchecked")
   private ListHandle<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return new StringListBasedOnList(new JavaList<>((List<String>) value, String.class));
+    return new JavaList<>((List<String>) value, String.class);
   }
 
   @Mapper
   @Override
-  public ListHandle<Properties> propertiesList(String path) throws InvalidPropertyException {
+  public ListHandle<PropertiesHandle> propertiesList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     return propertiesList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private ListHandle<Properties> propertiesList(String path, Object value) {
+  private ListHandle<PropertiesHandle> propertiesList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (List<Map<String, Object>>) value;
-    List<Properties> propertyList = values.stream()
+    List<PropertiesHandle> propertyList = values.stream()
         .map(MapBasedProperties::new)
-        .map(p -> (Properties) p)
+        .map(p -> (PropertiesHandle) p)
         .toList();
-    return new PropertiesListBasedOnList(new JavaList<>(propertyList, Properties.class));
+    return new JavaList<>(propertyList, PropertiesHandle.class);
   }
 
   @Mapper
@@ -207,8 +207,8 @@ public abstract class AbstractMapBasedProperties implements UnmovablePropertiesH
 
   private static Class<?> getActualType(Object value) {
     final Class<?> actualType;
-    if (Properties.class.isAssignableFrom(value.getClass())) {
-      actualType = Properties.class;
+    if (PropertiesHandle.class.isAssignableFrom(value.getClass())) {
+      actualType = PropertiesHandle.class;
     } else if (java.util.Map.class.isAssignableFrom(value.getClass())) {
       actualType = java.util.Map.class;
     } else if (java.util.List.class.isAssignableFrom(value.getClass())) {

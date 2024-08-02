@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.structures.properties;
 
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesHandle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,26 +40,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type " + Properties.class.getCanonicalName() + ". Path ''");
+        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type " +
+            PropertiesHandle.class.getCanonicalName() + ". Path ''");
   }
 
   @Test
@@ -107,26 +114,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.lang.Integer. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.lang.Integer. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.lang.Integer. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Integer, but actual is " +
+            "single value of type java.lang.Integer. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Double, but actual is " +
+            "single value of type java.lang.Integer. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.String, but actual is " +
+            "single value of type java.lang.Integer. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type java.lang.Integer. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.util.Map, but actual is " +
+            "single value of type java.lang.Integer. Path '" + path + "'");
   }
 
   @Test
@@ -140,26 +154,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.lang.Double. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.lang.Double. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.lang.Double. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Integer, but actual is " +
+            "single value of type java.lang.Double. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Double, but actual is " +
+            "single value of type java.lang.Double. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.String, but actual is " +
+            "single value of type java.lang.Double. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type java.lang.Double. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.util.Map, but actual is " +
+            "single value of type java.lang.Double. Path '" + path + "'");
   }
 
   @Test
@@ -173,26 +194,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.lang.String. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.lang.String. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.lang.String. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Integer, but actual is " +
+            "single value of type java.lang.String. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Double, but actual is " +
+            "single value of type java.lang.String. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.String, but actual is " +
+            "single value of type java.lang.String. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type java.lang.String. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.util.Map, but actual is " +
+            "single value of type java.lang.String. Path '" + path + "'");
   }
 
   @Test
@@ -206,26 +234,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.util.Map. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.util.Map. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.util.Map. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Integer, but actual is " +
+            "single value of type java.util.Map. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.Double, but actual is " +
+            "single value of type java.util.Map. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.lang.String, but actual is " +
+            "single value of type java.util.Map. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type java.util.Map. Path '" + path + "'");
+        .hasMessage("Expected property list values of type java.util.Map, but actual is " +
+            "single value of type java.util.Map. Path '" + path + "'");
   }
 
   @Test
@@ -240,26 +275,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.util.List. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Double values, but actual is list contained java.lang.Integer values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Double values, but actual is " +
+            "list contained java.lang.Integer values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.String values, but actual is list contained java.lang.Integer values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.String values, but actual is " +
+            "list contained java.lang.Integer values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.util.Map values, but actual is list contained java.lang.Integer values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.util.Map values, but actual is " +
+            "list contained java.lang.Integer values. Path '" + path + "'");
   }
 
   @Test
@@ -274,26 +316,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual " +
+            "is java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual " +
+            "is java.util.List. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Integer values, but actual is list contained java.lang.Double values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Integer values, but actual " +
+            "is list contained java.lang.Double values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.String values, but actual is list contained java.lang.Double values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.String values, but actual " +
+            "is list contained java.lang.Double values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.util.Map values, but actual is list contained java.lang.Double values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.util.Map values, but actual is " +
+            "list contained java.lang.Double values. Path '" + path + "'");
   }
 
   @Test
@@ -308,26 +357,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.util.List. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Integer values, but actual is list contained java.lang.String values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Integer values, but actual is " +
+            "list contained java.lang.String values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Double values, but actual is list contained java.lang.String values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Double values, but actual is " +
+            "list contained java.lang.String values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.util.Map values, but actual is list contained java.lang.String values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.util.Map values, but actual is " +
+            "list contained java.lang.String values. Path '" + path + "'");
   }
 
   @Test
@@ -344,26 +400,33 @@ public class MapBasedPropertiesTest {
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Integer type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.Double type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.Double type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.lang.String type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.lang.String type, but actual is " +
+            "java.util.List. Path '" + path + "'");
     assertThatThrownBy(() -> properties.propertiesValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property value of java.util.Map type, but actual is java.util.List. Path '" + path + "'");
+        .hasMessage("Expected property value of java.util.Map type, but actual is " +
+            "java.util.List. Path '" + path + "'");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Integer values, but actual is list contained java.util.Map values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Integer values, but actual is " +
+            "list contained java.util.Map values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.Double values, but actual is list contained java.util.Map values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.Double values, but actual is " +
+            "list contained java.util.Map values. Path '" + path + "'");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
-        .hasMessage("Expected property list of java.lang.String values, but actual is list contained java.util.Map values. Path '" + path + "'");
+        .hasMessage("Expected property list of java.lang.String values, but actual is " +
+            "list contained java.util.Map values. Path '" + path + "'");
   }
 
   @Test
