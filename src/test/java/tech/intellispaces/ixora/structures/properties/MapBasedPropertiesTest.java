@@ -26,7 +26,7 @@ public class MapBasedPropertiesTest {
 
   @AfterEach
   public void deinit() {
-    Modules.activeModule().stop();
+    Modules.currentModule().stop();
   }
 
   @Test
