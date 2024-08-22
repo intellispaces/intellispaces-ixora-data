@@ -1,8 +1,8 @@
-package tech.intellispaces.ixora.test.structures.properties.samples;
+package intellispaces.ixora.test.structures.properties.samples;
 
-import tech.intellispaces.core.annotation.Data;
-import tech.intellispaces.core.annotation.Domain;
-import tech.intellispaces.core.annotation.Transition;
+import intellispaces.core.annotation.Data;
+import intellispaces.core.annotation.Domain;
+import intellispaces.core.annotation.Transition;
 
 @Data
 @Domain

@@ -1,14 +1,13 @@
-package tech.intellispaces.ixora.test.structures.properties;
+package intellispaces.ixora.test.structures.properties;
 
-import intellispaces.ixora.structures.collection.List;
+import intellispaces.core.IntellispacesFramework;
+import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.collection.ListHandle;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.YamlStringToPropertiesMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.core.IntellispacesFramework;
-import tech.intellispaces.core.system.Modules;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,12 +1,12 @@
-package tech.intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.properties;
 
+import intellispaces.core.IntellispacesFramework;
+import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.core.IntellispacesFramework;
-import tech.intellispaces.core.system.Modules;
 
 import java.util.List;
 import java.util.Map;

@@ -1,9 +1,9 @@
 package intellispaces.ixora.structures.collection;
 
+import intellispaces.core.annotation.Domain;
+import intellispaces.core.annotation.Transition;
+import intellispaces.core.traverse.TraverseTypes;
 import intellispaces.ixora.basic.Point;
-import tech.intellispaces.core.annotation.Domain;
-import tech.intellispaces.core.annotation.Transition;
-import tech.intellispaces.core.traverse.TraverseTypes;
 
 /**
  * One-way cursor.

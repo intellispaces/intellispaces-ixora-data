@@ -1,6 +1,6 @@
 package intellispaces.ixora.structures.collection;
 
-import tech.intellispaces.core.annotation.Preprocessing;
+import intellispaces.core.annotation.Preprocessing;
 
 @Preprocessing(annexFor = Collection.class, artifact = "ObjectHandle")
 public interface CollectionAnnex<E> {

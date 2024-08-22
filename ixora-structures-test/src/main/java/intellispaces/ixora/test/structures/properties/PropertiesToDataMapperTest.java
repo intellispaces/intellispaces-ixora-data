@@ -1,15 +1,15 @@
-package tech.intellispaces.ixora.test.structures.properties;
+package intellispaces.ixora.test.structures.properties;
 
+import intellispaces.core.IntellispacesFramework;
+import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
+import intellispaces.ixora.test.structures.properties.samples.NestedDataHandle;
+import intellispaces.ixora.test.structures.properties.samples.PrimitiveDataHandle;
+import intellispaces.ixora.test.structures.properties.samples.SimpleDataHandle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.core.IntellispacesFramework;
-import tech.intellispaces.core.system.Modules;
-import tech.intellispaces.ixora.test.structures.properties.samples.NestedDataHandle;
-import tech.intellispaces.ixora.test.structures.properties.samples.PrimitiveDataHandle;
-import tech.intellispaces.ixora.test.structures.properties.samples.SimpleDataHandle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

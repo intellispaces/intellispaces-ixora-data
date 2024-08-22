@@ -1,9 +1,9 @@
 package intellispaces.ixora.structures.collection;
 
-import tech.intellispaces.core.annotation.Domain;
-import tech.intellispaces.core.annotation.Transition;
-import tech.intellispaces.javastatements.type.Type;
-import tech.intellispaces.javastatements.type.Types;
+import intellispaces.core.annotation.Domain;
+import intellispaces.core.annotation.Transition;
+import intellispaces.javastatements.type.Type;
+import intellispaces.javastatements.type.Types;
 
 @Domain("019081b8-bfb3-7089-9d6c-6537ab3fca07")
 public interface IntegerList extends NumberList<Integer> {

@@ -1,12 +1,11 @@
-package tech.intellispaces.ixora.structures.collection;
+package intellispaces.ixora.structures.collection;
 
+import intellispaces.core.annotation.Mapper;
+import intellispaces.core.annotation.UnmovableObjectHandle;
 import intellispaces.ixora.structures.collection.CollectionHandle;
-import intellispaces.ixora.structures.collection.List;
 import intellispaces.ixora.structures.collection.UnmovableListHandle;
-import tech.intellispaces.core.annotation.Mapper;
-import tech.intellispaces.core.annotation.UnmovableObjectHandle;
-import tech.intellispaces.javastatements.type.Type;
-import tech.intellispaces.javastatements.type.Types;
+import intellispaces.javastatements.type.Type;
+import intellispaces.javastatements.type.Types;
 
 import java.util.Collections;
 

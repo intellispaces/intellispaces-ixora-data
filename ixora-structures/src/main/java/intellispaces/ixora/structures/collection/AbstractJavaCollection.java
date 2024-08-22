@@ -1,11 +1,10 @@
-package tech.intellispaces.ixora.structures.collection;
+package intellispaces.ixora.structures.collection;
 
-import intellispaces.ixora.structures.collection.Collection;
+import intellispaces.core.annotation.Mapper;
+import intellispaces.core.annotation.UnmovableObjectHandle;
 import intellispaces.ixora.structures.collection.UnmovableCollectionHandle;
-import tech.intellispaces.core.annotation.Mapper;
-import tech.intellispaces.core.annotation.UnmovableObjectHandle;
-import tech.intellispaces.javastatements.type.Type;
-import tech.intellispaces.javastatements.type.Types;
+import intellispaces.javastatements.type.Type;
+import intellispaces.javastatements.type.Types;
 
 @UnmovableObjectHandle("JavaCollection")
 public abstract class AbstractJavaCollection<E> implements UnmovableCollectionHandle<E> {

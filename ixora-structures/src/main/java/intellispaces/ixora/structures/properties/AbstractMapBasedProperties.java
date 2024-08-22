@@ -1,17 +1,16 @@
-package tech.intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.properties;
 
+import intellispaces.core.annotation.Mapper;
+import intellispaces.core.annotation.UnmovableObjectHandle;
 import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
 import intellispaces.ixora.structures.collection.DoubleListHandle;
 import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
 import intellispaces.ixora.structures.collection.IntegerListHandle;
+import intellispaces.ixora.structures.collection.JavaList;
 import intellispaces.ixora.structures.collection.ListHandle;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.Properties;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.UnmovablePropertiesHandle;
-import tech.intellispaces.core.annotation.Mapper;
-import tech.intellispaces.core.annotation.UnmovableObjectHandle;
-import tech.intellispaces.ixora.structures.collection.JavaList;
 
 import java.util.Collections;
 import java.util.List;

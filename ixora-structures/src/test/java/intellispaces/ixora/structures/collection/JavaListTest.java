@@ -1,10 +1,10 @@
-package tech.intellispaces.ixora.structures.collection;
+package intellispaces.ixora.structures.collection;
 
+import intellispaces.core.IntellispacesFramework;
+import intellispaces.core.system.Modules;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tech.intellispaces.core.IntellispacesFramework;
-import tech.intellispaces.core.system.Modules;
 
 import java.util.List;
 

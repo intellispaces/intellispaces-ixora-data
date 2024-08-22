@@ -1,14 +1,14 @@
-package tech.intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.properties;
 
+import intellispaces.commons.exception.UnexpectedViolationException;
+import intellispaces.commons.function.FunctionFunctions;
+import intellispaces.commons.type.TypeFunctions;
+import intellispaces.core.annotation.Guide;
+import intellispaces.core.annotation.Mapper;
+import intellispaces.core.common.NameConventionFunctions;
+import intellispaces.core.object.ObjectFunctions;
 import intellispaces.ixora.structures.properties.PropertiesHandle;
 import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
-import tech.intellispaces.commons.exception.UnexpectedViolationException;
-import tech.intellispaces.commons.function.FunctionFunctions;
-import tech.intellispaces.commons.type.TypeFunctions;
-import tech.intellispaces.core.annotation.Guide;
-import tech.intellispaces.core.annotation.Mapper;
-import tech.intellispaces.core.common.NameConventionFunctions;
-import tech.intellispaces.core.object.ObjectFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

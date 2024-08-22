@@ -1,12 +1,12 @@
 package intellispaces.ixora.structures.properties;
 
+import intellispaces.core.annotation.Domain;
+import intellispaces.core.annotation.Transition;
 import intellispaces.ixora.basic.Point;
 import intellispaces.ixora.structures.collection.DoubleList;
 import intellispaces.ixora.structures.collection.IntegerList;
 import intellispaces.ixora.structures.collection.List;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import tech.intellispaces.core.annotation.Domain;
-import tech.intellispaces.core.annotation.Transition;
 
 /**
  * Properties are a hierarchical set of named properties.

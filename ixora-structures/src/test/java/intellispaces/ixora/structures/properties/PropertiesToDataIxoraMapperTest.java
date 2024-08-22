@@ -1,7 +1,7 @@
-package tech.intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.properties;
 
 import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
-import tech.intellispaces.ixora.test.structures.properties.PropertiesToDataMapperTest;
+import intellispaces.ixora.test.structures.properties.PropertiesToDataMapperTest;
 
 /**
  * Tests for {@link PropertiesToDataIxoraMapper} class.

@@ -1,7 +1,7 @@
 package intellispaces.ixora.structures.collection;
 
-import tech.intellispaces.core.annotation.Domain;
-import tech.intellispaces.core.annotation.Transition;
+import intellispaces.core.annotation.Domain;
+import intellispaces.core.annotation.Transition;
 
 /**
  * List of numbers.
