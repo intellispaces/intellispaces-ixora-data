@@ -27,7 +27,7 @@
         <!-- Ixora -->
         <dependency>
             <groupId>intellispaces</groupId>
-            <artifactId>ixora-core-ontology</artifactId>
+            <artifactId>ixora-basic-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

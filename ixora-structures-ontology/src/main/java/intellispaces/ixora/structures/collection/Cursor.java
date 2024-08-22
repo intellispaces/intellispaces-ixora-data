@@ -1,6 +1,6 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.ixora.core.Point;
+import intellispaces.ixora.basic.Point;
 import tech.intellispaces.core.annotation.Domain;
 import tech.intellispaces.core.annotation.Transition;
 import tech.intellispaces.core.traverse.TraverseTypes;

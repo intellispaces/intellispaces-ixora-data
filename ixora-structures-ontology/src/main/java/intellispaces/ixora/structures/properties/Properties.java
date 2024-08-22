@@ -1,6 +1,6 @@
 package intellispaces.ixora.structures.properties;
 
-import intellispaces.ixora.core.Point;
+import intellispaces.ixora.basic.Point;
 import intellispaces.ixora.structures.collection.DoubleList;
 import intellispaces.ixora.structures.collection.IntegerList;
 import intellispaces.ixora.structures.collection.List;
