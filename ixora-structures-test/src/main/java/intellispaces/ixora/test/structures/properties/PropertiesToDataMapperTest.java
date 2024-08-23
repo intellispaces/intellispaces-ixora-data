@@ -2,8 +2,8 @@ package intellispaces.ixora.test.structures.properties;
 
 import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
-import ixora.structures.properties.Properties;
-import ixora.structures.properties.PropertiesToDataMapper;
+import intellispaces.ixora.structures.properties.Properties;
+import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
 import intellispaces.ixora.test.structures.properties.samples.NestedData;
 import intellispaces.ixora.test.structures.properties.samples.PrimitiveData;
 import intellispaces.ixora.test.structures.properties.samples.SimpleData;
