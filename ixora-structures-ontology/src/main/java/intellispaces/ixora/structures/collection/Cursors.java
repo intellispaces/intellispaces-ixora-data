@@ -9,7 +9,7 @@ public interface Cursors {
    * @return created cursor.
    * @param <E> collection elements type.
    */
-  static <E> Cursor<E> get(Collection<E> collection) {
+  static <E> Cursor<E> get(CollectionDomain<E> collection) {
     return null;
   }
 }

@@ -8,8 +8,8 @@ import intellispaces.ixora.structures.exception.InvalidPropertyException;
 public interface PropertiesOntology {
 
   @Transition("1830e924-2c78-4f18-b9eb-39f002cbeea6")
-  Properties yamlStringToProperties(String string) throws InvalidPropertyException;
+  PropertiesDomain yamlStringToProperties(String string) throws InvalidPropertyException;
 
   @Transition("cafc0a2e-a1da-44e1-997f-2db62f7e385c")
-  <T> T propertiesToData(Properties properties, Class<T> targetClass);
+  <T> T propertiesToData(PropertiesDomain properties, Class<T> targetClass);
 }

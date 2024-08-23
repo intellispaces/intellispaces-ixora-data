@@ -7,8 +7,6 @@ import intellispaces.core.annotation.Guide;
 import intellispaces.core.annotation.Mapper;
 import intellispaces.core.common.NameConventionFunctions;
 import intellispaces.core.object.ObjectFunctions;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
-import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -18,7 +16,7 @@ public class PropertiesToDataIxoraMapper implements PropertiesToDataMapper {
 
   @Mapper
   @Override
-  public <T> T propertiesToData(PropertiesHandle properties, Class<T> targetClass) {
+  public <T> T propertiesToData(Properties properties, Class<T> targetClass) {
     if (ObjectFunctions.isDataObjectHandle(targetClass)) {
       return process(properties, targetClass);
     }
@@ -26,7 +24,7 @@ public class PropertiesToDataIxoraMapper implements PropertiesToDataMapper {
   }
 
   @SuppressWarnings("unchecked")
-  private <T> T process(PropertiesHandle properties, Class<T> targetClass) {
+  private <T> T process(Properties properties, Class<T> targetClass) {
     Class<?> domainClass = ObjectFunctions.getDomainClassOfObjectHandle(targetClass);
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = TypeFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
@@ -49,8 +47,8 @@ public class PropertiesToDataIxoraMapper implements PropertiesToDataMapper {
       if (value == null && param.getType().isPrimitive()) {
         value = TypeFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof PropertiesHandle && ObjectFunctions.isObjectHandleClass(param.getType())) {
-        value = process((PropertiesHandle) value, param.getType());
+      if (value instanceof Properties && ObjectFunctions.isObjectHandleClass(param.getType())) {
+        value = process((Properties) value, param.getType());
       }
       arguments[index++] = value;
     }

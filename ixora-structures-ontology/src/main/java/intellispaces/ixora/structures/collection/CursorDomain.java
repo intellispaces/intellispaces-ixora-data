@@ -3,7 +3,7 @@ package intellispaces.ixora.structures.collection;
 import intellispaces.core.annotation.Domain;
 import intellispaces.core.annotation.Transition;
 import intellispaces.core.traverse.TraverseTypes;
-import intellispaces.ixora.basic.Point;
+import intellispaces.ixora.basic.PointDomain;
 
 /**
  * One-way cursor.
@@ -11,10 +11,10 @@ import intellispaces.ixora.basic.Point;
  * @param <E> cursor element type.
  */
 @Domain("3826cfd5-1b2a-4441-86b7-6ff0a9b2a7cd")
-public interface Cursor<E> extends Point {
+public interface CursorDomain<E> extends PointDomain {
 
   @Transition("4d445fd4-4088-49a5-b0ba-fffd8c443b13")
-  Collection<E> collection();
+  CollectionDomain<E> collection();
 
   @Transition("8816842b-3aa7-4421-b2c5-3ac5b3da9b24")
   Class<E> elementDomain();

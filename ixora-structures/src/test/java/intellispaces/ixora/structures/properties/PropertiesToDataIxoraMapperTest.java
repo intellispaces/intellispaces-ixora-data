@@ -1,6 +1,5 @@
 package intellispaces.ixora.structures.properties;
 
-import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
 import intellispaces.ixora.test.structures.properties.PropertiesToDataMapperTest;
 
 /**

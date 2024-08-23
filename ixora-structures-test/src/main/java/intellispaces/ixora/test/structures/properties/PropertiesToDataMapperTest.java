@@ -2,11 +2,11 @@ package intellispaces.ixora.test.structures.properties;
 
 import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
+import intellispaces.ixora.structures.properties.Properties;
 import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
-import intellispaces.ixora.test.structures.properties.samples.NestedDataHandle;
-import intellispaces.ixora.test.structures.properties.samples.PrimitiveDataHandle;
-import intellispaces.ixora.test.structures.properties.samples.SimpleDataHandle;
+import intellispaces.ixora.test.structures.properties.samples.NestedData;
+import intellispaces.ixora.test.structures.properties.samples.PrimitiveData;
+import intellispaces.ixora.test.structures.properties.samples.SimpleData;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,10 +35,10 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
 
     // When
-    PrimitiveDataHandle data = guide().propertiesToData(properties, PrimitiveDataHandle.class);
+    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -49,10 +49,10 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testSimpleData_whenEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
 
     // When
-    SimpleDataHandle data = guide().propertiesToData(properties, SimpleDataHandle.class);
+    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -64,10 +64,10 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testNestedData_whenEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
 
     // When
-    NestedDataHandle data = guide().propertiesToData(properties, NestedDataHandle.class);
+    NestedData data = guide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -78,12 +78,12 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testPrimitiveData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
     when(properties.value("intValue")).thenReturn(1);
     when(properties.value("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveDataHandle data = guide().propertiesToData(properties, PrimitiveDataHandle.class);
+    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -94,13 +94,13 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testSimpleData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
     when(properties.value("intValue")).thenReturn(1);
     when(properties.value("doubleValue")).thenReturn(2.2);
     when(properties.value("stringValue")).thenReturn("abc");
 
     // When
-    SimpleDataHandle data = guide().propertiesToData(properties, SimpleDataHandle.class);
+    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -112,14 +112,14 @@ public abstract class PropertiesToDataMapperTest {
   @Test
   public void testNestedData_whenNotEmptyProperties() {
     // Given
-    PropertiesHandle properties = mock(PropertiesHandle.class);
-    PropertiesHandle nestedProperties = mock(PropertiesHandle.class);
+    Properties properties = mock(Properties.class);
+    Properties nestedProperties = mock(Properties.class);
     when(properties.value("stringValue")).thenReturn("abc");
     when(properties.value("nestedValue")).thenReturn(nestedProperties);
     when(nestedProperties.value("stringValue")).thenReturn("def");
 
     // When
-    NestedDataHandle data = guide().propertiesToData(properties, NestedDataHandle.class);
+    NestedData data = guide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();

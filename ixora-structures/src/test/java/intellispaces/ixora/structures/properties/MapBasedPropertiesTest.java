@@ -3,7 +3,6 @@ package intellispaces.ixora.structures.properties;
 import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
-import intellispaces.ixora.structures.properties.PropertiesHandle;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,32 +40,32 @@ public class MapBasedPropertiesTest {
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Double type, but actual is " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.propertiesList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type " +
-            PropertiesHandle.class.getCanonicalName() + ". Path ''");
+            Properties.class.getCanonicalName() + ". Path ''");
   }
 
   @Test

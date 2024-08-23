@@ -2,7 +2,7 @@ package intellispaces.ixora.structures.collection;
 
 import intellispaces.core.annotation.Domain;
 import intellispaces.core.annotation.Transition;
-import intellispaces.ixora.basic.Point;
+import intellispaces.ixora.basic.PointDomain;
 import intellispaces.javastatements.type.Type;
 
 /**
@@ -11,7 +11,7 @@ import intellispaces.javastatements.type.Type;
  * @param <E> collection element domain type.
  */
 @Domain("715d235a-b6ee-4a0a-8166-dd908d6bf026")
-public interface Collection<E> extends Point {
+public interface CollectionDomain<E> extends PointDomain {
 
   @Transition("855a617e-1281-4f23-ac3b-be45e045b337")
   Type<E> elementDomain();

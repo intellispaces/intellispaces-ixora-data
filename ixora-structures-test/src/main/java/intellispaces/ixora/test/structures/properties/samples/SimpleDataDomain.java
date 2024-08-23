@@ -6,7 +6,7 @@ import intellispaces.core.annotation.Transition;
 
 @Data
 @Domain
-public interface SimpleData {
+public interface SimpleDataDomain {
 
   @Transition("6d8468c0-2cf2-4a95-9535-c731a40d17e9")
   Integer intValue();

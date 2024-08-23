@@ -2,8 +2,8 @@ package intellispaces.ixora.structures.collection;
 
 import intellispaces.core.annotation.Preprocessing;
 
-@Preprocessing(annexFor = Collection.class, artifact = "ObjectHandle")
-public interface CollectionAnnex<E> {
+@Preprocessing(annexFor = CollectionDomain.class, artifact = "ObjectHandle")
+public interface CollectionDomainAnnex<E> {
 
   java.util.Collection<E> nativeCollection();
 }

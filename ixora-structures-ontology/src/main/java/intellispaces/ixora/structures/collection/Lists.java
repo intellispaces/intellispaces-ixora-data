@@ -13,12 +13,12 @@ public final class Lists {
    * @return handle to list.
    * @param <E> type of list elements.
    */
-  static <E> UnmovableListHandle<E> of(java.util.List<E> javaList, Class<E> elementClass) {
+  static <E> UnmovableList<E> of(java.util.List<E> javaList, Class<E> elementClass) {
 //    return LIST_BY_NATIVE_LIST_GETTER.get().of(nativeList, elementClass);
     return null;
   }
 
-  static <E> UnmovableListHandle<E> empty(Class<E> elementClass) {
+  static <E> UnmovableList<E> empty(Class<E> elementClass) {
     return null;
   }
 }

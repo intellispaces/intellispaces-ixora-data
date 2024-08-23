@@ -6,26 +6,26 @@ import intellispaces.javastatements.type.Type;
 import intellispaces.javastatements.type.Types;
 
 @Domain("019081b8-bfb3-7089-9d6c-6537ab3fca07")
-public interface IntegerList extends NumberList<Integer> {
+public interface IntegerListDomain extends NumberListDomain<Integer> {
 
   /**
    * Downgrade mapping.
    */
   @Transition("35c4c1c4-0bae-489a-9a20-2259eb58c135")
-  NumberList<Integer> asNumberList();
+  NumberListDomain<Integer> asNumberList();
 
   /**
    * Downgrade mapping.
    */
   @Transition("0190824d-8716-7f90-8c49-fa9a6ee24bcb")
-  List<Integer> asList();
+  ListDomain<Integer> asList();
 
   /**
    * Downgrade mapping.
    */
   @Override
   @Transition("01909080-8b2e-798a-8467-150465a39848")
-  Collection<Integer> asCollection();
+  CollectionDomain<Integer> asCollection();
 
   @Override
   default Type<Integer> elementDomain() {

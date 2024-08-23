@@ -2,12 +2,11 @@ package intellispaces.ixora.structures.collection;
 
 import intellispaces.core.annotation.Mapper;
 import intellispaces.core.annotation.UnmovableObjectHandle;
-import intellispaces.ixora.structures.collection.UnmovableCollectionHandle;
 import intellispaces.javastatements.type.Type;
 import intellispaces.javastatements.type.Types;
 
 @UnmovableObjectHandle("JavaCollection")
-public abstract class AbstractJavaCollection<E> implements UnmovableCollectionHandle<E> {
+public abstract class AbstractJavaCollection<E> implements UnmovableCollection<E> {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;
 
@@ -22,8 +21,8 @@ public abstract class AbstractJavaCollection<E> implements UnmovableCollectionHa
   }
 
   @Override
-  public Type<Collection<E>> domain() {
-    return Types.of(Collection.class, elementDomain);
+  public Type<CollectionDomain<E>> domain() {
+    return Types.of(CollectionDomain.class, elementDomain);
   }
 
   @Mapper
