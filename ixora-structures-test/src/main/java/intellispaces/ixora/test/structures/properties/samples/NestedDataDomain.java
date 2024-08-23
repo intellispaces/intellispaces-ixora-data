@@ -5,7 +5,7 @@ import intellispaces.core.annotation.Domain;
 import intellispaces.core.annotation.Transition;
 
 @Data
-@Domain
+@Domain("b833c1fc-e71e-43fc-b996-f8869642c807")
 public interface NestedDataDomain {
 
   @Transition("8119ce95-9bc3-4825-858b-babdab0014ed")

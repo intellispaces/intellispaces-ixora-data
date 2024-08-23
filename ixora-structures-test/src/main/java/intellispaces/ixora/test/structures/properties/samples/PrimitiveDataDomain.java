@@ -5,7 +5,7 @@ import intellispaces.core.annotation.Domain;
 import intellispaces.core.annotation.Transition;
 
 @Data
-@Domain
+@Domain("610bdc9a-6054-4777-b1de-4a7e6441317d")
 public interface PrimitiveDataDomain {
 
   @Transition("756b6fa0-5d0c-4143-bf40-fcf171ae9fe9")
