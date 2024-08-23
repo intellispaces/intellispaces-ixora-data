@@ -6,6 +6,7 @@ import intellispaces.commons.type.TypeFunctions;
 import intellispaces.core.annotation.Guide;
 import intellispaces.core.annotation.Mapper;
 import intellispaces.core.common.NameConventionFunctions;
+import intellispaces.core.object.DataFunctions;
 import intellispaces.core.object.ObjectFunctions;
 
 import java.lang.reflect.Constructor;
@@ -17,7 +18,7 @@ public class PropertiesToDataIxoraMapper implements PropertiesToDataMapper {
   @Mapper
   @Override
   public <T> T propertiesToData(Properties properties, Class<T> targetClass) {
-    if (ObjectFunctions.isDataObjectHandle(targetClass)) {
+    if (DataFunctions.isDataObjectHandle(targetClass)) {
       return process(properties, targetClass);
     }
     throw new UnsupportedOperationException("Not implemented");
