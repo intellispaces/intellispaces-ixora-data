@@ -2,9 +2,9 @@ package intellispaces.ixora.test.structures.properties;
 
 import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
-import intellispaces.ixora.structures.collection.List;
-import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.YamlStringToPropertiesMapper;
+import ixora.structures.collection.List;
+import ixora.structures.properties.Properties;
+import ixora.structures.properties.YamlStringToPropertiesMapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
