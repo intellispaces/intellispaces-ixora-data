@@ -8,7 +8,7 @@ import intellispaces.ixora.test.structures.properties.PropertiesToDataMapperTest
 public class PropertiesToDataIxoraMapperTest extends PropertiesToDataMapperTest {
 
   @Override
-  public PropertiesToDataMapper guide() {
-    return new PropertiesToDataIxoraMapper();
+  public <D> PropertiesToDataMapper<D> guide(Class<D> dataClass) {
+    return new PropertiesToDataIxoraMapper<>();
   }
 }

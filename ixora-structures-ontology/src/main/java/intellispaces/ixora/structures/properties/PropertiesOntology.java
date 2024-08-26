@@ -11,5 +11,5 @@ public interface PropertiesOntology {
   PropertiesDomain yamlStringToProperties(String string) throws InvalidPropertyException;
 
   @Transition("cafc0a2e-a1da-44e1-997f-2db62f7e385c")
-  <T> T propertiesToData(PropertiesDomain properties, Class<T> targetClass);
+  <D> D propertiesToData(PropertiesDomain properties, Class<D> dataClass);
 }

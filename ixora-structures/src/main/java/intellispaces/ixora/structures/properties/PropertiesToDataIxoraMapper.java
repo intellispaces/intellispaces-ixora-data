@@ -13,13 +13,13 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class PropertiesToDataIxoraMapper implements PropertiesToDataMapper {
+public class PropertiesToDataIxoraMapper<D> implements PropertiesToDataMapper<D> {
 
   @Mapper
   @Override
-  public <T> T propertiesToData(Properties properties, Class<T> targetClass) {
-    if (DataFunctions.isDataObjectHandle(targetClass)) {
-      return process(properties, targetClass);
+  public D propertiesToData(Properties properties, Class<D> dataClass) {
+    if (DataFunctions.isDataObjectHandle(dataClass)) {
+      return process(properties, dataClass);
     }
     throw new UnsupportedOperationException("Not implemented");
   }
