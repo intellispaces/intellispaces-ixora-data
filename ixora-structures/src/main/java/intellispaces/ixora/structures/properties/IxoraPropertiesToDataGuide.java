@@ -13,7 +13,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class PropertiesToDataIxoraMapper<D> implements PropertiesToDataMapper<D> {
+public class IxoraPropertiesToDataGuide<D> implements PropertiesToDataMapper<D> {
 
   @Mapper
   @Override
