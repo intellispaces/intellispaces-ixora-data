@@ -26,11 +26,11 @@ public abstract class PropertiesToDataMapperTest {
   }
 
   @AfterEach
-  public void destroy() {
+  public void deinit() {
     Modules.current().stop();
   }
 
-  public abstract <D> PropertiesToDataMapper<D> guide(Class<D> dataClass);
+  public abstract PropertiesToDataMapper<Object> guide();
 
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
@@ -38,7 +38,7 @@ public abstract class PropertiesToDataMapperTest {
     Properties properties = mock(Properties.class);
 
     // When
-    PrimitiveData data = guide(PrimitiveData.class).propertiesToData(properties, PrimitiveData.class);
+    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -52,7 +52,7 @@ public abstract class PropertiesToDataMapperTest {
     Properties properties = mock(Properties.class);
 
     // When
-    SimpleData data = guide(SimpleData.class).propertiesToData(properties, SimpleData.class);
+    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -67,7 +67,7 @@ public abstract class PropertiesToDataMapperTest {
     Properties properties = mock(Properties.class);
 
     // When
-    NestedData data = guide(NestedData.class).propertiesToData(properties, NestedData.class);
+    NestedData data = guide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -83,7 +83,7 @@ public abstract class PropertiesToDataMapperTest {
     when(properties.value("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveData data = guide(PrimitiveData.class).propertiesToData(properties, PrimitiveData.class);
+    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -100,7 +100,7 @@ public abstract class PropertiesToDataMapperTest {
     when(properties.value("stringValue")).thenReturn("abc");
 
     // When
-    SimpleData data = guide(SimpleData.class).propertiesToData(properties, SimpleData.class);
+    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -119,7 +119,7 @@ public abstract class PropertiesToDataMapperTest {
     when(nestedProperties.value("stringValue")).thenReturn("def");
 
     // When
-    NestedData data = guide(NestedData.class).propertiesToData(properties, NestedData.class);
+    NestedData data = guide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();

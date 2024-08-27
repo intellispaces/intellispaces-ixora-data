@@ -24,7 +24,7 @@ public class MapBasedPropertiesTest {
   }
 
   @AfterEach
-  public void destroy() {
+  public void deinit() {
     Modules.current().stop();
   }
 

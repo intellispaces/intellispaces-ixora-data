@@ -17,7 +17,7 @@ public class PropertiesToDataIxoraMapper<D> implements PropertiesToDataMapper<D>
 
   @Mapper
   @Override
-  public D propertiesToData(Properties properties, Class<D> dataClass) {
+  public <T extends D> T propertiesToData(Properties properties, Class<? extends T> dataClass) {
     if (DataFunctions.isDataObjectHandle(dataClass)) {
       return process(properties, dataClass);
     }

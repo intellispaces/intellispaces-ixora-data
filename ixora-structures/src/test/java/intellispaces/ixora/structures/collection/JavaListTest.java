@@ -21,7 +21,7 @@ public class JavaListTest {
   }
 
   @AfterEach
-  public void destroy() {
+  public void deinit() {
     Modules.current().stop();
   }
 
