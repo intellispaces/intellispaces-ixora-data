@@ -7,7 +7,7 @@ import intellispaces.javastatements.type.Types;
 
 import java.util.Collections;
 
-@ObjectHandle("JavaList")
+@ObjectHandle(value = ListDomain.class, name = "JavaList")
 public abstract class AbstractJavaList<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
   private final Type<E> elementDomain;

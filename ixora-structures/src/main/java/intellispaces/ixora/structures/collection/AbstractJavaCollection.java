@@ -5,7 +5,7 @@ import intellispaces.core.annotation.ObjectHandle;
 import intellispaces.javastatements.type.Type;
 import intellispaces.javastatements.type.Types;
 
-@ObjectHandle("JavaCollection")
+@ObjectHandle(value = CollectionDomain.class, name = "JavaCollection")
 public abstract class AbstractJavaCollection<E> implements UnmovableCollection<E> {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;

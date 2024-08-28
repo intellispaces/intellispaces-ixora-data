@@ -6,6 +6,7 @@ import intellispaces.ixora.structures.properties.Properties;
 import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 import intellispaces.ixora.test.structures.properties.samples.NestedData;
 import intellispaces.ixora.test.structures.properties.samples.PrimitiveData;
+import intellispaces.ixora.test.structures.properties.samples.PrimitiveDataDomain;
 import intellispaces.ixora.test.structures.properties.samples.SimpleData;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
