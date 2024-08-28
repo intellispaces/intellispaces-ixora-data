@@ -1,13 +1,13 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.core.annotation.Mapper;
-import intellispaces.core.annotation.UnmovableObjectHandle;
+import intellispaces.core.annotation.ObjectHandle;
 import intellispaces.javastatements.type.Type;
 import intellispaces.javastatements.type.Types;
 
 import java.util.Collections;
 
-@UnmovableObjectHandle("JavaList")
+@ObjectHandle("JavaList")
 public abstract class AbstractJavaList<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
   private final Type<E> elementDomain;

@@ -1,7 +1,7 @@
 package intellispaces.ixora.structures.properties;
 
 import intellispaces.core.annotation.Mapper;
-import intellispaces.core.annotation.UnmovableObjectHandle;
+import intellispaces.core.annotation.ObjectHandle;
 import intellispaces.ixora.structures.collection.DoubleList;
 import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
 import intellispaces.ixora.structures.collection.IntegerList;
@@ -13,7 +13,7 @@ import intellispaces.ixora.structures.exception.InvalidPropertyException;
 import java.util.Collections;
 import java.util.Map;
 
-@UnmovableObjectHandle("MapBasedProperties")
+@ObjectHandle("MapBasedProperties")
 public abstract class AbstractMapBasedProperties implements UnmovableProperties {
   private final java.util.Map<String, Object> map;
 
