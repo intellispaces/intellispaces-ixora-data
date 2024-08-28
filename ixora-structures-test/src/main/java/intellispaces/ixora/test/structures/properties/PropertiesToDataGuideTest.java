@@ -3,7 +3,7 @@ package intellispaces.ixora.test.structures.properties;
 import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.PropertiesToDataMapper;
+import intellispaces.ixora.structures.properties.PropertiesToDataGuide;
 import intellispaces.ixora.test.structures.properties.samples.NestedData;
 import intellispaces.ixora.test.structures.properties.samples.PrimitiveData;
 import intellispaces.ixora.test.structures.properties.samples.SimpleData;
@@ -16,9 +16,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for guide {@link PropertiesToDataMapper}.
+ * Tests for guide {@link PropertiesToDataGuide}.
  */
-public abstract class PropertiesToDataMapperTest {
+public abstract class PropertiesToDataGuideTest {
 
   @BeforeEach
   public void init() {
@@ -30,7 +30,7 @@ public abstract class PropertiesToDataMapperTest {
     Modules.current().stop();
   }
 
-  public abstract PropertiesToDataMapper<Object> guide();
+  public abstract PropertiesToDataGuide<Object> guide();
 
   @Test
   public void testPrimitiveData_whenEmptyProperties() {

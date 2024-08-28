@@ -4,7 +4,7 @@ import intellispaces.core.IntellispacesFramework;
 import intellispaces.core.system.Modules;
 import intellispaces.ixora.structures.collection.List;
 import intellispaces.ixora.structures.properties.Properties;
-import intellispaces.ixora.structures.properties.YamlStringToPropertiesMapper;
+import intellispaces.ixora.structures.properties.YamlStringToPropertiesGuide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for guide {@link YamlStringToPropertiesMapper}.
+ * Tests for guide {@link YamlStringToPropertiesGuide}.
  */
-public abstract class YamlStringToPropertiesMapperTest {
+public abstract class YamlStringToPropertiesGuideTest {
 
   @BeforeEach
   public void init() {
@@ -26,7 +26,7 @@ public abstract class YamlStringToPropertiesMapperTest {
     Modules.current().stop();
   }
 
-  public abstract YamlStringToPropertiesMapper guide();
+  public abstract YamlStringToPropertiesGuide guide();
 
   @Test
   public void testEmptyYaml() {

@@ -25,6 +25,6 @@ public interface CursorDomain<E> extends PointDomain {
   @Transition("22a53488-46f1-4727-bebf-1ed04c76a51e")
   boolean hasNext();
 
-  @Transition(value = "493c84b9-36cc-4312-b887-a37f8e21123e", allowedTraverseTypes = TraverseTypes.Moving)
+  @Transition(value = "493c84b9-36cc-4312-b887-a37f8e21123e", allowedTraverse = TraverseTypes.Moving)
   Void shift();
 }

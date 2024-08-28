@@ -1,14 +1,14 @@
 package intellispaces.ixora.structures.properties;
 
-import intellispaces.ixora.test.structures.properties.PropertiesToDataMapperTest;
+import intellispaces.ixora.test.structures.properties.PropertiesToDataGuideTest;
 
 /**
  * Tests for {@link IxoraPropertiesToDataGuide} class.
  */
-public class IxoraPropertiesToDataGuideTest extends PropertiesToDataMapperTest {
+public class IxoraPropertiesToDataGuideTest extends PropertiesToDataGuideTest {
 
   @Override
-  public PropertiesToDataMapper<Object> guide() {
+  public PropertiesToDataGuide<Object> guide() {
     return new IxoraPropertiesToDataGuide<>();
   }
 }
