@@ -2,21 +2,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>intellispaces-parent</groupId>
-        <artifactId>intellispaces-parent-pom</artifactId>
+        <groupId>intellispaces-ixora</groupId>
+        <artifactId>intellispaces-ixora-structures-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>intellispaces-ixora</groupId>
-    <artifactId>intellispaces-ixora-structures-parent</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>intellispaces-ixora-structures-ontology</module>
-        <module>intellispaces-ixora-structures</module>
-        <module>intellispaces-ixora-structures-test</module>
-    </modules>
-
+    <artifactId>intellispaces-ixora-structures-ontology</artifactId>
+    <packaging>jar</packaging>
+	
     <build>
         <plugins>
             <plugin>
@@ -27,10 +20,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <!-- Intellispaces -->
+        <dependency>
+            <groupId>intellispaces-ixora</groupId>
+            <artifactId>intellispaces-ixora-base-ontology</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
