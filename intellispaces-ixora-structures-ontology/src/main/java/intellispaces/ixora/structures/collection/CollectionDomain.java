@@ -1,9 +1,9 @@
 package intellispaces.ixora.structures.collection;
 
+import intellispaces.common.javastatement.type.Type;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 import intellispaces.ixora.base.PointDomain;
-import intellispaces.common.javastatement.type.Type;
 
 /**
  * Homogeneous collection of elements.

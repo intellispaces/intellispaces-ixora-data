@@ -1,9 +1,9 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.ObjectHandle;
 import intellispaces.common.javastatement.type.Type;
 import intellispaces.common.javastatement.type.Types;
+import intellispaces.framework.core.annotation.Mapper;
+import intellispaces.framework.core.annotation.ObjectHandle;
 
 @ObjectHandle(value = CollectionDomain.class, name = "JavaCollection")
 public abstract class AbstractJavaCollection<E> implements UnmovableCollection<E> {

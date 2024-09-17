@@ -1,9 +1,9 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.annotation.Transition;
 import intellispaces.common.javastatement.type.Type;
 import intellispaces.common.javastatement.type.Types;
+import intellispaces.framework.core.annotation.Domain;
+import intellispaces.framework.core.annotation.Transition;
 
 @Domain("019081ff-e48c-773d-b6af-f6f3ec15ced9")
 public interface DoubleListDomain extends NumberListDomain<Double> {

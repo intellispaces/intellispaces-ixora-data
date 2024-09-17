@@ -2,12 +2,7 @@ package intellispaces.ixora.structures.properties;
 
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.structures.collection.DoubleList;
-import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
-import intellispaces.ixora.structures.collection.IntegerList;
-import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
-import intellispaces.ixora.structures.collection.JavaList;
-import intellispaces.ixora.structures.collection.List;
+import intellispaces.ixora.structures.collection.*;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 
 import java.util.Collections;
