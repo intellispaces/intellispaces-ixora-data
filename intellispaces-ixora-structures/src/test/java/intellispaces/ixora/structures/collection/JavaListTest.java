@@ -11,7 +11,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link AbstractJavaList} class.
+ * Tests for {@link JavaListHandle} class.
  */
 public class JavaListTest {
 
@@ -29,7 +29,7 @@ public class JavaListTest {
   public void testJavaListHandle_whenUnmovable() {
     // Given
     List<String> javaList = List.of("a", "b", "c");
-    var handle = new JavaList(javaList, String.class);
+    var handle = new JavaListHandleImpl<>(javaList, String.class);
 
     // Then
     assertThat(handle.size()).isEqualTo(3);

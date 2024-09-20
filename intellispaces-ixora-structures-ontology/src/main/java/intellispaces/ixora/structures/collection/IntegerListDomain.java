@@ -1,6 +1,6 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.common.javastatement.type.Type;
+import intellispaces.common.base.type.Type;
 import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;

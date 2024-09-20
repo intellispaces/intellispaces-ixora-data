@@ -11,7 +11,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Tests for {@link AbstractJavaMap} class.
+ * Tests for {@link JavaMapHandle} class.
  */
 public class JavaMapTest {
 
@@ -29,7 +29,7 @@ public class JavaMapTest {
   public void testJavaMapHandle_whenUnmovable() {
     // Given
     Map<String, Integer> javaMap = Map.of("1", 1, "2", 2, "3", 3);
-    var handle = new JavaMap<>(javaMap, String.class, Integer.class);
+    var handle = new JavaMapHandleImpl<>(javaMap, String.class, Integer.class);
 
     // Then
     assertThat(handle.nativeMap()).isEqualTo(javaMap);

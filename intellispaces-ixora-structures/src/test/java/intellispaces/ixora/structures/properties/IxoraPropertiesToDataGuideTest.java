@@ -1,5 +1,7 @@
 package intellispaces.ixora.structures.properties;
 
+import intellispaces.ixora.structures.association.IxoraPropertiesToDataGuide;
+import intellispaces.ixora.structures.association.PropertiesToDataGuide;
 import intellispaces.ixora.test.structures.properties.PropertiesToDataGuideTest;
 
 /**

@@ -1,23 +1,23 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.common.javastatement.type.Type;
-import intellispaces.common.javastatement.type.Types;
+import intellispaces.common.base.type.Type;
+import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
-@ObjectHandle(value = CollectionDomain.class, name = "JavaCollection")
-public abstract class AbstractJavaCollection<E> implements UnmovableCollection<E> {
+@ObjectHandle(value = CollectionDomain.class, name = "JavaCollectionHandleImpl")
+public abstract class JavaCollectionHandle<E> implements UnmovableCollection<E> {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;
 
-  public AbstractJavaCollection(java.util.Collection<E> collection, Class<E> elementDomain) {
+  public JavaCollectionHandle(java.util.Collection<E> collection, Class<E> elementClass) {
     this.collection = collection;
-    this.elementDomain = Types.of(elementDomain);
+    this.elementDomain = Types.of(elementClass);
   }
 
-  public AbstractJavaCollection(java.util.Collection<E> collection, Type<E> elementDomain) {
+  public JavaCollectionHandle(java.util.Collection<E> collection, Type<E> elementType) {
     this.collection = collection;
-    this.elementDomain = elementDomain;
+    this.elementDomain = elementType;
   }
 
   @Override

@@ -1,4 +1,4 @@
-package intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.association;
 
 import intellispaces.common.base.exception.UnexpectedViolationException;
 import intellispaces.common.base.function.FunctionFunctions;

@@ -1,18 +1,23 @@
-package intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.association;
 
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.structures.collection.*;
+import intellispaces.ixora.structures.collection.DoubleList;
+import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
+import intellispaces.ixora.structures.collection.IntegerList;
+import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
+import intellispaces.ixora.structures.collection.JavaListHandleImpl;
+import intellispaces.ixora.structures.collection.List;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(value = PropertiesDomain.class, name = "MapBasedProperties")
-public abstract class AbstractMapBasedProperties implements UnmovableProperties {
+@ObjectHandle(value = PropertiesDomain.class, name = "MapBasedPropertiesHandleImpl")
+public abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   private final java.util.Map<String, Object> map;
 
-  public AbstractMapBasedProperties(java.util.Map<String, Object> map) {
+  public MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -39,7 +44,7 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedProperties((java.util.Map<String, Object>) result);
+      return new MapBasedPropertiesHandleImpl((java.util.Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -96,7 +101,7 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, java.util.Map.class);
-    return new MapBasedProperties((java.util.Map<String, Object>) value);
+    return new MapBasedPropertiesHandleImpl((java.util.Map<String, Object>) value);
   }
 
   @Mapper
@@ -109,7 +114,7 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
   @SuppressWarnings("unchecked")
   private IntegerList integerList(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return new IntegerListBasedOnList(new JavaList<>((java.util.List<Integer>) value, Integer.class));
+    return new IntegerListBasedOnList(new JavaListHandleImpl<>((java.util.List<Integer>) value, Integer.class));
   }
 
   @Mapper
@@ -122,7 +127,7 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
   @SuppressWarnings("unchecked")
   private DoubleList doubleList(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return new DoubleListBasedOnList(new JavaList<>((java.util.List<Double>) value, Double.class));
+    return new DoubleListBasedOnList(new JavaListHandleImpl<>((java.util.List<Double>) value, Double.class));
   }
 
   @Mapper
@@ -135,7 +140,7 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
   @SuppressWarnings("unchecked")
   private List<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return new JavaList<>((java.util.List<String>) value, String.class);
+    return new JavaListHandleImpl<>((java.util.List<String>) value, String.class);
   }
 
   @Mapper
@@ -150,10 +155,10 @@ public abstract class AbstractMapBasedProperties implements UnmovableProperties 
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
     java.util.List<Properties> propertyList = values.stream()
-        .map(MapBasedProperties::new)
+        .map(MapBasedPropertiesHandleImpl::new)
         .map(p -> (Properties) p)
         .toList();
-    return new JavaList<>(propertyList, Properties.class);
+    return new JavaListHandleImpl<>(propertyList, Properties.class);
   }
 
   @Mapper

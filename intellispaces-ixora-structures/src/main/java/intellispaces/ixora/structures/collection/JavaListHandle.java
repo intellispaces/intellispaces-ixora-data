@@ -1,42 +1,42 @@
 package intellispaces.ixora.structures.collection;
 
-import intellispaces.common.javastatement.type.Type;
-import intellispaces.common.javastatement.type.Types;
+import intellispaces.common.base.type.Type;
+import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collections;
 
-@ObjectHandle(value = ListDomain.class, name = "JavaList")
-public abstract class AbstractJavaList<E> implements UnmovableList<E> {
+@ObjectHandle(value = ListDomain.class, name = "JavaListHandleImpl")
+public abstract class JavaListHandle<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
-  private final Type<E> elementDomain;
+  private final Type<E> elementType;
 
-  public AbstractJavaList(java.util.List<E> list, Class<E> elementDomain) {
+  public JavaListHandle(java.util.List<E> list, Class<E> elementClass) {
     this.list = Collections.unmodifiableList(list);
-    this.elementDomain = Types.of(elementDomain);
+    this.elementType = Types.of(elementClass);
   }
 
-  public AbstractJavaList(java.util.List<E> list, Type<E> elementDomain) {
+  public JavaListHandle(java.util.List<E> list, Type<E> elementType) {
     this.list = Collections.unmodifiableList(list);
-    this.elementDomain = elementDomain;
+    this.elementType = elementType;
   }
 
   @Mapper
   @Override
   public Collection<E> asCollection() {
-    return new JavaCollection<>(list, elementDomain);
+    return new JavaCollectionHandleImpl<>(list, elementType);
   }
 
   @Override
   public Type<ListDomain<E>> domain() {
-    return Types.of(ListDomain.class, elementDomain);
+    return Types.of(ListDomain.class, elementType);
   }
 
   @Mapper
   @Override
   public Type<E> elementDomain() {
-    return elementDomain;
+    return elementType;
   }
 
   @Mapper
