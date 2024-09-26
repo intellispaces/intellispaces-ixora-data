@@ -14,10 +14,10 @@ import java.util.Collections;
 import java.util.Map;
 
 @ObjectHandle(value = PropertiesDomain.class, name = "MapBasedPropertiesHandleImpl")
-public abstract class MapBasedPropertiesHandle implements UnmovableProperties {
+abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   private final java.util.Map<String, Object> map;
 
-  public MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
+  MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 

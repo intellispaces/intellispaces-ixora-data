@@ -9,18 +9,18 @@ import java.util.Collections;
 import java.util.Map;
 
 @ObjectHandle(value = MapDomain.class, name = "JavaMapHandleImpl")
-public abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V> {
+abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V> {
   private final java.util.Map<K, V> map;
   private final Type<K> keyType;
   private final Type<V> valueType;
 
-  public JavaMapHandle(java.util.Map<K, V> map, Class<K> keyClass, Class<V> valueClass) {
+  JavaMapHandle(java.util.Map<K, V> map, Class<K> keyClass, Class<V> valueClass) {
     this.map = Collections.unmodifiableMap(map);
     this.keyType = Types.of(keyClass);
     this.valueType = Types.of(valueClass);
   }
 
-  public JavaMapHandle(java.util.Map<K, V> map, Type<K> keyType, Type<V> valueType) {
+  JavaMapHandle(java.util.Map<K, V> map, Type<K> keyType, Type<V> valueType) {
     this.map = Collections.unmodifiableMap(map);
     this.keyType = keyType;
     this.valueType = valueType;

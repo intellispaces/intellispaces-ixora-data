@@ -1,10 +1,7 @@
-package intellispaces.ixora.structures.properties;
+package intellispaces.ixora.structures.association;
 
 import intellispaces.framework.core.IntellispacesFramework;
 import intellispaces.framework.core.system.Modules;
-import intellispaces.ixora.structures.association.MapBasedPropertiesHandle;
-import intellispaces.ixora.structures.association.MapBasedPropertiesHandleImpl;
-import intellispaces.ixora.structures.association.Properties;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

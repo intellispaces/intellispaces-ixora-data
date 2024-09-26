@@ -8,16 +8,16 @@ import intellispaces.framework.core.annotation.ObjectHandle;
 import java.util.Collections;
 
 @ObjectHandle(value = ListDomain.class, name = "JavaListHandleImpl")
-public abstract class JavaListHandle<E> implements UnmovableList<E> {
+abstract class JavaListHandle<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
   private final Type<E> elementType;
 
-  public JavaListHandle(java.util.List<E> list, Class<E> elementClass) {
+  JavaListHandle(java.util.List<E> list, Class<E> elementClass) {
     this.list = Collections.unmodifiableList(list);
     this.elementType = Types.of(elementClass);
   }
 
-  public JavaListHandle(java.util.List<E> list, Type<E> elementType) {
+  JavaListHandle(java.util.List<E> list, Type<E> elementType) {
     this.list = Collections.unmodifiableList(list);
     this.elementType = elementType;
   }
