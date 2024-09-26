@@ -22,6 +22,9 @@ public interface CursorDomain<E> extends PointDomain {
   @Transition("3089ff8a-0bfc-4ad0-ad58-093b84690e66")
   E value();
 
+  @Transition("de7656ee-b072-431e-935e-176fd42bfbe7")
+  ListDomain<E> values(int count);
+
   @Transition("22a53488-46f1-4727-bebf-1ed04c76a51e")
   boolean hasNext();
 
