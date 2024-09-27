@@ -19,18 +19,15 @@ public interface CursorDomain<E> extends PointDomain {
   @Transition("8816842b-3aa7-4421-b2c5-3ac5b3da9b24")
   Class<E> elementDomain();
 
-  @Transition("3089ff8a-0bfc-4ad0-ad58-093b84690e66")
-  E value();
-
-  @Transition("22a53488-46f1-4727-bebf-1ed04c76a51e")
-  boolean hasNext();
-
-  @Transition("d78b3511-1222-41db-8733-7a916f59629c")
-  boolean hasNext(int count);
-
+  /**
+   * Moves cursor to the next item in the collection.
+   */
   @Transition(value = "493c84b9-36cc-4312-b887-a37f8e21123e", allowedTraverse = TraverseTypes.MappingOfMoving)
-  E drift();
+  Boolean next();
 
-  @Transition(value = "de7656ee-b072-431e-935e-176fd42bfbe7", allowedTraverse = TraverseTypes.MappingOfMoving)
-  ListDomain<E> multiDrift(int count);
+  /**
+   * Current value.
+   */
+  @Transition(value = "2bb07e04-f49d-4a13-85c3-f86f9a00f60c")
+  E value();
 }
