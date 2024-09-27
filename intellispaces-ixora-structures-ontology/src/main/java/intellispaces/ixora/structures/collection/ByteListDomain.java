@@ -5,8 +5,11 @@ import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
+/**
+ * Synonym for the domains NumberListDomain&lt;Byte&gt; and ListDomain&lt;Byte&gt;.
+ */
 @Domain("46127f8a-6396-4bb8-8af4-d85ebd37f143")
-public interface ByteListDomain extends ListDomain<Byte> {
+public interface ByteListDomain extends NumberListDomain<Byte> {
 
   /**
    * Downgrade mapping.

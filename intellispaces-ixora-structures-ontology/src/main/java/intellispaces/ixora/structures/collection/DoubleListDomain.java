@@ -5,14 +5,11 @@ import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
+/**
+ * Synonym for the domains NumberListDomain&lt;Double&gt; and ListDomain&lt;Byte&gt;.
+ */
 @Domain("019081ff-e48c-773d-b6af-f6f3ec15ced9")
 public interface DoubleListDomain extends NumberListDomain<Double> {
-
-  /**
-   * Downgrade mapping.
-   */
-  @Transition("eefb92ad-01ff-4600-b475-4d689f4c79be")
-  NumberListDomain<Double> asNumberList();
 
   /**
    * Downgrade mapping.
