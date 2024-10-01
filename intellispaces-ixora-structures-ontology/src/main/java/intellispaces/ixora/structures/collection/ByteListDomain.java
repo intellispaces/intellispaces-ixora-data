@@ -1,21 +1,14 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.common.base.type.Type;
-import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
 /**
- * Synonym for the domains NumberListDomain&lt;Byte&gt; and ListDomain&lt;Byte&gt;.
+ * Alias for the domains NumberListDomain&lt;Byte&gt;.
  */
 @Domain("46127f8a-6396-4bb8-8af4-d85ebd37f143")
 public interface ByteListDomain extends NumberListDomain<Byte> {
-
-  /**
-   * Downgrade mapping.
-   */
-  @Transition("327223ba-35ce-4cc7-b2b0-cd8109946454")
-  ListDomain<Byte> asList();
 
   /**
    * Downgrade mapping.
@@ -25,10 +18,10 @@ public interface ByteListDomain extends NumberListDomain<Byte> {
   CollectionDomain<Byte> asCollection();
 
   @Override
-  default Type<Byte> elementDomain() {
-    return Types.of(Byte.class);
-  }
+  @Transition("f5bf6431-109a-4906-a54d-d30755a623c9")
+  Byte get(int index);
 
   @Override
-  Byte element(int index);
+  @Transition("e151b008-acd1-4dda-9ddb-e7c78b5e34ef")
+  Type<Byte> elementDomain();
 }

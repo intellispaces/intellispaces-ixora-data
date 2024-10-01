@@ -5,19 +5,25 @@ import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
-@ObjectHandle(value = CollectionDomain.class, name = "JavaCollectionHandleImpl")
-abstract class JavaCollectionHandle<E> implements UnmovableCollection<E> {
+import java.util.Collection;
+
+@ObjectHandle(value = CollectionDomain.class, name = "CollectionHandleImpl")
+abstract class CollectionHandle<E> implements UnmovableCollection<E> {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;
 
-  JavaCollectionHandle(java.util.Collection<E> collection, Class<E> elementClass) {
+  CollectionHandle(java.util.Collection<E> collection, Class<E> elementClass) {
     this.collection = collection;
     this.elementDomain = Types.of(elementClass);
   }
 
-  JavaCollectionHandle(java.util.Collection<E> collection, Type<E> elementType) {
+  CollectionHandle(java.util.Collection<E> collection, Type<E> elementType) {
     this.collection = collection;
     this.elementDomain = elementType;
+  }
+
+  Collection<E> collection() {
+    return collection;
   }
 
   @Override
@@ -33,7 +39,7 @@ abstract class JavaCollectionHandle<E> implements UnmovableCollection<E> {
 
   @Mapper
   @Override
-  public int size() {
+  public Integer size() {
     return collection.size();
   }
 

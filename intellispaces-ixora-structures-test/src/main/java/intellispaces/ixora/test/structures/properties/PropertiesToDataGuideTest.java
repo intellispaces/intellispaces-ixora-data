@@ -42,8 +42,8 @@ public abstract class PropertiesToDataGuideTest {
 
     // Then
     assertThat(data).isNotNull();
-    assertThat(data.intValue()).isEqualTo(0);
-    assertThat(data.doubleValue()).isEqualTo(0);
+    assertThat(data.intValue()).isNull();
+    assertThat(data.doubleValue()).isNull();
   }
 
   @Test

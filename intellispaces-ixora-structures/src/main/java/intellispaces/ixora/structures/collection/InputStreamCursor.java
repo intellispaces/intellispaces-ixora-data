@@ -8,7 +8,7 @@ import intellispaces.framework.core.exception.TraverseException;
 import java.io.IOException;
 import java.io.InputStream;
 
-@ObjectHandle(value = CursorDomain.class, name = "InputStreamCursorImpl")
+@ObjectHandle(value = ByteCursorDomain.class, name = "InputStreamCursorImpl")
 abstract class InputStreamCursor implements MovableByteCursor {
   private final InputStream stream;
   private int buffer;
@@ -29,8 +29,8 @@ abstract class InputStreamCursor implements MovableByteCursor {
     return nextPrimitive();
   }
 
-  @Override
-  @MapperOfMoving
+//  @Override
+//  @MapperOfMoving
   public boolean nextPrimitive() {
     try {
       buffer = stream.read();
@@ -46,8 +46,8 @@ abstract class InputStreamCursor implements MovableByteCursor {
     return primitiveValue();
   }
 
-  @Mapper
-  @Override
+//  @Mapper
+//  @Override
   public byte primitiveValue() {
     if (buffer == -1) {
       throw TraverseException.withMessage("End of the collection has been reached");

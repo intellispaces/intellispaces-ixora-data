@@ -1,21 +1,14 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.common.base.type.Type;
-import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
 /**
- * Synonym for the domains NumberListDomain&lt;Integer&gt; and ListDomain&lt;Byte&gt;.
+ * Alias for the domain ListDomain&lt;Integer&gt;.
  */
 @Domain("019081b8-bfb3-7089-9d6c-6537ab3fca07")
 public interface IntegerListDomain extends NumberListDomain<Integer> {
-
-  /**
-   * Downgrade mapping.
-   */
-  @Transition("0190824d-8716-7f90-8c49-fa9a6ee24bcb")
-  ListDomain<Integer> asList();
 
   /**
    * Downgrade mapping.
@@ -25,10 +18,10 @@ public interface IntegerListDomain extends NumberListDomain<Integer> {
   CollectionDomain<Integer> asCollection();
 
   @Override
-  default Type<Integer> elementDomain() {
-    return Types.of(Integer.class);
-  }
+  @Transition("fa8d530a-7e9d-49e1-a7f3-0956d3460ac5")
+  Integer get(int index);
 
   @Override
-  Integer element(int index);
+  @Transition("a3299ab9-f126-45ce-af23-e2d7be814bce")
+  Type<Integer> elementDomain();
 }

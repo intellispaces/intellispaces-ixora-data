@@ -26,6 +26,10 @@ abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V> {
     this.valueType = valueType;
   }
 
+  Map<K, V> map() {
+    return map;
+  }
+
   @Override
   public Type<MapDomain<K, V>> domain() {
     return Types.of(MapDomain.class, keyType, valueType);

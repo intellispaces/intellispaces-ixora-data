@@ -86,14 +86,14 @@ public abstract class YamlStringToPropertiesGuideTest {
     assertThat(properties.size()).isEqualTo(1);
 
     assertThat(properties.integerList("values").size()).isEqualTo(3);
-    assertThat(properties.integerList("values").element(0)).isEqualTo(1);
-    assertThat(properties.integerList("values").element(1)).isEqualTo(2);
-    assertThat(properties.integerList("values").element(2)).isEqualTo(3);
+    assertThat(properties.integerList("values").get(0)).isEqualTo(1);
+    assertThat(properties.integerList("values").get(1)).isEqualTo(2);
+    assertThat(properties.integerList("values").get(2)).isEqualTo(3);
 
     assertThat(((List<Integer>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((List<Integer>) properties.value("values")).element(0)).isEqualTo(1);
-    assertThat(((List<Integer>) properties.value("values")).element(1)).isEqualTo(2);
-    assertThat(((List<Integer>) properties.value("values")).element(2)).isEqualTo(3);
+    assertThat(((List<Integer>) properties.value("values")).get(0)).isEqualTo(1);
+    assertThat(((List<Integer>) properties.value("values")).get(1)).isEqualTo(2);
+    assertThat(((List<Integer>) properties.value("values")).get(2)).isEqualTo(3);
   }
 
   @Test
@@ -115,14 +115,14 @@ public abstract class YamlStringToPropertiesGuideTest {
     assertThat(properties.size()).isEqualTo(1);
 
     assertThat(properties.doubleList("values").size()).isEqualTo(3);
-    assertThat(properties.doubleList("values").element(0)).isEqualTo(1.1);
-    assertThat(properties.doubleList("values").element(1)).isEqualTo(2.2);
-    assertThat(properties.doubleList("values").element(2)).isEqualTo(3.3);
+    assertThat(properties.doubleList("values").get(0)).isEqualTo(1.1);
+    assertThat(properties.doubleList("values").get(1)).isEqualTo(2.2);
+    assertThat(properties.doubleList("values").get(2)).isEqualTo(3.3);
 
     assertThat(((List<Double>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((List<Double>) properties.value("values")).element(0)).isEqualTo(1.1);
-    assertThat(((List<Double>) properties.value("values")).element(1)).isEqualTo(2.2);
-    assertThat(((List<Double>) properties.value("values")).element(2)).isEqualTo(3.3);
+    assertThat(((List<Double>) properties.value("values")).get(0)).isEqualTo(1.1);
+    assertThat(((List<Double>) properties.value("values")).get(1)).isEqualTo(2.2);
+    assertThat(((List<Double>) properties.value("values")).get(2)).isEqualTo(3.3);
   }
 
   @Test
@@ -144,14 +144,14 @@ public abstract class YamlStringToPropertiesGuideTest {
     assertThat(properties.size()).isEqualTo(1);
 
     assertThat(properties.stringList("values").size()).isEqualTo(3);
-    assertThat(properties.stringList("values").element(0)).isEqualTo("a");
-    assertThat(properties.stringList("values").element(1)).isEqualTo("b");
-    assertThat(properties.stringList("values").element(2)).isEqualTo("c");
+    assertThat(properties.stringList("values").get(0)).isEqualTo("a");
+    assertThat(properties.stringList("values").get(1)).isEqualTo("b");
+    assertThat(properties.stringList("values").get(2)).isEqualTo("c");
 
     assertThat(((List<String>) properties.value("values")).size()).isEqualTo(3);
-    assertThat(((List<String>) properties.value("values")).element(0)).isEqualTo("a");
-    assertThat(((List<String>) properties.value("values")).element(1)).isEqualTo("b");
-    assertThat(((List<String>) properties.value("values")).element(2)).isEqualTo("c");
+    assertThat(((List<String>) properties.value("values")).get(0)).isEqualTo("a");
+    assertThat(((List<String>) properties.value("values")).get(1)).isEqualTo("b");
+    assertThat(((List<String>) properties.value("values")).get(2)).isEqualTo("c");
   }
 
   @Test

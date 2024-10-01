@@ -5,27 +5,31 @@ import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
-import java.util.Collections;
+import java.util.List;
 
-@ObjectHandle(value = ListDomain.class, name = "JavaListHandleImpl")
-abstract class JavaListHandle<E> implements UnmovableList<E> {
+@ObjectHandle(value = ListDomain.class, name = "ListHandleImpl")
+abstract class ListHandle<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
   private final Type<E> elementType;
 
-  JavaListHandle(java.util.List<E> list, Class<E> elementClass) {
-    this.list = Collections.unmodifiableList(list);
+  ListHandle(java.util.List<E> list, Class<E> elementClass) {
+    this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = Types.of(elementClass);
   }
 
-  JavaListHandle(java.util.List<E> list, Type<E> elementType) {
-    this.list = Collections.unmodifiableList(list);
+  ListHandle(java.util.List<E> list, Type<E> elementType) {
+    this.list = java.util.Collections.unmodifiableList(list);
     this.elementType = elementType;
+  }
+
+  List<E> list() {
+    return list;
   }
 
   @Mapper
   @Override
   public Collection<E> asCollection() {
-    return new JavaCollectionHandleImpl<>(list, elementType);
+    return Collections.of(list, elementType);
   }
 
   @Override
@@ -41,13 +45,13 @@ abstract class JavaListHandle<E> implements UnmovableList<E> {
 
   @Mapper
   @Override
-  public E element(int index) {
+  public E get(int index) {
     return list.get(index);
   }
 
   @Mapper
   @Override
-  public int size() {
+  public Integer size() {
     return list.size();
   }
 

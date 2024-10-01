@@ -18,10 +18,10 @@ public interface PropertiesDomain extends PointDomain {
   Object value(String path) throws InvalidPropertyException;
 
   @Transition("4e01aa7a-3fd4-4509-9387-921c30ecf5f9")
-  int integerValue(String path) throws InvalidPropertyException;
+  Integer integerValue(String path) throws InvalidPropertyException;
 
   @Transition("ffcd77b5-032f-49db-8dfd-c792a19d1005")
-  double doubleValue(String path) throws InvalidPropertyException;
+  Double doubleValue(String path) throws InvalidPropertyException;
 
   @Transition("4cc73514-1a59-4560-ba50-7045360b853c")
   String stringValue(String path) throws InvalidPropertyException;
@@ -42,5 +42,5 @@ public interface PropertiesDomain extends PointDomain {
   ListDomain<PropertiesDomain> propertiesList(String path) throws InvalidPropertyException;
 
   @Transition("d1b7dcf8-b8d5-41d0-8d19-6faee74a852c")
-  int size();
+  Integer size();
 }

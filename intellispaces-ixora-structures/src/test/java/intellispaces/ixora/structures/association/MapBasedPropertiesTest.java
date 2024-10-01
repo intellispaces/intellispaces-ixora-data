@@ -270,7 +270,7 @@ public class MapBasedPropertiesTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.integerList(path).asList().nativeList()).isEqualTo(list);
+    assertThat(properties.integerList(path).nativeList()).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -311,7 +311,7 @@ public class MapBasedPropertiesTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.doubleList(path).asList().nativeList()).isEqualTo(list);
+    assertThat(properties.doubleList(path).nativeList()).isEqualTo(list);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -393,9 +393,9 @@ public class MapBasedPropertiesTest {
     MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.propertiesList(path).element(0).integerValue("key1")).isEqualTo(1);
-    assertThat(properties.propertiesList(path).element(1).integerValue("key2")).isEqualTo(2);
-    assertThat(properties.propertiesList(path).element(2).integerValue("key3")).isEqualTo(3);
+    assertThat(properties.propertiesList(path).get(0).integerValue("key1")).isEqualTo(1);
+    assertThat(properties.propertiesList(path).get(1).integerValue("key2")).isEqualTo(2);
+    assertThat(properties.propertiesList(path).get(2).integerValue("key3")).isEqualTo(3);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)

@@ -17,5 +17,5 @@ public interface CollectionDomain<E> extends PointDomain {
   Type<E> elementDomain();
 
   @Transition("ac251f1d-ecd8-45a0-bd05-972c71ed26aa")
-  int size();
+  Integer size();
 }

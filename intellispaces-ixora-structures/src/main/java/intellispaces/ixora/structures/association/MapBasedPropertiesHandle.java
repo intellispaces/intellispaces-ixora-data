@@ -3,11 +3,9 @@ package intellispaces.ixora.structures.association;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 import intellispaces.ixora.structures.collection.DoubleList;
-import intellispaces.ixora.structures.collection.DoubleListBasedOnList;
 import intellispaces.ixora.structures.collection.IntegerList;
-import intellispaces.ixora.structures.collection.IntegerListBasedOnList;
-import intellispaces.ixora.structures.collection.JavaListHandleImpl;
 import intellispaces.ixora.structures.collection.List;
+import intellispaces.ixora.structures.collection.Lists;
 import intellispaces.ixora.structures.exception.InvalidPropertyException;
 
 import java.util.Collections;
@@ -23,6 +21,10 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   public java.util.Map<String, Object> nativeMap() {
     return Collections.unmodifiableMap(map);
+  }
+
+  Map<String, Object> map() {
+    return map;
   }
 
   @Mapper
@@ -70,7 +72,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   @Mapper
   @Override
-  public int integerValue(String path) throws InvalidPropertyException {
+  public Integer integerValue(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Integer.class);
     return (int) value;
@@ -78,7 +80,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   @Mapper
   @Override
-  public double doubleValue(String path) throws InvalidPropertyException {
+  public Double doubleValue(String path) throws InvalidPropertyException {
     Object value = traverse(path);
     validateSingleValueType(path, value, Double.class);
     return (double) value;
@@ -114,7 +116,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private IntegerList integerList(String path, Object value) {
     validateListValueType(path, value, Integer.class);
-    return new IntegerListBasedOnList(new JavaListHandleImpl<>((java.util.List<Integer>) value, Integer.class));
+    return Lists.ofIntegers((java.util.List<Integer>) value);
   }
 
   @Mapper
@@ -127,7 +129,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private DoubleList doubleList(String path, Object value) {
     validateListValueType(path, value, Double.class);
-    return new DoubleListBasedOnList(new JavaListHandleImpl<>((java.util.List<Double>) value, Double.class));
+    return Lists.ofDoubles((java.util.List<Double>) value);
   }
 
   @Mapper
@@ -140,7 +142,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   @SuppressWarnings("unchecked")
   private List<String> stringList(String path, Object value) {
     validateListValueType(path, value, String.class);
-    return new JavaListHandleImpl<>((java.util.List<String>) value, String.class);
+    return Lists.of((java.util.List<String>) value, String.class);
   }
 
   @Mapper
@@ -158,12 +160,12 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
         .map(MapBasedPropertiesHandleImpl::new)
         .map(p -> (Properties) p)
         .toList();
-    return new JavaListHandleImpl<>(propertyList, Properties.class);
+    return Lists.of(propertyList, Properties.class);
   }
 
   @Mapper
   @Override
-  public int size() {
+  public Integer size() {
     return nativeMap().size();
   }
 

@@ -1,21 +1,14 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.common.base.type.Type;
-import intellispaces.common.javastatement.type.Types;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
 /**
- * Synonym for the domains NumberListDomain&lt;Double&gt; and ListDomain&lt;Byte&gt;.
+ * Alias for the domains NumberListDomain&lt;Double&gt;.
  */
 @Domain("019081ff-e48c-773d-b6af-f6f3ec15ced9")
 public interface DoubleListDomain extends NumberListDomain<Double> {
-
-  /**
-   * Downgrade mapping.
-   */
-  @Transition("01908254-ac97-7643-8cce-d058caad1aba")
-  ListDomain<Double> asList();
 
   /**
    * Downgrade mapping.
@@ -25,10 +18,10 @@ public interface DoubleListDomain extends NumberListDomain<Double> {
   CollectionDomain<Double> asCollection();
 
   @Override
-  default Type<Double> elementDomain() {
-    return Types.of(Double.class);
-  }
+  @Transition("7f2c28d4-a738-432b-8afa-f47e7e00a933")
+  Double get(int index);
 
   @Override
-  Double element(int index);
+  @Transition("7e733832-f05f-46ce-abf3-b13ea4d53316")
+  Type<Double> elementDomain();
 }

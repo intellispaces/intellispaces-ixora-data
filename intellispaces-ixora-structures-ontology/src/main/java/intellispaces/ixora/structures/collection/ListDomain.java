@@ -17,6 +17,6 @@ public interface ListDomain<E> extends CollectionDomain<E> {
   @Transition("01909079-ab91-75ba-8fd0-4a2cb5391791")
   CollectionDomain<E> asCollection();
 
-  @Transition("a8b23e74-2f8a-41eb-9427-a50e8274dc09")
-  E element(int index);
+  @Transition(value = "a8b23e74-2f8a-41eb-9427-a50e8274dc09", name = "ListToElementTransition")
+  E get(int index);
 }

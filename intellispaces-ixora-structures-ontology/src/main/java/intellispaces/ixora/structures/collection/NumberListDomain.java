@@ -1,19 +1,27 @@
 package intellispaces.ixora.structures.collection;
 
+import intellispaces.common.base.type.Type;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.annotation.Transition;
 
 /**
- * List of numbers.
+ * List of numbers.</p>
  *
- * @param <E> list element domain type.
+ * Alias for the domain ListDomain&lt;Number&gt;.
+ *
+ * @param <N> list element domain type.
  */
 @Domain("01908c74-4692-7fe2-8f51-375bda2efc40")
-public interface NumberListDomain<E extends Number> extends ListDomain<E> {
+public interface NumberListDomain<N extends Number> extends ListDomain<N> {
 
   /**
    * Downgrade mapping.
    */
-  @Transition("01908c74-6c7e-7890-96cd-9dc2531999ef")
-  ListDomain<E> asList();
+  @Override
+  @Transition("390f8f03-3622-4bbf-8df4-11e48c897d94")
+  CollectionDomain<N> asCollection();
+
+  @Override
+  @Transition("2c16d0ca-619d-4a17-a680-655bd98d78f1")
+  Type<N> elementDomain();
 }
