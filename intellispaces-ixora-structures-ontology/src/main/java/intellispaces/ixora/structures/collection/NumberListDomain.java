@@ -1,8 +1,8 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.common.base.type.Type;
+import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.annotation.Transition;
 
 /**
  * List of numbers.</p>
@@ -18,10 +18,10 @@ public interface NumberListDomain<N extends Number> extends ListDomain<N> {
    * Downgrade mapping.
    */
   @Override
-  @Transition("390f8f03-3622-4bbf-8df4-11e48c897d94")
+  @Channel("390f8f03-3622-4bbf-8df4-11e48c897d94")
   CollectionDomain<N> asCollection();
 
   @Override
-  @Transition("2c16d0ca-619d-4a17-a680-655bd98d78f1")
+  @Channel("2c16d0ca-619d-4a17-a680-655bd98d78f1")
   Type<N> elementDomain();
 }

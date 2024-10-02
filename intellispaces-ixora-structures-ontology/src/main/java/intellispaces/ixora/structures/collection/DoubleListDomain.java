@@ -1,8 +1,8 @@
 package intellispaces.ixora.structures.collection;
 
 import intellispaces.common.base.type.Type;
+import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.annotation.Transition;
 
 /**
  * Alias for the domains NumberListDomain&lt;Double&gt;.
@@ -14,14 +14,14 @@ public interface DoubleListDomain extends NumberListDomain<Double> {
    * Downgrade mapping.
    */
   @Override
-  @Transition("01909080-c97f-77f1-9a5a-f20dba6ed8a6")
+  @Channel("01909080-c97f-77f1-9a5a-f20dba6ed8a6")
   CollectionDomain<Double> asCollection();
 
   @Override
-  @Transition("7f2c28d4-a738-432b-8afa-f47e7e00a933")
+  @Channel("7f2c28d4-a738-432b-8afa-f47e7e00a933")
   Double get(int index);
 
   @Override
-  @Transition("7e733832-f05f-46ce-abf3-b13ea4d53316")
+  @Channel("7e733832-f05f-46ce-abf3-b13ea4d53316")
   Type<Double> elementDomain();
 }
