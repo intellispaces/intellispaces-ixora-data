@@ -18,7 +18,7 @@ public interface ByteListDomain extends NumberListDomain<Byte> {
   CollectionDomain<Byte> asCollection();
 
   @Override
-  @Channel("f5bf6431-109a-4906-a54d-d30755a623c9")
+  @Channel(value = "f5bf6431-109a-4906-a54d-d30755a623c9", name = "ByteListToElementChannel")
   Byte get(int index);
 
   @Override

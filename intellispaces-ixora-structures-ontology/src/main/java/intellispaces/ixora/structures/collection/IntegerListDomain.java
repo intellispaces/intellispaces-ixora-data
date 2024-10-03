@@ -18,7 +18,7 @@ public interface IntegerListDomain extends NumberListDomain<Integer> {
   CollectionDomain<Integer> asCollection();
 
   @Override
-  @Channel("fa8d530a-7e9d-49e1-a7f3-0956d3460ac5")
+  @Channel(value = "fa8d530a-7e9d-49e1-a7f3-0956d3460ac5", name = "IntegerListToElementChannel")
   Integer get(int index);
 
   @Override

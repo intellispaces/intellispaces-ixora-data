@@ -18,7 +18,7 @@ public interface DoubleListDomain extends NumberListDomain<Double> {
   CollectionDomain<Double> asCollection();
 
   @Override
-  @Channel("7f2c28d4-a738-432b-8afa-f47e7e00a933")
+  @Channel(value = "7f2c28d4-a738-432b-8afa-f47e7e00a933", name = "DoubleListToElementChannel")
   Double get(int index);
 
   @Override
