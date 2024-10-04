@@ -26,12 +26,16 @@ abstract class InputStreamCursor implements MovableByteCursor {
   @Override
   @MapperOfMoving
   public Boolean next() {
-    return nextPrimitive();
+    return hasNext();
   }
 
-//  @Override
-//  @MapperOfMoving
+  @Override
+  @MapperOfMoving
   public boolean nextPrimitive() {
+    return hasNext();
+  }
+
+  private boolean hasNext() {
     try {
       buffer = stream.read();
       return (buffer != -1);
@@ -43,12 +47,16 @@ abstract class InputStreamCursor implements MovableByteCursor {
   @Mapper
   @Override
   public Byte value() {
-    return primitiveValue();
+    return getValue();
   }
 
-//  @Mapper
-//  @Override
-  public byte primitiveValue() {
+  @Mapper
+  @Override
+  public byte valuePrimitive() {
+    return getValue();
+  }
+
+  private byte getValue() {
     if (buffer == -1) {
       throw TraverseException.withMessage("End of the collection has been reached");
     }

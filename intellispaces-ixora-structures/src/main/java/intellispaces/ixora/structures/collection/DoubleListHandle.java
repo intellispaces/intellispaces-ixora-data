@@ -41,18 +41,32 @@ abstract class DoubleListHandle implements UnmovableDoubleList {
   @Mapper
   @Override
   public Double get(int index) {
-    return getPrimitive(index);
+    return getElement(index);
   }
 
-//  @Mapper
-//  @Override
+  @Mapper
+  @Override
   public double getPrimitive(int index) {
+    return getElement(index);
+  }
+
+  private double getElement(int index) {
     return array[index];
   }
 
   @Mapper
   @Override
   public Integer size() {
+    return getSize();
+  }
+
+  @Mapper
+  @Override
+  public int sizePrimitive() {
+    return getSize();
+  }
+
+  private int getSize() {
     return array.length;
   }
 

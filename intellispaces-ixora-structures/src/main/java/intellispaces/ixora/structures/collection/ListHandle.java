@@ -55,6 +55,12 @@ abstract class ListHandle<E> implements UnmovableList<E> {
     return list.size();
   }
 
+  @Mapper
+  @Override
+  public int sizePrimitive() {
+    return list.size();
+  }
+
   @Override
   public java.util.List<E> nativeList() {
     return list;

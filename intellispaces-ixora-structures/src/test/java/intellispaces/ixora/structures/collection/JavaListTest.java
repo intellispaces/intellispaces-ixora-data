@@ -57,14 +57,6 @@ public class JavaListTest {
     assertThat(integerListAlias.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
     assertThat(numberListAlias.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
     assertThat(primaryList.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
-
-
-//    java.util.List<Integer> javaList = java.util.List.of(1, 2, 3);
-//    List<Integer> integerList = new ListHandleImpl<>(javaList, Integer.class);
-
-//    List<Number> numberList = (List<Number>) integerList;
-
-
   }
 
 }

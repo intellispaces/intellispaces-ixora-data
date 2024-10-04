@@ -42,18 +42,32 @@ abstract class IntegerListHandle implements UnmovableIntegerList {
   @Mapper
   @Override
   public Integer get(int index) {
-    return getPrimitive(index);
+    return getElement(index);
   }
 
-//  @Mapper
-//  @Override
+  @Mapper
+  @Override
   public int getPrimitive(int index) {
+    return getElement(index);
+  }
+
+  private int getElement(int index) {
     return array[index];
   }
 
   @Mapper
   @Override
   public Integer size() {
+    return getSize();
+  }
+
+  @Mapper
+  @Override
+  public int sizePrimitive() {
+    return getSize();
+  }
+
+  private int getSize() {
     return array.length;
   }
 
@@ -64,12 +78,6 @@ abstract class IntegerListHandle implements UnmovableIntegerList {
     }
     return list;
   }
-
-//  @Override
-//  public java.util.Collection<Integer> nativeCollection() {
-//    return nativeList();
-//  }
-
 
   @Override
   public java.util.Collection<Integer> nativeCollection() {
