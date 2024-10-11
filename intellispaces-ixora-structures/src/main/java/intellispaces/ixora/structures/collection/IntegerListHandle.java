@@ -23,7 +23,7 @@ abstract class IntegerListHandle implements UnmovableIntegerList {
     this.list = list;
   }
 
-  int[] array() {
+  public int[] array() {
     return array;
   }
 
@@ -84,3 +84,4 @@ abstract class IntegerListHandle implements UnmovableIntegerList {
     return List.of();
   }
 }
+

@@ -22,7 +22,7 @@ abstract class DoubleListHandle implements UnmovableDoubleList {
     this.list = list;
   }
 
-  double[] array() {
+  public double[] array() {
     return array;
   }
 

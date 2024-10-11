@@ -32,6 +32,7 @@ public class JavaListTest {
 
     // Then
     assertThat(handle.size()).isEqualTo(3);
+    assertThat(handle.sizePrimitive()).isEqualTo(3);
     assertThat(handle.get(0)).isEqualTo("a");
     assertThat(handle.get(1)).isEqualTo("b");
     assertThat(handle.get(2)).isEqualTo("c");
