@@ -3,7 +3,7 @@ package intellispaces.ixora.data.collection;
 import intellispaces.common.base.type.Type;
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
-import intellispaces.ixora.base.PointDomain;
+import intellispaces.ixora.space.PointDomain;
 
 /**
  * Homogeneous collection of elements.

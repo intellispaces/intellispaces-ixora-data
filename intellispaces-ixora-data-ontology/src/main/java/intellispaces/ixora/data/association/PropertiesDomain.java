@@ -2,11 +2,11 @@ package intellispaces.ixora.data.association;
 
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
-import intellispaces.ixora.base.PointDomain;
 import intellispaces.ixora.data.collection.DoubleListDomain;
 import intellispaces.ixora.data.collection.IntegerListDomain;
 import intellispaces.ixora.data.collection.ListDomain;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
+import intellispaces.ixora.space.PointDomain;
 
 /**
  * Properties are a hierarchical set of named properties.

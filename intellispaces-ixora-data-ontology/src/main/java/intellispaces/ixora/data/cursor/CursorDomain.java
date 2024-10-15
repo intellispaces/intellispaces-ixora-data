@@ -4,8 +4,8 @@ import intellispaces.common.base.type.Type;
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.traverse.TraverseTypes;
-import intellispaces.ixora.base.PointDomain;
 import intellispaces.ixora.data.collection.CollectionDomain;
+import intellispaces.ixora.space.PointDomain;
 
 /**
  * One-sided cursor.
