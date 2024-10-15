@@ -17,7 +17,7 @@ public interface Cursors {
     throw new RuntimeException("Not implemented");
   }
 
-  static ByteCursor get(InputStream stream) {
-    return new InputStreamCursor(stream);
+  static ByteCursor get(InputStream is) {
+    return new InputStreamCursorHandleImpl(is);
   }
 }

@@ -8,7 +8,7 @@ import intellispaces.framework.core.annotation.ObjectHandle;
 import java.util.Arrays;
 import java.util.List;
 
-@ObjectHandle(value = IntegerListDomain.class, name = "IntegerListHandleImpl")
+@ObjectHandle(IntegerListDomain.class)
 abstract class IntegerListHandle implements UnmovableIntegerList {
   private final int[] array;
   private final Type<Integer> elementType = Types.of(Integer.class);

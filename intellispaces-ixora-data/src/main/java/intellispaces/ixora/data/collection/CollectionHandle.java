@@ -7,7 +7,7 @@ import intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Collection;
 
-@ObjectHandle(value = CollectionDomain.class, name = "CollectionHandleImpl")
+@ObjectHandle(CollectionDomain.class)
 abstract class CollectionHandle<E> implements UnmovableCollection<E> {
   private final java.util.Collection<E> collection;
   private final Type<E> elementDomain;

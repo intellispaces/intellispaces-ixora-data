@@ -7,7 +7,7 @@ import intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.List;
 
-@ObjectHandle(value = ListDomain.class, name = "ListHandleImpl")
+@ObjectHandle(ListDomain.class)
 abstract class ListHandle<E> implements UnmovableList<E> {
   private final java.util.List<E> list;
   private final Type<E> elementType;

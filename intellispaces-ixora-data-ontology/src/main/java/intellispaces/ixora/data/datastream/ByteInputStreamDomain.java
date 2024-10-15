@@ -5,7 +5,7 @@ import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.traverse.TraverseTypes;
 
 @Domain("e414189a-f906-49bd-9a89-116c7c19debd")
-public interface InputByteStreamDomain extends InputDataStreamDomain<Byte> {
+public interface ByteInputStreamDomain extends InputDataStreamDomain<Byte> {
 
   @Override
   @Channel(

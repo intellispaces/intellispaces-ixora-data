@@ -8,5 +8,5 @@ public interface ByteCursorDomain extends CursorDomain<Byte> {
 
   @Override
   @Channel("29d7623b-4a5b-4a6b-97e9-e877ec2cb4cc")
-  Byte value();
+  Byte next();
 }

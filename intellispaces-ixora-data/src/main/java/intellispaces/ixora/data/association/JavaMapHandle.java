@@ -8,7 +8,7 @@ import intellispaces.ixora.data.collection.Collection;
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(value = MapDomain.class, name = "JavaMapHandleImpl")
+@ObjectHandle(MapDomain.class)
 abstract class JavaMapHandle<K, V> implements UnmovableMap<K, V> {
   private final java.util.Map<K, V> map;
   private final Type<K> keyType;

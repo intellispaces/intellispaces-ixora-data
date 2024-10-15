@@ -11,7 +11,7 @@ import intellispaces.ixora.data.exception.InvalidPropertyException;
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(value = PropertiesDomain.class, name = "MapBasedPropertiesHandleImpl")
+@ObjectHandle(PropertiesDomain.class)
 abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   private final java.util.Map<String, Object> map;
 

@@ -1,17 +1,18 @@
-package intellispaces.ixora.data.cursor;
+package intellispaces.ixora.data.datastream;
 
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.MapperOfMoving;
 import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.ixora.data.cursor.AbstractInputStreamCursor;
 
 import java.io.InputStream;
 
-@ObjectHandle(ByteCursorDomain.class)
-abstract class InputStreamCursorHandle extends AbstractInputStreamCursor implements MovableByteCursor {
+@ObjectHandle(ByteInputStreamDomain.class)
+abstract class ByteInputStreamHandle extends AbstractInputStreamCursor implements MovableByteInputStream {
 
-  InputStreamCursorHandle(InputStream is) {
+  ByteInputStreamHandle(InputStream is) {
     super(is);
   }
 
@@ -21,27 +22,27 @@ abstract class InputStreamCursorHandle extends AbstractInputStreamCursor impleme
     return Types.of(Byte.class);
   }
 
+  @Mapper
   @Override
-  @MapperOfMoving
-  public Boolean hasNext() {
-    return hasNextElement();
-  }
-
-  @Override
-  @MapperOfMoving
-  public boolean hasNextPrimitive() {
+  public Boolean isExhausted() {
     return hasNextElement();
   }
 
   @Mapper
   @Override
-  public Byte next() {
+  public boolean isExhaustedPrimitive() {
+    return hasNextElement();
+  }
+
+  @Override
+  @MapperOfMoving
+  public Byte read() {
     return nextElement();
   }
 
-  @Mapper
   @Override
-  public byte nextPrimitive() {
+  @MapperOfMoving
+  public byte readPrimitive() {
     return nextElement();
   }
 }

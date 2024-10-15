@@ -7,7 +7,7 @@ import intellispaces.framework.core.annotation.ObjectHandle;
 
 import java.util.Arrays;
 
-@ObjectHandle(value = DoubleListDomain.class, name = "DoubleListHandleImpl")
+@ObjectHandle(DoubleListDomain.class)
 abstract class DoubleListHandle implements UnmovableDoubleList {
   private final double[] array;
   private final Type<Double> elementType = Types.of(Double.class);
