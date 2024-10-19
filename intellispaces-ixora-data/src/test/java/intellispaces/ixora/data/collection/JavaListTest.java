@@ -28,15 +28,15 @@ public class JavaListTest {
   public void testJavaListHandle_whenUnmovable() {
     // Given
     java.util.List<String> javaList = java.util.List.of("a", "b", "c");
-    List<String> handle = new ListHandleImpl<>(javaList, String.class);
+    List<String> listHandle = Lists.of(javaList, String.class);
 
     // Then
-    assertThat(handle.size()).isEqualTo(3);
-    assertThat(handle.sizePrimitive()).isEqualTo(3);
-    assertThat(handle.get(0)).isEqualTo("a");
-    assertThat(handle.get(1)).isEqualTo("b");
-    assertThat(handle.get(2)).isEqualTo("c");
-    assertThat(handle.nativeList()).isEqualTo(javaList);
+    assertThat(listHandle.size()).isEqualTo(3);
+    assertThat(listHandle.sizePrimitive()).isEqualTo(3);
+    assertThat(listHandle.get(0)).isEqualTo("a");
+    assertThat(listHandle.get(1)).isEqualTo("b");
+    assertThat(listHandle.get(2)).isEqualTo("c");
+    assertThat(listHandle.nativeList()).isEqualTo(javaList);
   }
 
   @Test

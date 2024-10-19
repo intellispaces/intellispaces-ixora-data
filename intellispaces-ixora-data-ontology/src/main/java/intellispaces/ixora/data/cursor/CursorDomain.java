@@ -5,7 +5,6 @@ import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.traverse.TraverseTypes;
 import intellispaces.ixora.data.collection.CollectionDomain;
-import intellispaces.ixora.space.PointDomain;
 
 /**
  * One-sided cursor.
@@ -13,7 +12,7 @@ import intellispaces.ixora.space.PointDomain;
  * @param <E> cursor element type.
  */
 @Domain("3826cfd5-1b2a-4441-86b7-6ff0a9b2a7cd")
-public interface CursorDomain<E> extends PointDomain {
+public interface CursorDomain<E> {
 
   @Channel("4d445fd4-4088-49a5-b0ba-fffd8c443b13")
   CollectionDomain<E> collection();

@@ -2,8 +2,6 @@ package intellispaces.ixora.data.cursor;
 
 import intellispaces.ixora.data.collection.CollectionDomain;
 
-import java.io.InputStream;
-
 public interface Cursors {
 
   /**
@@ -15,9 +13,5 @@ public interface Cursors {
    */
   static <E> Cursor<E> get(CollectionDomain<E> collection) {
     throw new RuntimeException("Not implemented");
-  }
-
-  static ByteCursor get(InputStream is) {
-    return new InputStreamCursorHandleImpl(is);
   }
 }

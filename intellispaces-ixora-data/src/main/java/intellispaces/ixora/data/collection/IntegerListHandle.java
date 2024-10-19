@@ -29,7 +29,7 @@ abstract class IntegerListHandle implements UnmovableIntegerList {
 
   @Mapper
   @Override
-  public Collection<Integer> asCollection() {
+  public UnmovableCollection<Integer> asCollection() {
     return new CollectionHandleImpl<>(nativeList(), elementType);
   }
 

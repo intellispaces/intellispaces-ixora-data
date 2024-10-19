@@ -9,6 +9,9 @@ import intellispaces.ixora.data.collection.ListDomain;
 @Domain("671f5295-423a-4b26-a579-6c3087c02e88")
 public interface InputDataStreamDomain<E> extends DataStreamDomain<E> {
 
+  @Channel("565006d2-6171-446b-b85b-f5e17198ee80")
+  DataStreamDomain<E> asDataStream();
+
   @Channel(
       value = "2d698e68-bb86-4e5b-9888-203c530b7fd2",
       name = "InputDataStreamIsExhaustedChannel")

@@ -13,9 +13,9 @@ public interface IntegerListDomain extends NumberListDomain<Integer> {
   /**
    * Downgrade mapping.
    */
-  @Override
-  @Channel("01909080-8b2e-798a-8467-150465a39848")
-  CollectionDomain<Integer> asCollection();
+//  @Override
+//  @Channel("01909080-8b2e-798a-8467-150465a39848")
+//  CollectionDomain<Integer> asCollection();
 
   @Override
   @Channel(value = "fa8d530a-7e9d-49e1-a7f3-0956d3460ac5", name = "IntegerListToElementChannel")

@@ -6,13 +6,12 @@ import intellispaces.ixora.data.collection.DoubleListDomain;
 import intellispaces.ixora.data.collection.IntegerListDomain;
 import intellispaces.ixora.data.collection.ListDomain;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
-import intellispaces.ixora.space.PointDomain;
 
 /**
  * Properties are a hierarchical set of named properties.
  */
 @Domain("eccd18a1-ec7a-4949-9acd-2b2fa9576da1")
-public interface PropertiesDomain extends PointDomain {
+public interface PropertiesDomain {
 
   @Channel("ea111b97-c025-4d74-8466-d462c4c87efd")
   Object value(String path) throws InvalidPropertyException;

@@ -28,7 +28,7 @@ abstract class DoubleListHandle implements UnmovableDoubleList {
 
   @Mapper
   @Override
-  public Collection<Double> asCollection() {
+  public UnmovableCollection<Double> asCollection() {
     return new CollectionHandleImpl<>(nativeList(), elementType);
   }
 

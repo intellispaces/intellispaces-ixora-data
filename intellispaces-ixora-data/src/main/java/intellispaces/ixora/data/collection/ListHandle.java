@@ -28,7 +28,7 @@ abstract class ListHandle<E> implements UnmovableList<E> {
 
   @Mapper
   @Override
-  public Collection<E> asCollection() {
+  public UnmovableCollection<E> asCollection() {
     return Collections.of(list, elementType);
   }
 
