@@ -32,6 +32,22 @@ public interface Lists {
     return ListProvider.empty(elementClass);
   }
 
+  static UnmovableByteList ofBytes(byte[] array) {
+    return new ByteListHandleImpl(array);
+  }
+
+  static UnmovableByteList ofBytes(java.util.List<Byte> list) {
+    return new ByteListHandleImpl(list);
+  }
+
+  static UnmovableByteList ofBytes(byte value1, byte value2) {
+    return new ByteListHandleImpl(new byte[] { value1, value2 });
+  }
+
+  static UnmovableByteList ofBytes(byte value1, byte value2, byte value3) {
+    return new ByteListHandleImpl(new byte[] { value1, value2, value3 });
+  }
+
   static UnmovableIntegerList ofIntegers(int[] array) {
     return new IntegerListHandleImpl(array);
   }

@@ -6,6 +6,8 @@ import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.MapperOfMoving;
 import intellispaces.framework.core.annotation.ObjectHandle;
 import intellispaces.framework.core.exception.TraverseException;
+import intellispaces.ixora.data.collection.Lists;
+import intellispaces.ixora.data.collection.UnmovableByteList;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,13 +43,25 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
   @Override
   @MapperOfMoving
   public Byte read() {
-    return nextElement();
+    return nextByte();
   }
 
   @Override
   @MapperOfMoving
   public byte readPrimitive() {
-    return nextElement();
+    return nextByte();
+  }
+
+  @Override
+  @MapperOfMoving
+  public UnmovableByteList readMultiple(int number) {
+    return Lists.ofBytes(nextBytes(number));
+  }
+
+  @Override
+  @MapperOfMoving
+  public UnmovableByteList readAll() {
+    return Lists.ofBytes(allBytes());
   }
 
   private boolean hasNextElement() {
@@ -64,7 +78,7 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
     }
   }
 
-  private byte nextElement() {
+  private byte nextByte() {
     if (buffered) {
       buffered = false;
       return (byte) buffer;
@@ -79,6 +93,40 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
       return (byte) buffer;
     } catch (IOException e) {
       throw TraverseException.withCauseAndMessage(e, "Could not read the next element of input stream");
+    }
+  }
+
+  private byte[] nextBytes(int number) {
+    try {
+      byte[] bytes = is.readNBytes(buffered ? number - 1 : number);
+      if (!buffered) {
+        return bytes;
+      }
+
+      byte[] allBytes = new byte[bytes.length + 1];
+      allBytes[0] = (byte) buffer;
+      System.arraycopy(bytes, 1, allBytes, 0, bytes.length);
+      buffered = false;
+      return allBytes;
+    } catch (IOException e) {
+      throw TraverseException.withCauseAndMessage(e, "Could not read multiple bytes of input stream");
+    }
+  }
+
+  private byte[] allBytes() {
+    try {
+      byte[] bytes = is.readAllBytes();
+      if (!buffered) {
+        return bytes;
+      }
+
+      byte[] allBytes = new byte[bytes.length + 1];
+      allBytes[0] = (byte) buffer;
+      System.arraycopy(bytes, 1, allBytes, 0, bytes.length);
+      buffered = false;
+      return allBytes;
+    } catch (IOException e) {
+      throw TraverseException.withCauseAndMessage(e, "Could not read all bytes of input stream");
     }
   }
 }
