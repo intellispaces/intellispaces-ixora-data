@@ -1,5 +1,6 @@
 package intellispaces.ixora.data.datastream;
 
+import intellispaces.common.base.exception.UnexpectedViolationException;
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
 import intellispaces.framework.core.annotation.Mapper;
@@ -20,6 +21,15 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
 
   ByteInputStreamHandle(InputStream is) {
     this.is = is;
+  }
+
+  @Override
+  public void release() {
+    try {
+      is.close();
+    } catch (IOException e) {
+      throw UnexpectedViolationException.withCauseAndMessage(e, "Could not close input stream");
+    }
   }
 
   @Mapper
