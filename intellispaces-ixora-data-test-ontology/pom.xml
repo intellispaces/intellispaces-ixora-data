@@ -2,22 +2,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>intellispaces-parent</groupId>
-        <artifactId>intellispaces-base-pom</artifactId>
+        <groupId>intellispaces-ixora</groupId>
+        <artifactId>intellispaces-ixora-data-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>intellispaces-ixora</groupId>
-    <artifactId>intellispaces-ixora-data-parent</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>intellispaces-ixora-data-ontology</module>
-        <module>intellispaces-ixora-data</module>
-        <module>intellispaces-ixora-data-test</module>
-        <module>intellispaces-ixora-data-test-ontology</module>
-    </modules>
-
+    <artifactId>intellispaces-ixora-data-test-ontology</artifactId>
+    <packaging>jar</packaging>
+	
     <build>
         <plugins>
             <plugin>
@@ -28,10 +20,15 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
+
+    <dependencies>
+        <!-- Intellispaces -->
+        <dependency>
+            <groupId>intellispaces-ixora</groupId>
+            <artifactId>intellispaces-ixora-space-ontology</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

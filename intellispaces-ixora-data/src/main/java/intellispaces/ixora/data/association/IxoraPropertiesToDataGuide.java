@@ -13,11 +13,11 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class IxoraPropertiesToDataGuide<D> implements PropertiesToDataGuide<D> {
+public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
 
   @Mapper
   @Override
-  public <T extends D> T propertiesToData(Properties properties, Class<? extends T> dataClass) {
+  public <D> D propertiesToData(Properties properties, Class<? extends D> dataClass) {
     if (DataFunctions.isDataObjectHandle(dataClass)) {
       return process(properties, dataClass);
     }
@@ -25,8 +25,8 @@ public class IxoraPropertiesToDataGuide<D> implements PropertiesToDataGuide<D> {
   }
 
   @SuppressWarnings("unchecked")
-  private <T> T process(Properties properties, Class<T> targetClass) {
-    Class<?> domainClass = ObjectFunctions.getDomainClassOfObjectHandle(targetClass);
+  private <D> D process(Properties properties, Class<D> dataClass) {
+    Class<?> domainClass = ObjectFunctions.getDomainClassOfObjectHandle(dataClass);
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = TypeFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedViolationException.withMessage("Can''t find data handle class. Domain class {0}, " +
@@ -39,7 +39,7 @@ public class IxoraPropertiesToDataGuide<D> implements PropertiesToDataGuide<D> {
     Constructor<?> constructor = constructors[0];
     if (constructor.getParameterCount() != domainClass.getMethods().length) {
       throw UnexpectedViolationException.withMessage("Data class {0} must contain constructor with {1} parameters",
-          dataHandleObjectCanonicalName, targetClass.getMethods().length);
+          dataHandleObjectCanonicalName, dataClass.getMethods().length);
     }
 
     Object[] arguments = new Object[constructor.getParameterCount()];
@@ -54,6 +54,6 @@ public class IxoraPropertiesToDataGuide<D> implements PropertiesToDataGuide<D> {
       }
       arguments[index++] = value;
     }
-    return (T) FunctionFunctions.applyAndCoverIfChecked(constructor::newInstance, arguments);
+    return (D) FunctionFunctions.applyAndCoverIfChecked(constructor::newInstance, arguments);
   }
 }

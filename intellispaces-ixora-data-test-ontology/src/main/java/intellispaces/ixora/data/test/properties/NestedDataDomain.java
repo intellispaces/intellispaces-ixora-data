@@ -1,4 +1,4 @@
-package intellispaces.ixora.data.test.properties.samples;
+package intellispaces.ixora.data.test.properties;
 
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Data;

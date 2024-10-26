@@ -1,14 +1,7 @@
 package intellispaces.ixora.data.test.properties;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.system.Modules;
 import intellispaces.ixora.data.association.Properties;
 import intellispaces.ixora.data.association.PropertiesToDataGuide;
-import intellispaces.ixora.data.test.properties.samples.NestedData;
-import intellispaces.ixora.data.test.properties.samples.PrimitiveData;
-import intellispaces.ixora.data.test.properties.samples.SimpleData;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,19 +11,9 @@ import static org.mockito.Mockito.when;
 /**
  * Tests for guide {@link PropertiesToDataGuide}.
  */
-public abstract class PropertiesToDataGuideTest {
+public abstract class AbstractPropertiesToDataGuideTest {
 
-  @BeforeEach
-  public void init() {
-    IntellispacesFramework.loadModule();
-  }
-
-  @AfterEach
-  public void deinit() {
-    Modules.current().stop();
-  }
-
-  public abstract PropertiesToDataGuide<Object> guide();
+  public abstract PropertiesToDataGuide getGuide();
 
   @Test
   public void testPrimitiveData_whenEmptyProperties() {
@@ -38,7 +21,7 @@ public abstract class PropertiesToDataGuideTest {
     Properties properties = mock(Properties.class);
 
     // When
-    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
+    PrimitiveData data = getGuide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -52,7 +35,7 @@ public abstract class PropertiesToDataGuideTest {
     Properties properties = mock(Properties.class);
 
     // When
-    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
+    SimpleData data = getGuide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -67,7 +50,7 @@ public abstract class PropertiesToDataGuideTest {
     Properties properties = mock(Properties.class);
 
     // When
-    NestedData data = guide().propertiesToData(properties, NestedData.class);
+    NestedData data = getGuide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -83,7 +66,7 @@ public abstract class PropertiesToDataGuideTest {
     when(properties.value("doubleValue")).thenReturn(2.2);
 
     // When
-    PrimitiveData data = guide().propertiesToData(properties, PrimitiveData.class);
+    PrimitiveData data = getGuide().propertiesToData(properties, PrimitiveData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -100,7 +83,7 @@ public abstract class PropertiesToDataGuideTest {
     when(properties.value("stringValue")).thenReturn("abc");
 
     // When
-    SimpleData data = guide().propertiesToData(properties, SimpleData.class);
+    SimpleData data = getGuide().propertiesToData(properties, SimpleData.class);
 
     // Then
     assertThat(data).isNotNull();
@@ -119,7 +102,7 @@ public abstract class PropertiesToDataGuideTest {
     when(nestedProperties.value("stringValue")).thenReturn("def");
 
     // When
-    NestedData data = guide().propertiesToData(properties, NestedData.class);
+    NestedData data = getGuide().propertiesToData(properties, NestedData.class);
 
     // Then
     assertThat(data).isNotNull();
