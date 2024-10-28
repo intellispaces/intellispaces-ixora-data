@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.test.properties;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Data;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Data;
+import intellispaces.jaquarius.annotation.Domain;
 
 @Data
 @Domain("b833c1fc-e71e-43fc-b996-f8869642c807")

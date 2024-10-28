@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.cursor;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 @Domain("d280760e-013f-4dbb-a817-8b784561d058")
 public interface ByteCursorDomain extends CursorDomain<Byte> {

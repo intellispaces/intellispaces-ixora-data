@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.annotation.Preprocessing;
+import intellispaces.jaquarius.annotation.Preprocessing;
 
 @Preprocessing(addOnFor = MapDomain.class, artifact = "ObjectHandle")
 public interface MapAddOn<K, V> {

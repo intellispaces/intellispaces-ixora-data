@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Ontology;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Ontology;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
 
 @Ontology

@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.collection.DoubleList;
 import intellispaces.ixora.data.collection.IntegerList;
 import intellispaces.ixora.data.collection.List;

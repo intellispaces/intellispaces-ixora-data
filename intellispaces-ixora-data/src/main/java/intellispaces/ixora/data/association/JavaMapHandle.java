@@ -2,7 +2,7 @@ package intellispaces.ixora.data.association;
 
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
-import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.collection.Collection;
 
 import java.util.Collections;

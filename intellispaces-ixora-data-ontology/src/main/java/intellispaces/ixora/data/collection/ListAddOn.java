@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.collection;
 
-import intellispaces.framework.core.annotation.Preprocessing;
+import intellispaces.jaquarius.annotation.Preprocessing;
 
 @Preprocessing(addOnFor = ListDomain.class, artifact = "ObjectHandle")
 public interface ListAddOn<E> {

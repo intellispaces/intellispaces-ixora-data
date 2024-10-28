@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.annotation.Preprocessing;
+import intellispaces.jaquarius.annotation.Preprocessing;
 
 @Preprocessing(addOnFor = PropertiesDomain.class, artifact = "ObjectHandle")
 public interface PropertiesDomainAddOn<E> {

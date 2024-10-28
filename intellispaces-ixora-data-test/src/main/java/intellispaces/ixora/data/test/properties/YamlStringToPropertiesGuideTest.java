@@ -1,7 +1,6 @@
 package intellispaces.ixora.data.test.properties;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.system.Modules;
+import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.data.association.Properties;
 import intellispaces.ixora.data.association.YamlStringToPropertiesGuide;
 import intellispaces.ixora.data.collection.List;
@@ -18,7 +17,7 @@ public abstract class YamlStringToPropertiesGuideTest {
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule();
+    Modules.get().start();
   }
 
   @AfterEach

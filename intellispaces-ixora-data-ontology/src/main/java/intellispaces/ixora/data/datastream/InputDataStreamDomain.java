@@ -1,9 +1,9 @@
 package intellispaces.ixora.data.datastream;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.annotation.Unmovable;
-import intellispaces.framework.core.traverse.TraverseTypes;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
+import intellispaces.jaquarius.annotation.Unmovable;
+import intellispaces.jaquarius.traverse.TraverseTypes;
 import intellispaces.ixora.data.collection.ListDomain;
 
 @Domain("671f5295-423a-4b26-a579-6c3087c02e88")

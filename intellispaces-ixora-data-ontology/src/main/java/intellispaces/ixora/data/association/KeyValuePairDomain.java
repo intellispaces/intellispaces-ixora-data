@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 @Domain("8f00a2aa-f70d-4064-b517-e7f15642c805")
 public interface KeyValuePairDomain<K, V> {

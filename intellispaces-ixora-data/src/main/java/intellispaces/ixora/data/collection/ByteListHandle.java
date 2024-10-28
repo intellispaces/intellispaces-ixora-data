@@ -3,8 +3,8 @@ package intellispaces.ixora.data.collection;
 import intellispaces.common.base.collection.ArraysFunctions;
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.List;
 

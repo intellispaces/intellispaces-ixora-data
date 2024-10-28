@@ -1,9 +1,9 @@
 package intellispaces.ixora.data.cursor;
 
 import intellispaces.common.base.type.Type;
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.traverse.TraverseTypes;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
+import intellispaces.jaquarius.traverse.TraverseTypes;
 import intellispaces.ixora.data.collection.CollectionDomain;
 
 /**

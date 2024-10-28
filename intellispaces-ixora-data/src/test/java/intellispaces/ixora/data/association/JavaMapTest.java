@@ -1,7 +1,6 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.system.Modules;
+import intellispaces.jaquarius.system.Modules;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ public class JavaMapTest {
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule();
+    Modules.get().start();
   }
 
   @AfterEach

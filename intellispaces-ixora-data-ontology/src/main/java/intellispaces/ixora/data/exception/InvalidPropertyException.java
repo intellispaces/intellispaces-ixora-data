@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.exception;
 
-import intellispaces.framework.core.exception.TraverseException;
+import intellispaces.jaquarius.exception.TraverseException;
 
 public class InvalidPropertyException extends TraverseException {
 

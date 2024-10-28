@@ -1,7 +1,6 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.system.Modules;
+import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.data.test.properties.AbstractPropertiesToDataGuideTest;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +12,7 @@ public class IxoraPropertiesToDataGuideTest extends AbstractPropertiesToDataGuid
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule();
+    Modules.get().start();
   }
 
   @AfterEach

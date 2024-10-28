@@ -3,11 +3,11 @@ package intellispaces.ixora.data.association;
 import intellispaces.common.base.exception.UnexpectedViolationException;
 import intellispaces.common.base.function.FunctionFunctions;
 import intellispaces.common.base.type.TypeFunctions;
-import intellispaces.framework.core.annotation.Guide;
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.common.NameConventionFunctions;
-import intellispaces.framework.core.object.DataFunctions;
-import intellispaces.framework.core.object.ObjectFunctions;
+import intellispaces.jaquarius.annotation.Guide;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.common.NameConventionFunctions;
+import intellispaces.jaquarius.object.DataFunctions;
+import intellispaces.jaquarius.object.ObjectFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

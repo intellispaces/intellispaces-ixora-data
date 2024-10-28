@@ -3,10 +3,10 @@ package intellispaces.ixora.data.datastream;
 import intellispaces.common.base.exception.UnexpectedViolationException;
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.MapperOfMoving;
-import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.framework.core.exception.TraverseException;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.MapperOfMoving;
+import intellispaces.jaquarius.annotation.ObjectHandle;
+import intellispaces.jaquarius.exception.TraverseException;
 import intellispaces.ixora.data.collection.Lists;
 import intellispaces.ixora.data.collection.UnmovableByteList;
 

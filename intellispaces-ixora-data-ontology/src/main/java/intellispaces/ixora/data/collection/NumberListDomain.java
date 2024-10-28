@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.collection;
 
 import intellispaces.common.base.type.Type;
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 /**
  * List of numbers.</p>
