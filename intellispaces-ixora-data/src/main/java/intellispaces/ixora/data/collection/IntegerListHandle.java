@@ -11,7 +11,7 @@ import java.util.List;
 @ObjectHandle(IntegerListDomain.class)
 abstract class IntegerListHandle implements UnmovableIntegerList {
   private final int[] array;
-  private final Type<Integer> elementType = Types.of(Integer.class);
+  private final Type<Integer> elementType = Types.get(Integer.class);
   private java.util.List<Integer> list;
 
   IntegerListHandle(int[] array) {

@@ -10,7 +10,7 @@ import java.util.Arrays;
 @ObjectHandle(DoubleListDomain.class)
 abstract class DoubleListHandle implements UnmovableDoubleList {
   private final double[] array;
-  private final Type<Double> elementType = Types.of(Double.class);
+  private final Type<Double> elementType = Types.get(Double.class);
   private java.util.List<Double> list;
 
   DoubleListHandle(double[] array) {

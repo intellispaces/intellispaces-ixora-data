@@ -14,7 +14,7 @@ abstract class ListHandle<E> implements UnmovableList<E> {
 
   ListHandle(java.util.List<E> list, Class<E> elementClass) {
     this.list = java.util.Collections.unmodifiableList(list);
-    this.elementType = Types.of(elementClass);
+    this.elementType = Types.get(elementClass);
   }
 
   ListHandle(java.util.List<E> list, Type<E> elementType) {
@@ -34,7 +34,7 @@ abstract class ListHandle<E> implements UnmovableList<E> {
 
   @Override
   public Type<ListDomain<E>> domain() {
-    return Types.of(ListDomain.class, elementType);
+    return Types.get(ListDomain.class, elementType);
   }
 
   @Mapper

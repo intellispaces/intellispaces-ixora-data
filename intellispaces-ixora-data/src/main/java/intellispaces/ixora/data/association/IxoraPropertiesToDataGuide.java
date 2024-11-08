@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.common.base.exception.UnexpectedViolationException;
+import intellispaces.common.base.exception.UnexpectedExceptions;
 import intellispaces.common.base.function.FunctionFunctions;
-import intellispaces.common.base.type.TypeFunctions;
+import intellispaces.common.base.type.ClassFunctions;
 import intellispaces.jaquarius.annotation.Guide;
 import intellispaces.jaquarius.annotation.Mapper;
 import intellispaces.jaquarius.common.NameConventionFunctions;
@@ -28,17 +28,17 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
   private <D> D process(Properties properties, Class<D> dataClass) {
     Class<?> domainClass = ObjectFunctions.getDomainClassOfObjectHandle(dataClass);
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
-    Class<?> dataHandleObjectClass = TypeFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
-        UnexpectedViolationException.withMessage("Can''t find data handle class. Domain class {0}, " +
+    Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
+        UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
                 "expected data handle class {1}", domainClass.getCanonicalName(), dataHandleObjectCanonicalName));
     Constructor<?>[] constructors = dataHandleObjectClass.getDeclaredConstructors();
     if (constructors.length != 1) {
-      throw UnexpectedViolationException.withMessage("Data class {0} must contain one constructor",
+      throw UnexpectedExceptions.withMessage("Data class {0} must contain one constructor",
           dataHandleObjectCanonicalName);
     }
     Constructor<?> constructor = constructors[0];
     if (constructor.getParameterCount() != domainClass.getMethods().length) {
-      throw UnexpectedViolationException.withMessage("Data class {0} must contain constructor with {1} parameters",
+      throw UnexpectedExceptions.withMessage("Data class {0} must contain constructor with {1} parameters",
           dataHandleObjectCanonicalName, dataClass.getMethods().length);
     }
 
@@ -47,13 +47,13 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
     for (Parameter param : constructor.getParameters()) {
       Object value = properties.value(param.getName());
       if (value == null && param.getType().isPrimitive()) {
-        value = TypeFunctions.getDefaultValueOf(param.getType());
+        value = ClassFunctions.getDefaultValueOf(param.getType());
       }
       if (value instanceof Properties && ObjectFunctions.isObjectHandleClass(param.getType())) {
         value = process((Properties) value, param.getType());
       }
       arguments[index++] = value;
     }
-    return (D) FunctionFunctions.applyAndCoverIfChecked(constructor::newInstance, arguments);
+    return (D) FunctionFunctions.applyAndWrap(arguments, constructor::newInstance);
   }
 }

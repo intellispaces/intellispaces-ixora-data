@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.datastream;
 
-import intellispaces.common.base.exception.UnexpectedViolationException;
+import intellispaces.common.base.exception.UnexpectedExceptions;
 import intellispaces.common.base.type.Type;
 import intellispaces.common.base.type.Types;
 import intellispaces.jaquarius.annotation.Mapper;
@@ -9,6 +9,7 @@ import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.jaquarius.exception.TraverseException;
 import intellispaces.ixora.data.collection.Lists;
 import intellispaces.ixora.data.collection.UnmovableByteList;
+import intellispaces.jaquarius.exception.TraverseExceptions;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,14 +29,14 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
     try {
       is.close();
     } catch (IOException e) {
-      throw UnexpectedViolationException.withCauseAndMessage(e, "Could not close input stream");
+      throw UnexpectedExceptions.withCauseAndMessage(e, "Could not close input stream");
     }
   }
 
   @Mapper
   @Override
   public Type<Byte> elementDomain() {
-    return Types.of(Byte.class);
+    return Types.get(Byte.class);
   }
 
   @Mapper
@@ -84,7 +85,7 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
       buffered = (buffer != -1);
       return buffered;
     } catch (IOException e) {
-      throw TraverseException.withCauseAndMessage(e, "Could not read the next element of input stream");
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not read the next element of input stream");
     }
   }
 
@@ -97,12 +98,12 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
     try {
       buffer = is.read();
       if (buffer == -1) {
-        throw TraverseException.withMessage("The input stream is exhausted");
+        throw TraverseExceptions.withMessage("The input stream is exhausted");
       }
       buffered = false;
       return (byte) buffer;
     } catch (IOException e) {
-      throw TraverseException.withCauseAndMessage(e, "Could not read the next element of input stream");
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not read the next element of input stream");
     }
   }
 
@@ -119,7 +120,7 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
       buffered = false;
       return allBytes;
     } catch (IOException e) {
-      throw TraverseException.withCauseAndMessage(e, "Could not read multiple bytes of input stream");
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not read multiple bytes of input stream");
     }
   }
 
@@ -136,7 +137,7 @@ abstract class ByteInputStreamHandle implements MovableByteInputStream {
       buffered = false;
       return allBytes;
     } catch (IOException e) {
-      throw TraverseException.withCauseAndMessage(e, "Could not read all bytes of input stream");
+      throw TraverseExceptions.withCauseAndMessage(e, "Could not read all bytes of input stream");
     }
   }
 }

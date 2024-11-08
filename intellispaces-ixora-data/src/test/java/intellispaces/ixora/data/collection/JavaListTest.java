@@ -54,9 +54,9 @@ public class JavaListTest {
     assertThat(numberListAlias.domainClass()).isEqualTo(ListDomain.class);
     assertThat(primaryList.domainClass()).isEqualTo(ListDomain.class);
 
-    assertThat(integerListAlias.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
-    assertThat(numberListAlias.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
-    assertThat(primaryList.domain()).isEqualTo(Types.of(ListDomain.class, Integer.class));
+    assertThat(integerListAlias.domain()).isEqualTo(Types.get(ListDomain.class, Integer.class));
+    assertThat(numberListAlias.domain()).isEqualTo(Types.get(ListDomain.class, Integer.class));
+    assertThat(primaryList.domain()).isEqualTo(Types.get(ListDomain.class, Integer.class));
   }
 
 }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @ObjectHandle(ByteListDomain.class)
 abstract class ByteListHandle implements UnmovableByteList {
-  private final Type<Byte> elementType = Types.of(Byte.class);
+  private final Type<Byte> elementType = Types.get(Byte.class);
   private final byte[] array;
   private List<Byte> list;
 

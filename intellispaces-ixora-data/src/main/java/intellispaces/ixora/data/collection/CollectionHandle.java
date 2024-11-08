@@ -14,7 +14,7 @@ abstract class CollectionHandle<E> implements UnmovableCollection<E> {
 
   CollectionHandle(java.util.Collection<E> collection, Class<E> elementClass) {
     this.collection = collection;
-    this.elementDomain = Types.of(elementClass);
+    this.elementDomain = Types.get(elementClass);
   }
 
   CollectionHandle(java.util.Collection<E> collection, Type<E> elementType) {
@@ -28,7 +28,7 @@ abstract class CollectionHandle<E> implements UnmovableCollection<E> {
 
   @Override
   public Type<CollectionDomain<E>> domain() {
-    return Types.of(CollectionDomain.class, elementDomain);
+    return Types.get(CollectionDomain.class, elementDomain);
   }
 
   @Mapper

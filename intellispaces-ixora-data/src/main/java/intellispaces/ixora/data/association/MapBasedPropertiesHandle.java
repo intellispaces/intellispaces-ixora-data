@@ -1,5 +1,6 @@
 package intellispaces.ixora.data.association;
 
+import intellispaces.ixora.data.exception.InvalidPropertyExceptions;
 import intellispaces.jaquarius.annotation.Mapper;
 import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.collection.DoubleList;
@@ -171,37 +172,37 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   private void validateSingleValueType(String path, Object value, Class<?> expectedType) {
     if (value == null) {
-      throw InvalidPropertyException.withMessage("Property does not exist. Path ''{0}''", path);
+      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
     }
     if (value instanceof PropertiesDomain & expectedType != java.util.Map.class) {
-      throw InvalidPropertyException.withMessage("Expected property value of {0} type, " +
-              "but actual is {1}. Path ''{2}''",
+      throw InvalidPropertyExceptions.withMessage("Expected property value of {0} type, " +
+              "but actual is {1}. Path '{2}'",
           expectedType.getCanonicalName(), PropertiesDomain.class.getCanonicalName(), path);
 
     }
     if (!expectedType.isAssignableFrom(value.getClass())) {
-      throw InvalidPropertyException.withMessage("Expected property value of {0} type, " +
-              "but actual is {1}. Path ''{2}''",
+      throw InvalidPropertyExceptions.withMessage("Expected property value of {0} type, " +
+              "but actual is {1}. Path '{2}'",
           expectedType.getCanonicalName(), getActualType(value).getCanonicalName(), path);
     }
   }
 
   private void validateListValueType(String path, Object value, Class<?> expectedElementType) {
     if (value == null) {
-      throw InvalidPropertyException.withMessage("Property does not exist. Path ''{0}''", path);
+      throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
     }
 
     if (!java.util.List.class.isAssignableFrom(value.getClass())) {
-      throw InvalidPropertyException.withMessage("Expected property list values of type {0}, " +
-              "but actual is single value of type {1}. Path ''{2}''",
+      throw InvalidPropertyExceptions.withMessage("Expected property list values of type {0}, " +
+              "but actual is single value of type {1}. Path '{2}'",
           expectedElementType.getCanonicalName(), getActualType(value).getCanonicalName(), path);
     }
 
     var list = (java.util.List<?>) value;
     for (Object element : list) {
       if (!expectedElementType.isAssignableFrom(element.getClass())) {
-        throw InvalidPropertyException.withMessage("Expected property list of {0} values, " +
-                "but actual is list contained {1} values. Path ''{2}''",
+        throw InvalidPropertyExceptions.withMessage("Expected property list of {0} values, " +
+                "but actual is list contained {1} values. Path '{2}'",
             expectedElementType.getCanonicalName(), getActualType(element).getCanonicalName(), path);
       }
     }
