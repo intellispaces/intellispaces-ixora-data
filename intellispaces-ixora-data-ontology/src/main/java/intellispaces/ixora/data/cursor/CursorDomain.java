@@ -1,10 +1,10 @@
 package intellispaces.ixora.data.cursor;
 
-import intellispaces.common.base.type.Type;
+import intellispaces.ixora.data.collection.CollectionDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.data.collection.CollectionDomain;
+import tech.intellispaces.entity.type.Type;
 
 /**
  * One-sided cursor.

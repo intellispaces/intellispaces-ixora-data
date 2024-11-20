@@ -1,10 +1,10 @@
 package intellispaces.ixora.data.datastream;
 
+import intellispaces.ixora.data.collection.ListDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.annotation.Unmovable;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.data.collection.ListDomain;
 
 @Domain("671f5295-423a-4b26-a579-6c3087c02e88")
 public interface InputDataStreamDomain<E> extends DataStreamDomain<E> {

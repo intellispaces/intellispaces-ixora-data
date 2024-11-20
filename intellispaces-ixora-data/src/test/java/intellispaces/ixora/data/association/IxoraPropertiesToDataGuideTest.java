@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.data.test.properties.AbstractPropertiesToDataGuideTest;
+import intellispaces.jaquarius.system.Modules;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 

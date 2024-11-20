@@ -1,7 +1,7 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
+import intellispaces.jaquarius.system.Modules;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

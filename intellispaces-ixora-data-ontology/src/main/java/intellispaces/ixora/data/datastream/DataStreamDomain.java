@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.datastream;
 
-import intellispaces.common.base.type.Type;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
+import tech.intellispaces.entity.type.Type;
 
 @Domain("4db5d8e0-4411-4ba9-a3a9-de975542c5c9")
 public interface DataStreamDomain<E> {

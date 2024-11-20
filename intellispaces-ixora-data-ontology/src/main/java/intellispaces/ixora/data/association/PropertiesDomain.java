@@ -1,11 +1,11 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.jaquarius.annotation.Channel;
-import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.ixora.data.collection.DoubleListDomain;
 import intellispaces.ixora.data.collection.IntegerListDomain;
 import intellispaces.ixora.data.collection.ListDomain;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 /**
  * Properties are a hierarchical set of named properties.

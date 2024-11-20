@@ -26,8 +26,8 @@
     <dependencies>
         <!-- Intellispaces -->
         <dependency>
-            <groupId>intellispaces-common</groupId>
-            <artifactId>intellispaces-base-action</artifactId>
+            <groupId>tech.intellispaces.common</groupId>
+            <artifactId>intellispaces-common-actions</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>

@@ -1,10 +1,10 @@
 package intellispaces.ixora.data.datastream;
 
+import intellispaces.ixora.data.collection.ByteListDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.annotation.Unmovable;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.data.collection.ByteListDomain;
 
 @Domain("e414189a-f906-49bd-9a89-116c7c19debd")
 public interface ByteInputStreamDomain extends InputDataStreamDomain<Byte> {

@@ -1,9 +1,9 @@
 package intellispaces.ixora.data.test.properties;
 
-import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.data.association.Properties;
 import intellispaces.ixora.data.association.YamlStringToPropertiesGuide;
 import intellispaces.ixora.data.collection.List;
+import intellispaces.jaquarius.system.Modules;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

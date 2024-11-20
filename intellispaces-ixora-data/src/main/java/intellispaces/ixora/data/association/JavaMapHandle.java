@@ -1,9 +1,9 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.common.base.type.Type;
-import intellispaces.common.base.type.Types;
-import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.collection.Collection;
+import intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.entity.type.Type;
+import tech.intellispaces.entity.type.Types;
 
 import java.util.Collections;
 import java.util.Map;

@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.association;
 
+import intellispaces.ixora.data.exception.InvalidPropertyException;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Ontology;
-import intellispaces.ixora.data.exception.InvalidPropertyException;
 
 @Ontology
 public interface PropertiesOntology {

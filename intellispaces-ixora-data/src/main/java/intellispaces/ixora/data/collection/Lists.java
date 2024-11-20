@@ -1,6 +1,6 @@
 package intellispaces.ixora.data.collection;
 
-import intellispaces.common.base.type.Type;
+import tech.intellispaces.entity.type.Type;
 
 public interface Lists {
 

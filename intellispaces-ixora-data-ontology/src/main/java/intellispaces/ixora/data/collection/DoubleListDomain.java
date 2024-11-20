@@ -1,8 +1,8 @@
 package intellispaces.ixora.data.collection;
 
-import intellispaces.common.base.type.Type;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
+import tech.intellispaces.entity.type.Type;
 
 /**
  * Alias for the domains NumberListDomain&lt;Double&gt;.

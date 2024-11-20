@@ -1,13 +1,13 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.common.base.exception.UnexpectedExceptions;
-import intellispaces.common.base.function.FunctionFunctions;
-import intellispaces.common.base.type.ClassFunctions;
 import intellispaces.jaquarius.annotation.Guide;
 import intellispaces.jaquarius.annotation.Mapper;
 import intellispaces.jaquarius.common.NameConventionFunctions;
 import intellispaces.jaquarius.object.DataFunctions;
 import intellispaces.jaquarius.object.ObjectFunctions;
+import tech.intellispaces.entity.exception.UnexpectedExceptions;
+import tech.intellispaces.entity.function.FunctionFunctions;
+import tech.intellispaces.entity.type.ClassFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;

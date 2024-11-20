@@ -1,13 +1,13 @@
 package intellispaces.ixora.data.association;
 
-import intellispaces.ixora.data.exception.InvalidPropertyExceptions;
-import intellispaces.jaquarius.annotation.Mapper;
-import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.collection.DoubleList;
 import intellispaces.ixora.data.collection.IntegerList;
 import intellispaces.ixora.data.collection.List;
 import intellispaces.ixora.data.collection.Lists;
 import intellispaces.ixora.data.exception.InvalidPropertyException;
+import intellispaces.ixora.data.exception.InvalidPropertyExceptions;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Collections;
 import java.util.Map;
