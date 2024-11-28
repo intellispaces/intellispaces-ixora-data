@@ -7,7 +7,7 @@ import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.common.NameConventionFunctions;
 import tech.intellispaces.jaquarius.object.DataFunctions;
-import tech.intellispaces.jaquarius.object.ObjectFunctions;
+import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
@@ -26,7 +26,7 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
 
   @SuppressWarnings("unchecked")
   private <D> D process(Properties properties, Class<D> dataClass) {
-    Class<?> domainClass = ObjectFunctions.getDomainClassOfObjectHandle(dataClass);
+    Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataClass);
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
         UnexpectedExceptions.withMessage("Can't find data handle class. Domain class {0}, " +
@@ -49,7 +49,7 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof Properties && ObjectFunctions.isObjectHandleClass(param.getType())) {
+      if (value instanceof Properties && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
         value = process((Properties) value, param.getType());
       }
       arguments[index++] = value;
