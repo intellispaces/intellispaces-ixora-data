@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.data.cursor;
 
-import tech.intellispaces.entity.type.Type;
+import tech.intellispaces.general.type.Type;
 import tech.intellispaces.ixora.data.collection.CollectionDomain;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Domain;

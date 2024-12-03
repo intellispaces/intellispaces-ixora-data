@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.association;
 
-import tech.intellispaces.entity.exception.UnexpectedExceptions;
-import tech.intellispaces.entity.function.FunctionFunctions;
-import tech.intellispaces.entity.type.ClassFunctions;
+import tech.intellispaces.general.exception.UnexpectedExceptions;
+import tech.intellispaces.general.function.FunctionFunctions;
+import tech.intellispaces.general.type.ClassFunctions;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.common.NameConventionFunctions;

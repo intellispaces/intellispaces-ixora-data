@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.data.datastream;
 
 import tech.intellispaces.ixora.data.collection.UnmovableByteList;
-import tech.intellispaces.entity.exception.UnexpectedExceptions;
-import tech.intellispaces.entity.type.Type;
-import tech.intellispaces.entity.type.Types;
+import tech.intellispaces.general.exception.UnexpectedExceptions;
+import tech.intellispaces.general.type.Type;
+import tech.intellispaces.general.type.Types;
 import tech.intellispaces.ixora.data.collection.Lists;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;

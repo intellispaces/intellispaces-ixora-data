@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.data.association;
 
 import tech.intellispaces.ixora.data.collection.Collection;
-import tech.intellispaces.entity.type.Type;
-import tech.intellispaces.entity.type.Types;
+import tech.intellispaces.general.type.Type;
+import tech.intellispaces.general.type.Types;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.util.Collections;

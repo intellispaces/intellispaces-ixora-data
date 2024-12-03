@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.data.collection;
 
-import tech.intellispaces.entity.type.Type;
-import tech.intellispaces.entity.type.Types;
+import tech.intellispaces.general.type.Type;
+import tech.intellispaces.general.type.Types;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
