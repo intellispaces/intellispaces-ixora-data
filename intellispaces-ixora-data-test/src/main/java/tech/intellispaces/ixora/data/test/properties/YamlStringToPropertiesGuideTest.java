@@ -17,12 +17,12 @@ public abstract class YamlStringToPropertiesGuideTest {
 
   @BeforeEach
   public void init() {
-    Modules.get().start();
+    Modules.load().start();
   }
 
   @AfterEach
   public void destroy() {
-    Modules.current().stop();
+    Modules.unload();
   }
 
   public abstract YamlStringToPropertiesGuide guide();

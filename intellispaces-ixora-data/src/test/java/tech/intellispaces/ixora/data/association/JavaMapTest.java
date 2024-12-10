@@ -16,12 +16,12 @@ public class JavaMapTest {
 
   @BeforeEach
   public void init() {
-    Modules.get().start();
+    Modules.load().start();
   }
 
   @AfterEach
   public void deinit() {
-    Modules.current().stop();
+    Modules.unload();
   }
 
   @Test
