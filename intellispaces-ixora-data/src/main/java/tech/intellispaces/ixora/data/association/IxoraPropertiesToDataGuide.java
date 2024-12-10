@@ -5,8 +5,8 @@ import tech.intellispaces.general.function.FunctionFunctions;
 import tech.intellispaces.general.type.ClassFunctions;
 import tech.intellispaces.jaquarius.annotation.Guide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
-import tech.intellispaces.jaquarius.common.NameConventionFunctions;
-import tech.intellispaces.jaquarius.object.DataFunctions;
+import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
+import tech.intellispaces.jaquarius.data.DataFunctions;
 import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
 
 import java.lang.reflect.Constructor;
