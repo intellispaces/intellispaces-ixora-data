@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.data.collection;
 
 import tech.intellispaces.jaquarius.annotation.Preprocessing;
 
-@Preprocessing(addOnFor = ListDomain.class, artifact = "ObjectHandle")
+@Preprocessing(value = ListDomain.class, artifact = "ObjectHandle", type = "addon")
 public interface ListAddOn<E> {
 
   java.util.List<E> nativeList();
