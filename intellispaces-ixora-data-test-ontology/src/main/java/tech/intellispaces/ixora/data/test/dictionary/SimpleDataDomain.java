@@ -1,4 +1,4 @@
-package tech.intellispaces.ixora.data.test.properties;
+package tech.intellispaces.ixora.data.test.dictionary;
 
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Data;

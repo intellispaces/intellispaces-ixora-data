@@ -8,10 +8,10 @@ import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Domain;
 
 /**
- * Properties are a hierarchical set of named properties.
+ * Dictionary are a hierarchical set of named properties.
  */
 @Domain("eccd18a1-ec7a-4949-9acd-2b2fa9576da1")
-public interface PropertiesDomain {
+public interface DictionaryDomain {
 
   @Channel("ea111b97-c025-4d74-8466-d462c4c87efd")
   Object value(String path) throws InvalidPropertyException;
@@ -26,7 +26,7 @@ public interface PropertiesDomain {
   String stringValue(String path) throws InvalidPropertyException;
 
   @Channel("e033ddc5-7f4d-4bbd-8958-8b9c34fdfc95")
-  PropertiesDomain propertiesValue(String path) throws InvalidPropertyException;
+  DictionaryDomain dictionaryValue(String path) throws InvalidPropertyException;
 
   @Channel("e8e1fb09-b22e-4e66-bee5-34db85e4ada3")
   IntegerListDomain integerList(String path) throws InvalidPropertyException;
@@ -38,7 +38,7 @@ public interface PropertiesDomain {
   ListDomain<String> stringList(String path) throws InvalidPropertyException;
 
   @Channel("b48ef2de-6bbc-4c9c-a0b1-e3f1c6ca33d1")
-  ListDomain<PropertiesDomain> propertiesList(String path) throws InvalidPropertyException;
+  ListDomain<DictionaryDomain> dictionaryList(String path) throws InvalidPropertyException;
 
   @Channel("d1b7dcf8-b8d5-41d0-8d19-6faee74a852c")
   Integer size();

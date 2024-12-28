@@ -19,7 +19,7 @@ public interface ByteListDomain extends NumberListDomain<Byte> {
 
   @Override
   @Channel(value = "f5bf6431-109a-4906-a54d-d30755a623c9", name = "ByteListToElementChannel")
-  Byte get(int index);
+  Byte get(Integer index);
 
   @Override
   @Channel("e151b008-acd1-4dda-9ddb-e7c78b5e34ef")

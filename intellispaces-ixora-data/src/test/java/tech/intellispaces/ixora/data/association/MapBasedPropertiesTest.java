@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
- * Tests for {@link MapBasedPropertiesHandle} class.
+ * Tests for {@link MapBasedDictionary} class.
  */
 public class MapBasedPropertiesTest {
 
@@ -31,47 +31,47 @@ public class MapBasedPropertiesTest {
   public void test_whenEmptyMap_andEmptyPath() {
     // Given
     String path = "";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of());
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of());
 
     // Then
-    assertThat(properties.propertiesValue(path)).isSameAs(properties);
+    assertThat(properties.dictionaryValue(path)).isSameAs(properties);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Integer type, but actual is " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Double type, but actual is " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
 
     assertThatThrownBy(() -> properties.integerList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.Integer, but actual is single value of type " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.doubleList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.Double, but actual is single value of type " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is single value of type " +
-            Properties.class.getCanonicalName() + ". Path ''");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+            Dictionary.class.getCanonicalName() + ". Path ''");
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is single value of type " +
-            Properties.class.getCanonicalName() + ". Path ''");
+            Dictionary.class.getCanonicalName() + ". Path ''");
   }
 
   @Test
   public void test_whenEmptyMap_andNotEmptyPath() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of());
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of());
 
     // Then
     assertThatThrownBy(() -> properties.integerValue(path))
@@ -83,7 +83,7 @@ public class MapBasedPropertiesTest {
     assertThatThrownBy(() -> properties.stringValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Property does not exist. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Property does not exist. Path '" + path + "'");
 
@@ -96,7 +96,7 @@ public class MapBasedPropertiesTest {
     assertThatThrownBy(() -> properties.stringList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Property does not exist. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Property does not exist. Path '" + path + "'");
   }
@@ -105,7 +105,7 @@ public class MapBasedPropertiesTest {
   public void test_whenIntegerValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, 123));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, 123));
 
     // Then
     assertThat(properties.integerValue(path)).isEqualTo(123);
@@ -118,7 +118,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
             "java.lang.Integer. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.lang.Integer. Path '" + path + "'");
@@ -135,7 +135,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is " +
             "single value of type java.lang.Integer. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is " +
             "single value of type java.lang.Integer. Path '" + path + "'");
@@ -145,7 +145,7 @@ public class MapBasedPropertiesTest {
   public void test_whenDoubleValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, 3.14));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, 3.14));
 
     // Then
     assertThat(properties.doubleValue(path)).isEqualTo(3.14);
@@ -158,7 +158,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
             "java.lang.Double. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.lang.Double. Path '" + path + "'");
@@ -175,7 +175,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is " +
             "single value of type java.lang.Double. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is " +
             "single value of type java.lang.Double. Path '" + path + "'");
@@ -185,7 +185,7 @@ public class MapBasedPropertiesTest {
   public void test_whenStringValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, "def"));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, "def"));
 
     // Then
     assertThat(properties.stringValue(path)).isEqualTo("def");
@@ -198,7 +198,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Double type, but actual is " +
             "java.lang.String. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.lang.String. Path '" + path + "'");
@@ -215,7 +215,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is " +
             "single value of type java.lang.String. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is " +
             "single value of type java.lang.String. Path '" + path + "'");
@@ -225,10 +225,10 @@ public class MapBasedPropertiesTest {
   public void test_whenPropertiesValue() {
     // Given
     String path = "key";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, Map.of()));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, Map.of()));
 
     // Then
-    assertThat(properties.propertiesValue(path).nativeMap()).isEqualTo(Map.of());
+    assertThat(properties.dictionaryValue(path).nativeMap()).isEqualTo(Map.of());
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -255,7 +255,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.lang.String, but actual is " +
             "single value of type java.util.Map. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list values of type java.util.Map, but actual is " +
             "single value of type java.util.Map. Path '" + path + "'");
@@ -266,7 +266,7 @@ public class MapBasedPropertiesTest {
     // Given
     String path = "key";
     List<Integer> list = List.of(1, 2, 3);
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, list));
 
     // Then
     assertThat(properties.integerList(path).nativeList()).isEqualTo(list);
@@ -283,7 +283,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
             "java.util.List. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.util.List. Path '" + path + "'");
@@ -296,7 +296,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.lang.String values, but actual is " +
             "list contained java.lang.Integer values. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.util.Map values, but actual is " +
             "list contained java.lang.Integer values. Path '" + path + "'");
@@ -307,7 +307,7 @@ public class MapBasedPropertiesTest {
     // Given
     String path = "key";
     List<Double> list = List.of(1.1, 2.2, 3.3);
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, list));
 
     // Then
     assertThat(properties.doubleList(path).nativeList()).isEqualTo(list);
@@ -324,7 +324,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual " +
             "is java.util.List. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual " +
             "is java.util.List. Path '" + path + "'");
@@ -337,7 +337,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.lang.String values, but actual " +
             "is list contained java.lang.Double values. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.util.Map values, but actual is " +
             "list contained java.lang.Double values. Path '" + path + "'");
@@ -348,7 +348,7 @@ public class MapBasedPropertiesTest {
     // Given
     String path = "key";
     List<String> list = List.of("a", "b", "c");
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, list));
 
     // Then
     assertThat(properties.stringList(path).nativeList()).isEqualTo(list);
@@ -365,7 +365,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
             "java.util.List. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.util.List. Path '" + path + "'");
@@ -378,7 +378,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.lang.Double values, but actual is " +
             "list contained java.lang.String values. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesList(path))
+    assertThatThrownBy(() -> properties.dictionaryList(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property list of java.util.Map values, but actual is " +
             "list contained java.lang.String values. Path '" + path + "'");
@@ -389,12 +389,12 @@ public class MapBasedPropertiesTest {
     // Given
     String path = "root";
     List<Map<String, Object>> list = List.of(Map.of("key1", 1), Map.of("key2", 2), Map.of("key3", 3));
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(path, list));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, list));
 
     // Then
-    assertThat(properties.propertiesList(path).get(0).integerValue("key1")).isEqualTo(1);
-    assertThat(properties.propertiesList(path).get(1).integerValue("key2")).isEqualTo(2);
-    assertThat(properties.propertiesList(path).get(2).integerValue("key3")).isEqualTo(3);
+    assertThat(properties.dictionaryList(path).get(0).integerValue("key1")).isEqualTo(1);
+    assertThat(properties.dictionaryList(path).get(1).integerValue("key2")).isEqualTo(2);
+    assertThat(properties.dictionaryList(path).get(2).integerValue("key3")).isEqualTo(3);
 
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
@@ -408,7 +408,7 @@ public class MapBasedPropertiesTest {
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.String type, but actual is " +
             "java.util.List. Path '" + path + "'");
-    assertThatThrownBy(() -> properties.propertiesValue(path))
+    assertThatThrownBy(() -> properties.dictionaryValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.util.Map type, but actual is " +
             "java.util.List. Path '" + path + "'");
@@ -433,7 +433,7 @@ public class MapBasedPropertiesTest {
     String key1 = "key1";
     String key2 = "key2";
     String key3 = "key3";
-    MapBasedPropertiesHandle properties = new MapBasedPropertiesHandleImpl(Map.of(key1, Map.of(key2, Map.of(key3, 123))));
+    MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(key1, Map.of(key2, Map.of(key3, 123))));
 
     // Then
     assertThat(properties.integerValue("key1.key2.key3")).isEqualTo(123);

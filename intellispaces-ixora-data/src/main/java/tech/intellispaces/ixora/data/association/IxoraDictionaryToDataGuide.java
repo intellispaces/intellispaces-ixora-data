@@ -13,19 +13,19 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Parameter;
 
 @Guide
-public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
+public class IxoraDictionaryToDataGuide implements DictionaryToDataGuide {
 
   @Mapper
   @Override
-  public <D> D propertiesToData(Properties properties, Class<? extends D> dataClass) {
+  public <D> D dictionaryToData(Dictionary dictionary, Class<? extends D> dataClass) {
     if (DataFunctions.isDataObjectHandle(dataClass)) {
-      return process(properties, dataClass);
+      return process(dictionary, dataClass);
     }
     throw new UnsupportedOperationException("Not implemented");
   }
 
   @SuppressWarnings("unchecked")
-  private <D> D process(Properties properties, Class<D> dataClass) {
+  private <D> D process(Dictionary dictionary, Class<D> dataClass) {
     Class<?> domainClass = ObjectHandleFunctions.getDomainClassOfObjectHandle(dataClass);
     String dataHandleObjectCanonicalName = NameConventionFunctions.getDataClassName(domainClass.getName());
     Class<?> dataHandleObjectClass = ClassFunctions.getClassOrElseThrow(dataHandleObjectCanonicalName, () ->
@@ -45,12 +45,12 @@ public class IxoraPropertiesToDataGuide implements PropertiesToDataGuide {
     Object[] arguments = new Object[constructor.getParameterCount()];
     int index = 0;
     for (Parameter param : constructor.getParameters()) {
-      Object value = properties.value(param.getName());
+      Object value = dictionary.value(param.getName());
       if (value == null && param.getType().isPrimitive()) {
         value = ClassFunctions.getDefaultValueOf(param.getType());
       }
-      if (value instanceof Properties && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
-        value = process((Properties) value, param.getType());
+      if (value instanceof Dictionary && ObjectHandleFunctions.isObjectHandleClass(param.getType())) {
+        value = process((Dictionary) value, param.getType());
       }
       arguments[index++] = value;
     }

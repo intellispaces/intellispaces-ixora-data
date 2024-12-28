@@ -12,11 +12,11 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.util.Collections;
 import java.util.Map;
 
-@ObjectHandle(PropertiesDomain.class)
-abstract class MapBasedPropertiesHandle implements UnmovableProperties {
+@ObjectHandle(DictionaryDomain.class)
+abstract class MapBasedDictionary implements UnmovableDictionary {
   private final java.util.Map<String, Object> map;
 
-  MapBasedPropertiesHandle(java.util.Map<String, Object> map) {
+  MapBasedDictionary(java.util.Map<String, Object> map) {
     this.map = (map != null ? map : Map.of());
   }
 
@@ -47,7 +47,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
     } else if (result instanceof java.util.List<?> list) {
       return convertObjectToList(path, list);
     } else if (result instanceof Map<?, ?>) {
-      return new MapBasedPropertiesHandleImpl((java.util.Map<String, Object>) result);
+      return new MapBasedDictionaryImpl((java.util.Map<String, Object>) result);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -65,7 +65,7 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
     } else if (firstElement instanceof String) {
       return stringList(path, list);
     } else if (firstElement instanceof Map<?, ?>) {
-      return propertiesList(path, list);
+      return dictionaryList(path, list);
     } else {
       throw new UnsupportedOperationException("Not implemented");
     }
@@ -98,13 +98,13 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
   @Mapper
   @Override
   @SuppressWarnings("unchecked")
-  public Properties propertiesValue(String path) throws InvalidPropertyException {
+  public Dictionary dictionaryValue(String path) throws InvalidPropertyException {
     if (path.isEmpty()) {
       return this;
     }
     Object value = traverse(path);
     validateSingleValueType(path, value, java.util.Map.class);
-    return new MapBasedPropertiesHandleImpl((java.util.Map<String, Object>) value);
+    return new MapBasedDictionaryImpl((java.util.Map<String, Object>) value);
   }
 
   @Mapper
@@ -148,20 +148,20 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   @Mapper
   @Override
-  public List<Properties> propertiesList(String path) throws InvalidPropertyException {
+  public List<Dictionary> dictionaryList(String path) throws InvalidPropertyException {
     Object value = traverse(path);
-    return propertiesList(path, value);
+    return dictionaryList(path, value);
   }
 
   @SuppressWarnings("unchecked")
-  private List<Properties> propertiesList(String path, Object value) {
+  private List<Dictionary> dictionaryList(String path, Object value) {
     validateListValueType(path, value, Map.class);
     var values = (java.util.List<Map<String, Object>>) value;
-    java.util.List<Properties> propertyList = values.stream()
-        .map(MapBasedPropertiesHandleImpl::new)
-        .map(p -> (Properties) p)
+    java.util.List<Dictionary> propertyList = values.stream()
+        .map(MapBasedDictionaryImpl::new)
+        .map(p -> (Dictionary) p)
         .toList();
-    return Lists.of(propertyList, Properties.class);
+    return Lists.of(propertyList, Dictionary.class);
   }
 
   @Mapper
@@ -174,10 +174,10 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
     if (value == null) {
       throw InvalidPropertyExceptions.withMessage("Property does not exist. Path '{0}'", path);
     }
-    if (value instanceof PropertiesDomain & expectedType != java.util.Map.class) {
+    if (value instanceof DictionaryDomain & expectedType != java.util.Map.class) {
       throw InvalidPropertyExceptions.withMessage("Expected property value of {0} type, " +
               "but actual is {1}. Path '{2}'",
-          expectedType.getCanonicalName(), PropertiesDomain.class.getCanonicalName(), path);
+          expectedType.getCanonicalName(), DictionaryDomain.class.getCanonicalName(), path);
 
     }
     if (!expectedType.isAssignableFrom(value.getClass())) {
@@ -210,8 +210,8 @@ abstract class MapBasedPropertiesHandle implements UnmovableProperties {
 
   private static Class<?> getActualType(Object value) {
     final Class<?> actualType;
-    if (Properties.class.isAssignableFrom(value.getClass())) {
-      actualType = Properties.class;
+    if (Dictionary.class.isAssignableFrom(value.getClass())) {
+      actualType = Dictionary.class;
     } else if (java.util.Map.class.isAssignableFrom(value.getClass())) {
       actualType = java.util.Map.class;
     } else if (java.util.List.class.isAssignableFrom(value.getClass())) {

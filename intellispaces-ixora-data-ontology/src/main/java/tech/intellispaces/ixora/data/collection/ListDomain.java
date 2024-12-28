@@ -18,5 +18,5 @@ public interface ListDomain<E> extends CollectionDomain<E> {
   CollectionDomain<E> asCollection();
 
   @Channel(value = "a8b23e74-2f8a-41eb-9427-a50e8274dc09", name = "ListToElementChannel")
-  E get(int index);
+  E get(Integer index);
 }

@@ -19,7 +19,7 @@ public interface DoubleListDomain extends NumberListDomain<Double> {
 
   @Override
   @Channel(value = "7f2c28d4-a738-432b-8afa-f47e7e00a933", name = "DoubleListToElementChannel")
-  Double get(int index);
+  Double get(Integer index);
 
   @Override
   @Channel("7e733832-f05f-46ce-abf3-b13ea4d53316")

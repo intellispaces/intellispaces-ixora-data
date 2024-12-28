@@ -22,7 +22,7 @@ public interface ByteInputStreamDomain extends InputDataStreamDomain<Byte> {
       allowedTraverse = TraverseTypes.MappingOfMoving)
   @Unmovable
   @Override
-  ByteListDomain readMultiple(int number);
+  ByteListDomain readMultiple(Integer number);
 
   @Channel(
       value = "0ffb808a-2749-43f8-9afe-b43337faf280",

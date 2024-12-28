@@ -28,7 +28,7 @@ public interface InputDataStreamDomain<E> extends DataStreamDomain<E> {
       name = "InputDataStreamReadMultipleChannel",
       allowedTraverse = TraverseTypes.MappingOfMoving)
   @Unmovable
-  ListDomain<E> readMultiple(int number);
+  ListDomain<E> readMultiple(Integer number);
 
   @Channel(
       value = "56d9023d-2045-4b8b-96d7-f2beb64cb378",
