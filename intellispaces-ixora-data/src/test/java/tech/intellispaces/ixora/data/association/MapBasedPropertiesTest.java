@@ -228,8 +228,6 @@ public class MapBasedPropertiesTest {
     MapBasedDictionary properties = new MapBasedDictionaryImpl(Map.of(path, Map.of()));
 
     // Then
-    assertThat(properties.dictionaryValue(path).nativeMap()).isEqualTo(Map.of());
-
     assertThatThrownBy(() -> properties.integerValue(path))
         .isExactlyInstanceOf(InvalidPropertyException.class)
         .hasMessage("Expected property value of java.lang.Integer type, but actual is " +

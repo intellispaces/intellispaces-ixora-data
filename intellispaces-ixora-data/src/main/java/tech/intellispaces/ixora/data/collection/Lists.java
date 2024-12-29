@@ -71,4 +71,8 @@ public interface Lists {
   static UnmovableDoubleList ofDoubles(java.util.List<Double> list) {
     return new DoubleListHandleImpl(list);
   }
+
+  static UnmovableList<String> ofStrings(java.util.List<String> list) {
+    return of(list, String.class);
+  }
 }
